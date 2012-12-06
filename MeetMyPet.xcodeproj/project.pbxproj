@@ -1,0 +1,374 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9D0DFAD4166E140F00431132 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D0DFAD3166E140F00431132 /* UIKit.framework */; };
+		9D0DFAD6166E140F00431132 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D0DFAD5166E140F00431132 /* Foundation.framework */; };
+		9D0DFAD8166E140F00431132 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D0DFAD7166E140F00431132 /* CoreGraphics.framework */; };
+		9D0DFADE166E140F00431132 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9D0DFADC166E140F00431132 /* InfoPlist.strings */; };
+		9D0DFAE0166E140F00431132 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0DFADF166E140F00431132 /* main.m */; };
+		9D0DFAE4166E140F00431132 /* TPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0DFAE3166E140F00431132 /* TPAppDelegate.m */; };
+		9D0DFAE6166E140F00431132 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D0DFAE5166E140F00431132 /* Default.png */; };
+		9D0DFAE8166E140F00431132 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D0DFAE7166E140F00431132 /* Default@2x.png */; };
+		9D0DFAEA166E140F00431132 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D0DFAE9166E140F00431132 /* Default-568h@2x.png */; };
+		9D0DFAED166E140F00431132 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D0DFAEB166E140F00431132 /* MainStoryboard.storyboard */; };
+		9D0DFAF0166E140F00431132 /* TPCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0DFAEF166E140F00431132 /* TPCameraViewController.m */; };
+		9D0DFAF2166E140F00431132 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D0DFAF1166E140F00431132 /* first.png */; };
+		9D0DFAF4166E140F00431132 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D0DFAF3166E140F00431132 /* first@2x.png */; };
+		9D0DFAF9166E140F00431132 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D0DFAF8166E140F00431132 /* second.png */; };
+		9D0DFAFB166E140F00431132 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D0DFAFA166E140F00431132 /* second@2x.png */; };
+		9DDD0298166F092400F6FE1B /* TPFeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD0297166F092400F6FE1B /* TPFeedTableViewController.m */; };
+		9DDD029C166F0E2700F6FE1B /* TPHomeCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD029B166F0E2700F6FE1B /* TPHomeCollectionViewController.m */; };
+		9DDD02A0166F26A300F6FE1B /* TPHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD029F166F26A300F6FE1B /* TPHomeViewController.m */; };
+		9DDD02B0166F3A7400F6FE1B /* TPFeedTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD02AF166F3A7400F6FE1B /* TPFeedTableCell.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9D0DFACF166E140F00431132 /* MeetMyPet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetMyPet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D0DFAD3166E140F00431132 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		9D0DFAD5166E140F00431132 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9D0DFAD7166E140F00431132 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9D0DFADB166E140F00431132 /* MeetMyPet-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MeetMyPet-Info.plist"; sourceTree = "<group>"; };
+		9D0DFADD166E140F00431132 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9D0DFADF166E140F00431132 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9D0DFAE1166E140F00431132 /* MeetMyPet-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MeetMyPet-Prefix.pch"; sourceTree = "<group>"; };
+		9D0DFAE2166E140F00431132 /* TPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAppDelegate.h; sourceTree = "<group>"; };
+		9D0DFAE3166E140F00431132 /* TPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAppDelegate.m; sourceTree = "<group>"; };
+		9D0DFAE5166E140F00431132 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		9D0DFAE7166E140F00431132 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		9D0DFAE9166E140F00431132 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		9D0DFAEC166E140F00431132 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		9D0DFAEE166E140F00431132 /* TPCameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPCameraViewController.h; sourceTree = "<group>"; };
+		9D0DFAEF166E140F00431132 /* TPCameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPCameraViewController.m; sourceTree = "<group>"; };
+		9D0DFAF1166E140F00431132 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		9D0DFAF3166E140F00431132 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		9D0DFAF8166E140F00431132 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		9D0DFAFA166E140F00431132 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		9DDD0296166F092400F6FE1B /* TPFeedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPFeedTableViewController.h; sourceTree = "<group>"; };
+		9DDD0297166F092400F6FE1B /* TPFeedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPFeedTableViewController.m; sourceTree = "<group>"; };
+		9DDD029A166F0E2700F6FE1B /* TPHomeCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPHomeCollectionViewController.h; sourceTree = "<group>"; };
+		9DDD029B166F0E2700F6FE1B /* TPHomeCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPHomeCollectionViewController.m; sourceTree = "<group>"; };
+		9DDD029E166F26A300F6FE1B /* TPHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPHomeViewController.h; sourceTree = "<group>"; };
+		9DDD029F166F26A300F6FE1B /* TPHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPHomeViewController.m; sourceTree = "<group>"; };
+		9DDD02AE166F3A7400F6FE1B /* TPFeedTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPFeedTableCell.h; sourceTree = "<group>"; };
+		9DDD02AF166F3A7400F6FE1B /* TPFeedTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPFeedTableCell.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9D0DFACC166E140F00431132 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D0DFAD4166E140F00431132 /* UIKit.framework in Frameworks */,
+				9D0DFAD6166E140F00431132 /* Foundation.framework in Frameworks */,
+				9D0DFAD8166E140F00431132 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9D0DFAC4166E140F00431132 = {
+			isa = PBXGroup;
+			children = (
+				9D0DFAD9166E140F00431132 /* MeetMyPet */,
+				9D0DFAD2166E140F00431132 /* Frameworks */,
+				9D0DFAD0166E140F00431132 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9D0DFAD0166E140F00431132 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9D0DFACF166E140F00431132 /* MeetMyPet.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9D0DFAD2166E140F00431132 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9D0DFAD3166E140F00431132 /* UIKit.framework */,
+				9D0DFAD5166E140F00431132 /* Foundation.framework */,
+				9D0DFAD7166E140F00431132 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9D0DFAD9166E140F00431132 /* MeetMyPet */ = {
+			isa = PBXGroup;
+			children = (
+				9DDD0299166F0DF800F6FE1B /* News Feed */,
+				9DDD029D166F268600F6FE1B /* Home View */,
+				9DDD0293166E65A100F6FE1B /* Home Collection */,
+				9DDD0292166E659700F6FE1B /* Camera */,
+				9D0DFAE2166E140F00431132 /* TPAppDelegate.h */,
+				9D0DFAE3166E140F00431132 /* TPAppDelegate.m */,
+				9D0DFAEB166E140F00431132 /* MainStoryboard.storyboard */,
+				9D0DFAF1166E140F00431132 /* first.png */,
+				9D0DFAF3166E140F00431132 /* first@2x.png */,
+				9D0DFAF8166E140F00431132 /* second.png */,
+				9D0DFAFA166E140F00431132 /* second@2x.png */,
+				9D0DFADA166E140F00431132 /* Supporting Files */,
+			);
+			path = MeetMyPet;
+			sourceTree = "<group>";
+		};
+		9D0DFADA166E140F00431132 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9D0DFADB166E140F00431132 /* MeetMyPet-Info.plist */,
+				9D0DFADC166E140F00431132 /* InfoPlist.strings */,
+				9D0DFADF166E140F00431132 /* main.m */,
+				9D0DFAE1166E140F00431132 /* MeetMyPet-Prefix.pch */,
+				9D0DFAE5166E140F00431132 /* Default.png */,
+				9D0DFAE7166E140F00431132 /* Default@2x.png */,
+				9D0DFAE9166E140F00431132 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9DDD0292166E659700F6FE1B /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				9D0DFAEE166E140F00431132 /* TPCameraViewController.h */,
+				9D0DFAEF166E140F00431132 /* TPCameraViewController.m */,
+			);
+			name = Camera;
+			sourceTree = "<group>";
+		};
+		9DDD0293166E65A100F6FE1B /* Home Collection */ = {
+			isa = PBXGroup;
+			children = (
+				9DDD029A166F0E2700F6FE1B /* TPHomeCollectionViewController.h */,
+				9DDD029B166F0E2700F6FE1B /* TPHomeCollectionViewController.m */,
+			);
+			name = "Home Collection";
+			sourceTree = "<group>";
+		};
+		9DDD0299166F0DF800F6FE1B /* News Feed */ = {
+			isa = PBXGroup;
+			children = (
+				9DDD0296166F092400F6FE1B /* TPFeedTableViewController.h */,
+				9DDD0297166F092400F6FE1B /* TPFeedTableViewController.m */,
+				9DDD02AE166F3A7400F6FE1B /* TPFeedTableCell.h */,
+				9DDD02AF166F3A7400F6FE1B /* TPFeedTableCell.m */,
+			);
+			name = "News Feed";
+			sourceTree = "<group>";
+		};
+		9DDD029D166F268600F6FE1B /* Home View */ = {
+			isa = PBXGroup;
+			children = (
+				9DDD029E166F26A300F6FE1B /* TPHomeViewController.h */,
+				9DDD029F166F26A300F6FE1B /* TPHomeViewController.m */,
+			);
+			name = "Home View";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9D0DFACE166E140F00431132 /* MeetMyPet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9D0DFAFE166E140F00431132 /* Build configuration list for PBXNativeTarget "MeetMyPet" */;
+			buildPhases = (
+				9D0DFACB166E140F00431132 /* Sources */,
+				9D0DFACC166E140F00431132 /* Frameworks */,
+				9D0DFACD166E140F00431132 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MeetMyPet;
+			productName = MeetMyPet;
+			productReference = 9D0DFACF166E140F00431132 /* MeetMyPet.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9D0DFAC6166E140F00431132 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = TP;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = aclin;
+			};
+			buildConfigurationList = 9D0DFAC9166E140F00431132 /* Build configuration list for PBXProject "MeetMyPet" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9D0DFAC4166E140F00431132;
+			productRefGroup = 9D0DFAD0166E140F00431132 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9D0DFACE166E140F00431132 /* MeetMyPet */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9D0DFACD166E140F00431132 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D0DFADE166E140F00431132 /* InfoPlist.strings in Resources */,
+				9D0DFAE6166E140F00431132 /* Default.png in Resources */,
+				9D0DFAE8166E140F00431132 /* Default@2x.png in Resources */,
+				9D0DFAEA166E140F00431132 /* Default-568h@2x.png in Resources */,
+				9D0DFAED166E140F00431132 /* MainStoryboard.storyboard in Resources */,
+				9D0DFAF2166E140F00431132 /* first.png in Resources */,
+				9D0DFAF4166E140F00431132 /* first@2x.png in Resources */,
+				9D0DFAF9166E140F00431132 /* second.png in Resources */,
+				9D0DFAFB166E140F00431132 /* second@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9D0DFACB166E140F00431132 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D0DFAE0166E140F00431132 /* main.m in Sources */,
+				9D0DFAE4166E140F00431132 /* TPAppDelegate.m in Sources */,
+				9D0DFAF0166E140F00431132 /* TPCameraViewController.m in Sources */,
+				9DDD0298166F092400F6FE1B /* TPFeedTableViewController.m in Sources */,
+				9DDD029C166F0E2700F6FE1B /* TPHomeCollectionViewController.m in Sources */,
+				9DDD02A0166F26A300F6FE1B /* TPHomeViewController.m in Sources */,
+				9DDD02B0166F3A7400F6FE1B /* TPFeedTableCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9D0DFADC166E140F00431132 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9D0DFADD166E140F00431132 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		9D0DFAEB166E140F00431132 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9D0DFAEC166E140F00431132 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9D0DFAFC166E140F00431132 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9D0DFAFD166E140F00431132 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9D0DFAFF166E140F00431132 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MeetMyPet/MeetMyPet-Prefix.pch";
+				INFOPLIST_FILE = "MeetMyPet/MeetMyPet-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		9D0DFB00166E140F00431132 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MeetMyPet/MeetMyPet-Prefix.pch";
+				INFOPLIST_FILE = "MeetMyPet/MeetMyPet-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9D0DFAC9166E140F00431132 /* Build configuration list for PBXProject "MeetMyPet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D0DFAFC166E140F00431132 /* Debug */,
+				9D0DFAFD166E140F00431132 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9D0DFAFE166E140F00431132 /* Build configuration list for PBXNativeTarget "MeetMyPet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D0DFAFF166E140F00431132 /* Debug */,
+				9D0DFB00166E140F00431132 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9D0DFAC6166E140F00431132 /* Project object */;
+}
