@@ -7,6 +7,7 @@
 //
 
 #import "TPHomeViewController.h"
+#import "TPAppDelegate.h"
 
 @interface TPHomeViewController ()
 
@@ -33,6 +34,12 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)logout:(id)sender {
+    TPAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    [appDelegate closeSession];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

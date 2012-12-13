@@ -10,4 +10,6 @@
 
 @interface TPHomeViewController : UIViewController
 
+- (IBAction)logout:(id)sender;
+
 @end
