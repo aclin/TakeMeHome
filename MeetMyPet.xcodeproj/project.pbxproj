@@ -26,6 +26,9 @@
 		9D1B9A36167385C90076F90F /* TPFoundFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D1B9A35167385C90076F90F /* TPFoundFormViewController.m */; };
 		9D1B9A3D1673AA1E0076F90F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D1B9A3C1673AA1E0076F90F /* MapKit.framework */; };
 		9D1B9A4116745ECE0076F90F /* TPLostFoundCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D1B9A4016745ECE0076F90F /* TPLostFoundCollectionViewController.m */; };
+		9D7F1176167A750F006C45C8 /* TPProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D7F1175167A750F006C45C8 /* TPProfileTableViewController.m */; };
+		9D7F1181167AB1A3006C45C8 /* default_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D7F117F167AB1A3006C45C8 /* default_photo.png */; };
+		9D7F1182167AB1A3006C45C8 /* default_photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D7F1180167AB1A3006C45C8 /* default_photo@2x.png */; };
 		9DA1647B167A1BB1003CE8FF /* takeMeHome.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DA1647A167A1BB1003CE8FF /* takeMeHome.png */; };
 		9DA1647D167A1E32003CE8FF /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DA1647C167A1E32003CE8FF /* LoginStoryboard.storyboard */; };
 		9DA1647F167A1E64003CE8FF /* X-Large_278x44_glowy.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DA1647E167A1E64003CE8FF /* X-Large_278x44_glowy.png */; };
@@ -70,6 +73,10 @@
 		9D1B9A3C1673AA1E0076F90F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		9D1B9A3F16745ECE0076F90F /* TPLostFoundCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPLostFoundCollectionViewController.h; sourceTree = "<group>"; };
 		9D1B9A4016745ECE0076F90F /* TPLostFoundCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPLostFoundCollectionViewController.m; sourceTree = "<group>"; };
+		9D7F1174167A750F006C45C8 /* TPProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPProfileTableViewController.h; sourceTree = "<group>"; };
+		9D7F1175167A750F006C45C8 /* TPProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPProfileTableViewController.m; sourceTree = "<group>"; };
+		9D7F117F167AB1A3006C45C8 /* default_photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_photo.png; sourceTree = "<group>"; };
+		9D7F1180167AB1A3006C45C8 /* default_photo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default_photo@2x.png"; sourceTree = "<group>"; };
 		9DA1647A167A1BB1003CE8FF /* takeMeHome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = takeMeHome.png; sourceTree = "<group>"; };
 		9DA1647C167A1E32003CE8FF /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
 		9DA1647E167A1E64003CE8FF /* X-Large_278x44_glowy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "X-Large_278x44_glowy.png"; sourceTree = "<group>"; };
@@ -190,9 +197,20 @@
 			name = "Lost and Found Collection";
 			sourceTree = "<group>";
 		};
+		9D7F1172167A74EA006C45C8 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				9D7F1174167A750F006C45C8 /* TPProfileTableViewController.h */,
+				9D7F1175167A750F006C45C8 /* TPProfileTableViewController.m */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
 		9DA16478167A1B9C003CE8FF /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				9D7F117F167AB1A3006C45C8 /* default_photo.png */,
+				9D7F1180167AB1A3006C45C8 /* default_photo@2x.png */,
 				9DA1647A167A1BB1003CE8FF /* takeMeHome.png */,
 				9DA1647E167A1E64003CE8FF /* X-Large_278x44_glowy.png */,
 			);
@@ -255,6 +273,7 @@
 				9DDD029F166F26A300F6FE1B /* TPHomeViewController.m */,
 				9D1B9A3E16745EA30076F90F /* Lost and Found Collection */,
 				9DD307B61671C956002CCE4C /* Lost and Found Forms */,
+				9D7F1172167A74EA006C45C8 /* Profile */,
 			);
 			name = "Home View";
 			sourceTree = "<group>";
@@ -324,6 +343,8 @@
 				9DA1647D167A1E32003CE8FF /* LoginStoryboard.storyboard in Resources */,
 				9DA1647F167A1E64003CE8FF /* X-Large_278x44_glowy.png in Resources */,
 				9DA1648C167A217B003CE8FF /* FacebookSDKResources.bundle in Resources */,
+				9D7F1181167AB1A3006C45C8 /* default_photo.png in Resources */,
+				9D7F1182167AB1A3006C45C8 /* default_photo@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +366,7 @@
 				9D1B9A36167385C90076F90F /* TPFoundFormViewController.m in Sources */,
 				9D1B9A4116745ECE0076F90F /* TPLostFoundCollectionViewController.m in Sources */,
 				9DA16490167A21DD003CE8FF /* TPLoginViewController.m in Sources */,
+				9D7F1176167A750F006C45C8 /* TPProfileTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
