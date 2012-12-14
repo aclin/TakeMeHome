@@ -1,18 +1,18 @@
 //
-//  profileTableViewController.m
+//  editProfileTableViewController.m
 //  THProfile
 //
 //  Created by Evelyn on 12/14/12.
 //  Copyright (c) 2012 Evelyn. All rights reserved.
 //
 
-#import "TPProfileTableViewController.h"
+#import "TPEditProfileTableViewController.h"
 
-@interface TPProfileTableViewController ()
+@interface TPEditProfileTableViewController ()
 
 @end
 
-@implementation TPProfileTableViewController
+@implementation TPEditProfileTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {

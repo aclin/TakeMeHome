@@ -1,44 +1,29 @@
 //
-//  TPAppDelegate.m
-//  MeetMyPet
+//  AppDelegate.m
+//  THProfile
 //
-//  Created by Allan on 12/12/4.
-//  Copyright (c) 2012年 aclin. All rights reserved.
+//  Created by Evelyn on 12/14/12.
+//  Copyright (c) 2012 Evelyn. All rights reserved.
 //
 
 #import "TPAppDelegate.h"
 #import <FacebookSDK/FBSessionTokenCachingStrategy.h>
 
-NSString *const FBSessionStateChangedNotification = @"tw.edu.ntu.MeetMyPet:FBSessionStateChangedNotification";
+NSString *const FBSessionStateChangedNotification =
+@"tw.edu.ntu.THProfile:FBSessionStateChangedNotification";
 
-@interface TPAppDelegate()
+@interface TPAppDelegate ()
 
 @property (strong, nonatomic) NSURL *openedURL;
 
 @end
 
+
 @implementation TPAppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    [FBProfilePictureView class];
-    [FBPlacePickerViewController class];
-    [FBFriendPickerViewController class];
-    return YES;
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    [FBSession.activeSession handleDidBecomeActive];
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    // if the app is going away, we close the session object
-    [FBSession.activeSession close];
-}
+@synthesize window = _window;
+@synthesize openedURL = _openedURL;
+@synthesize user = _user;
 
 /**
  * A function for parsing URL parameters.
@@ -57,12 +42,6 @@ NSString *const FBSessionStateChangedNotification = @"tw.edu.ntu.MeetMyPet:FBSes
     return params;
 }
 
-
-/*
- * A function to get the access token info and save
- * it in the cache, useful for deep linking support
- * in cases where the session is not open.
- */
 - (void) handleOpenURLPre:(NSURL *) url
 {
     // Parse the URL
@@ -151,9 +130,6 @@ NSString *const FBSessionStateChangedNotification = @"tw.edu.ntu.MeetMyPet:FBSes
     }
 }
 
-/*
- * Opens a Facebook session and optionally shows the login UX.
- */
 - (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI {
     // Ask for permissions for getting info about uploaded
     // custom photos.
@@ -172,17 +148,12 @@ NSString *const FBSessionStateChangedNotification = @"tw.edu.ntu.MeetMyPet:FBSes
                                          }];
 }
 
-/*
- * Closes the active Facebook session
- */
+
 - (void) closeSession {
     [FBSession.activeSession closeAndClearTokenInformation];
 }
 
 
-/*
- * Makes a request for user data and invokes a callback
- */
 - (void)requestUserData:(UserDataLoadedHandler)handler
 {
     // If there is saved data, return this.
@@ -194,9 +165,6 @@ NSString *const FBSessionStateChangedNotification = @"tw.edu.ntu.MeetMyPet:FBSes
         [FBRequestConnection startForMeWithCompletionHandler:
          ^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *user, NSError *error) {
              if (!error) {
-                 // Update menu user info
-#warning  change here after profile set
-                 //-->self.menu.profileID = user.id;
                  // Save the user data
                  self.user = user;
                  if (handler) {
@@ -205,6 +173,17 @@ NSString *const FBSessionStateChangedNotification = @"tw.edu.ntu.MeetMyPet:FBSes
              }
          }];
     }
+}
+
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    [FBProfilePictureView class];
+    [FBPlacePickerViewController class];
+    [FBFriendPickerViewController class];
+    // Override point for customization after application launch.
+    
+    return YES;
 }
 
 - (BOOL)application:(UIApplication *)application
@@ -225,5 +204,15 @@ NSString *const FBSessionStateChangedNotification = @"tw.edu.ntu.MeetMyPet:FBSes
     // to work.
     return [FBSession.activeSession handleOpenURL:url];
 }
+
+
+- (void)applicationWillTerminate:(UIApplication *)application
+{
+    // if the app is going away, we close the session object
+    [FBSession.activeSession close];
+}
+
+
+
 
 @end

@@ -1,5 +1,5 @@
 //
-//  profileTableViewController.h
+//  editProfileTableViewController.h
 //  THProfile
 //
 //  Created by Evelyn on 12/14/12.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TPProfileTableViewController : UITableViewController
+@interface TPEditProfileTableViewController : UITableViewController
 
 @end

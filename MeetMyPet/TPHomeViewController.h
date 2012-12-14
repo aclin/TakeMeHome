@@ -1,15 +1,13 @@
 //
-//  TPHomeViewController.h
-//  MeetMyPet
+//  ViewController.h
+//  THProfile
 //
-//  Created by Allan on 12/12/5.
-//  Copyright (c) 2012年 aclin. All rights reserved.
+//  Created by Evelyn on 12/14/12.
+//  Copyright (c) 2012 Evelyn. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
 @interface TPHomeViewController : UIViewController
-
-- (IBAction)logout:(id)sender;
 
 @end

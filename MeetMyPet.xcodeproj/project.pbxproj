@@ -13,7 +13,6 @@
 		9D0DFAD8166E140F00431132 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D0DFAD7166E140F00431132 /* CoreGraphics.framework */; };
 		9D0DFADE166E140F00431132 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9D0DFADC166E140F00431132 /* InfoPlist.strings */; };
 		9D0DFAE0166E140F00431132 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0DFADF166E140F00431132 /* main.m */; };
-		9D0DFAE4166E140F00431132 /* TPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0DFAE3166E140F00431132 /* TPAppDelegate.m */; };
 		9D0DFAE6166E140F00431132 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D0DFAE5166E140F00431132 /* Default.png */; };
 		9D0DFAE8166E140F00431132 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D0DFAE7166E140F00431132 /* Default@2x.png */; };
 		9D0DFAEA166E140F00431132 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D0DFAE9166E140F00431132 /* Default-568h@2x.png */; };
@@ -26,23 +25,30 @@
 		9D1B9A36167385C90076F90F /* TPFoundFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D1B9A35167385C90076F90F /* TPFoundFormViewController.m */; };
 		9D1B9A3D1673AA1E0076F90F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D1B9A3C1673AA1E0076F90F /* MapKit.framework */; };
 		9D1B9A4116745ECE0076F90F /* TPLostFoundCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D1B9A4016745ECE0076F90F /* TPLostFoundCollectionViewController.m */; };
-		9D7F1176167A750F006C45C8 /* TPProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D7F1175167A750F006C45C8 /* TPProfileTableViewController.m */; };
 		9D7F1181167AB1A3006C45C8 /* default_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D7F117F167AB1A3006C45C8 /* default_photo.png */; };
 		9D7F1182167AB1A3006C45C8 /* default_photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D7F1180167AB1A3006C45C8 /* default_photo@2x.png */; };
 		9DA1647B167A1BB1003CE8FF /* takeMeHome.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DA1647A167A1BB1003CE8FF /* takeMeHome.png */; };
-		9DA1647D167A1E32003CE8FF /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DA1647C167A1E32003CE8FF /* LoginStoryboard.storyboard */; };
 		9DA1647F167A1E64003CE8FF /* X-Large_278x44_glowy.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DA1647E167A1E64003CE8FF /* X-Large_278x44_glowy.png */; };
 		9DA16484167A201B003CE8FF /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DA16483167A201B003CE8FF /* Accounts.framework */; };
 		9DA16486167A2022003CE8FF /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DA16485167A2021003CE8FF /* MobileCoreServices.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		9DA16488167A202A003CE8FF /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DA16487167A202A003CE8FF /* Social.framework */; };
 		9DA1648A167A2151003CE8FF /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DA16489167A2151003CE8FF /* FacebookSDK.framework */; };
 		9DA1648C167A217B003CE8FF /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9DA1648B167A217B003CE8FF /* FacebookSDKResources.bundle */; };
-		9DA16490167A21DD003CE8FF /* TPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA1648F167A21DD003CE8FF /* TPLoginViewController.m */; };
 		9DA16492167A2B60003CE8FF /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DA16491167A2B60003CE8FF /* AdSupport.framework */; };
 		9DDD0298166F092400F6FE1B /* TPFeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD0297166F092400F6FE1B /* TPFeedTableViewController.m */; };
 		9DDD029C166F0E2700F6FE1B /* TPHomeCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD029B166F0E2700F6FE1B /* TPHomeCollectionViewController.m */; };
-		9DDD02A0166F26A300F6FE1B /* TPHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD029F166F26A300F6FE1B /* TPHomeViewController.m */; };
 		9DDD02B0166F3A7400F6FE1B /* TPFeedTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD02AF166F3A7400F6FE1B /* TPFeedTableCell.m */; };
+		ED28E261167ACEED0054BEF3 /* TPProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED28E260167ACEED0054BEF3 /* TPProfileTableViewController.m */; };
+		ED28E264167ACF4D0054BEF3 /* TPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED28E263167ACF4D0054BEF3 /* TPLoginViewController.m */; };
+		ED28E267167ACFB40054BEF3 /* TPHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED28E266167ACFB40054BEF3 /* TPHomeViewController.m */; };
+		ED28E26A167AD0860054BEF3 /* TPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ED28E269167AD0860054BEF3 /* TPAppDelegate.m */; };
+		ED28E271167AD38F0054BEF3 /* 82-dog-paw.png in Resources */ = {isa = PBXBuildFile; fileRef = ED28E26B167AD38F0054BEF3 /* 82-dog-paw.png */; };
+		ED28E272167AD38F0054BEF3 /* 86-camera.png in Resources */ = {isa = PBXBuildFile; fileRef = ED28E26C167AD38F0054BEF3 /* 86-camera.png */; };
+		ED28E273167AD38F0054BEF3 /* action-location.png in Resources */ = {isa = PBXBuildFile; fileRef = ED28E26D167AD38F0054BEF3 /* action-location.png */; };
+		ED28E274167AD38F0054BEF3 /* action-people.png in Resources */ = {isa = PBXBuildFile; fileRef = ED28E26E167AD38F0054BEF3 /* action-people.png */; };
+		ED28E275167AD38F0054BEF3 /* action-photo.png in Resources */ = {isa = PBXBuildFile; fileRef = ED28E26F167AD38F0054BEF3 /* action-photo.png */; };
+		ED28E276167AD38F0054BEF3 /* Paw.png in Resources */ = {isa = PBXBuildFile; fileRef = ED28E270167AD38F0054BEF3 /* Paw.png */; };
+		ED28E279167AD4450054BEF3 /* TPEditProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED28E278167AD4450054BEF3 /* TPEditProfileTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,8 +62,6 @@
 		9D0DFADD166E140F00431132 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9D0DFADF166E140F00431132 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9D0DFAE1166E140F00431132 /* MeetMyPet-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MeetMyPet-Prefix.pch"; sourceTree = "<group>"; };
-		9D0DFAE2166E140F00431132 /* TPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAppDelegate.h; sourceTree = "<group>"; };
-		9D0DFAE3166E140F00431132 /* TPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAppDelegate.m; sourceTree = "<group>"; };
 		9D0DFAE5166E140F00431132 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		9D0DFAE7166E140F00431132 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		9D0DFAE9166E140F00431132 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -73,29 +77,38 @@
 		9D1B9A3C1673AA1E0076F90F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		9D1B9A3F16745ECE0076F90F /* TPLostFoundCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPLostFoundCollectionViewController.h; sourceTree = "<group>"; };
 		9D1B9A4016745ECE0076F90F /* TPLostFoundCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPLostFoundCollectionViewController.m; sourceTree = "<group>"; };
-		9D7F1174167A750F006C45C8 /* TPProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPProfileTableViewController.h; sourceTree = "<group>"; };
-		9D7F1175167A750F006C45C8 /* TPProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPProfileTableViewController.m; sourceTree = "<group>"; };
 		9D7F117F167AB1A3006C45C8 /* default_photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_photo.png; sourceTree = "<group>"; };
 		9D7F1180167AB1A3006C45C8 /* default_photo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default_photo@2x.png"; sourceTree = "<group>"; };
 		9DA1647A167A1BB1003CE8FF /* takeMeHome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = takeMeHome.png; sourceTree = "<group>"; };
-		9DA1647C167A1E32003CE8FF /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
 		9DA1647E167A1E64003CE8FF /* X-Large_278x44_glowy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "X-Large_278x44_glowy.png"; sourceTree = "<group>"; };
 		9DA16483167A201B003CE8FF /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		9DA16485167A2021003CE8FF /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		9DA16487167A202A003CE8FF /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		9DA16489167A2151003CE8FF /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		9DA1648B167A217B003CE8FF /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKResources.bundle; sourceTree = "<group>"; };
-		9DA1648E167A21DD003CE8FF /* TPLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPLoginViewController.h; sourceTree = "<group>"; };
-		9DA1648F167A21DD003CE8FF /* TPLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPLoginViewController.m; sourceTree = "<group>"; };
 		9DA16491167A2B60003CE8FF /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		9DDD0296166F092400F6FE1B /* TPFeedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPFeedTableViewController.h; sourceTree = "<group>"; };
 		9DDD0297166F092400F6FE1B /* TPFeedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPFeedTableViewController.m; sourceTree = "<group>"; };
 		9DDD029A166F0E2700F6FE1B /* TPHomeCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPHomeCollectionViewController.h; sourceTree = "<group>"; };
 		9DDD029B166F0E2700F6FE1B /* TPHomeCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPHomeCollectionViewController.m; sourceTree = "<group>"; };
-		9DDD029E166F26A300F6FE1B /* TPHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPHomeViewController.h; sourceTree = "<group>"; };
-		9DDD029F166F26A300F6FE1B /* TPHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPHomeViewController.m; sourceTree = "<group>"; };
 		9DDD02AE166F3A7400F6FE1B /* TPFeedTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPFeedTableCell.h; sourceTree = "<group>"; };
 		9DDD02AF166F3A7400F6FE1B /* TPFeedTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPFeedTableCell.m; sourceTree = "<group>"; };
+		ED28E25F167ACEED0054BEF3 /* TPProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPProfileTableViewController.h; sourceTree = "<group>"; };
+		ED28E260167ACEED0054BEF3 /* TPProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPProfileTableViewController.m; sourceTree = "<group>"; };
+		ED28E262167ACF4D0054BEF3 /* TPLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPLoginViewController.h; sourceTree = "<group>"; };
+		ED28E263167ACF4D0054BEF3 /* TPLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPLoginViewController.m; sourceTree = "<group>"; };
+		ED28E265167ACFB40054BEF3 /* TPHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPHomeViewController.h; sourceTree = "<group>"; };
+		ED28E266167ACFB40054BEF3 /* TPHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPHomeViewController.m; sourceTree = "<group>"; };
+		ED28E268167AD0860054BEF3 /* TPAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPAppDelegate.h; sourceTree = "<group>"; };
+		ED28E269167AD0860054BEF3 /* TPAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPAppDelegate.m; sourceTree = "<group>"; };
+		ED28E26B167AD38F0054BEF3 /* 82-dog-paw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "82-dog-paw.png"; sourceTree = "<group>"; };
+		ED28E26C167AD38F0054BEF3 /* 86-camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "86-camera.png"; sourceTree = "<group>"; };
+		ED28E26D167AD38F0054BEF3 /* action-location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "action-location.png"; sourceTree = "<group>"; };
+		ED28E26E167AD38F0054BEF3 /* action-people.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "action-people.png"; sourceTree = "<group>"; };
+		ED28E26F167AD38F0054BEF3 /* action-photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "action-photo.png"; sourceTree = "<group>"; };
+		ED28E270167AD38F0054BEF3 /* Paw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Paw.png; sourceTree = "<group>"; };
+		ED28E277167AD4450054BEF3 /* TPEditProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPEditProfileTableViewController.h; sourceTree = "<group>"; };
+		ED28E278167AD4450054BEF3 /* TPEditProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPEditProfileTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,10 +174,7 @@
 				9DDD029D166F268600F6FE1B /* Home View */,
 				9DDD0293166E65A100F6FE1B /* Home Collection */,
 				9DDD0292166E659700F6FE1B /* Camera */,
-				9D0DFAE2166E140F00431132 /* TPAppDelegate.h */,
-				9D0DFAE3166E140F00431132 /* TPAppDelegate.m */,
 				9D0DFAEB166E140F00431132 /* MainStoryboard.storyboard */,
-				9DA1647C167A1E32003CE8FF /* LoginStoryboard.storyboard */,
 				9D0DFAF1166E140F00431132 /* first.png */,
 				9D0DFAF3166E140F00431132 /* first@2x.png */,
 				9D0DFAF8166E140F00431132 /* second.png */,
@@ -200,8 +210,9 @@
 		9D7F1172167A74EA006C45C8 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				9D7F1174167A750F006C45C8 /* TPProfileTableViewController.h */,
-				9D7F1175167A750F006C45C8 /* TPProfileTableViewController.m */,
+				ED28E25F167ACEED0054BEF3 /* TPProfileTableViewController.h */,
+				ED28E260167ACEED0054BEF3 /* TPProfileTableViewController.m */,
+				ED28E27A167AD4890054BEF3 /* Edit Profile */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -209,6 +220,12 @@
 		9DA16478167A1B9C003CE8FF /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				ED28E26B167AD38F0054BEF3 /* 82-dog-paw.png */,
+				ED28E26C167AD38F0054BEF3 /* 86-camera.png */,
+				ED28E26D167AD38F0054BEF3 /* action-location.png */,
+				ED28E26E167AD38F0054BEF3 /* action-people.png */,
+				ED28E26F167AD38F0054BEF3 /* action-photo.png */,
+				ED28E270167AD38F0054BEF3 /* Paw.png */,
 				9D7F117F167AB1A3006C45C8 /* default_photo.png */,
 				9D7F1180167AB1A3006C45C8 /* default_photo@2x.png */,
 				9DA1647A167A1BB1003CE8FF /* takeMeHome.png */,
@@ -220,8 +237,8 @@
 		9DA1648D167A21C7003CE8FF /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				9DA1648E167A21DD003CE8FF /* TPLoginViewController.h */,
-				9DA1648F167A21DD003CE8FF /* TPLoginViewController.m */,
+				ED28E262167ACF4D0054BEF3 /* TPLoginViewController.h */,
+				ED28E263167ACF4D0054BEF3 /* TPLoginViewController.m */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -240,6 +257,8 @@
 		9DDD0292166E659700F6FE1B /* Camera */ = {
 			isa = PBXGroup;
 			children = (
+				ED28E268167AD0860054BEF3 /* TPAppDelegate.h */,
+				ED28E269167AD0860054BEF3 /* TPAppDelegate.m */,
 				9D0DFAEE166E140F00431132 /* TPCameraViewController.h */,
 				9D0DFAEF166E140F00431132 /* TPCameraViewController.m */,
 			);
@@ -269,13 +288,22 @@
 		9DDD029D166F268600F6FE1B /* Home View */ = {
 			isa = PBXGroup;
 			children = (
-				9DDD029E166F26A300F6FE1B /* TPHomeViewController.h */,
-				9DDD029F166F26A300F6FE1B /* TPHomeViewController.m */,
+				ED28E265167ACFB40054BEF3 /* TPHomeViewController.h */,
+				ED28E266167ACFB40054BEF3 /* TPHomeViewController.m */,
 				9D1B9A3E16745EA30076F90F /* Lost and Found Collection */,
 				9DD307B61671C956002CCE4C /* Lost and Found Forms */,
 				9D7F1172167A74EA006C45C8 /* Profile */,
 			);
 			name = "Home View";
+			sourceTree = "<group>";
+		};
+		ED28E27A167AD4890054BEF3 /* Edit Profile */ = {
+			isa = PBXGroup;
+			children = (
+				ED28E277167AD4450054BEF3 /* TPEditProfileTableViewController.h */,
+				ED28E278167AD4450054BEF3 /* TPEditProfileTableViewController.m */,
+			);
+			name = "Edit Profile";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,11 +368,16 @@
 				9D0DFAF9166E140F00431132 /* second.png in Resources */,
 				9D0DFAFB166E140F00431132 /* second@2x.png in Resources */,
 				9DA1647B167A1BB1003CE8FF /* takeMeHome.png in Resources */,
-				9DA1647D167A1E32003CE8FF /* LoginStoryboard.storyboard in Resources */,
 				9DA1647F167A1E64003CE8FF /* X-Large_278x44_glowy.png in Resources */,
 				9DA1648C167A217B003CE8FF /* FacebookSDKResources.bundle in Resources */,
 				9D7F1181167AB1A3006C45C8 /* default_photo.png in Resources */,
 				9D7F1182167AB1A3006C45C8 /* default_photo@2x.png in Resources */,
+				ED28E271167AD38F0054BEF3 /* 82-dog-paw.png in Resources */,
+				ED28E272167AD38F0054BEF3 /* 86-camera.png in Resources */,
+				ED28E273167AD38F0054BEF3 /* action-location.png in Resources */,
+				ED28E274167AD38F0054BEF3 /* action-people.png in Resources */,
+				ED28E275167AD38F0054BEF3 /* action-photo.png in Resources */,
+				ED28E276167AD38F0054BEF3 /* Paw.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,17 +389,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D0DFAE0166E140F00431132 /* main.m in Sources */,
-				9D0DFAE4166E140F00431132 /* TPAppDelegate.m in Sources */,
 				9D0DFAF0166E140F00431132 /* TPCameraViewController.m in Sources */,
 				9DDD0298166F092400F6FE1B /* TPFeedTableViewController.m in Sources */,
 				9DDD029C166F0E2700F6FE1B /* TPHomeCollectionViewController.m in Sources */,
-				9DDD02A0166F26A300F6FE1B /* TPHomeViewController.m in Sources */,
 				9DDD02B0166F3A7400F6FE1B /* TPFeedTableCell.m in Sources */,
 				9D09EA0816727A4300AF676E /* TPLostFormViewController.m in Sources */,
 				9D1B9A36167385C90076F90F /* TPFoundFormViewController.m in Sources */,
 				9D1B9A4116745ECE0076F90F /* TPLostFoundCollectionViewController.m in Sources */,
-				9DA16490167A21DD003CE8FF /* TPLoginViewController.m in Sources */,
-				9D7F1176167A750F006C45C8 /* TPProfileTableViewController.m in Sources */,
+				ED28E261167ACEED0054BEF3 /* TPProfileTableViewController.m in Sources */,
+				ED28E264167ACF4D0054BEF3 /* TPLoginViewController.m in Sources */,
+				ED28E267167ACFB40054BEF3 /* TPHomeViewController.m in Sources */,
+				ED28E26A167AD0860054BEF3 /* TPAppDelegate.m in Sources */,
+				ED28E279167AD4450054BEF3 /* TPEditProfileTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
