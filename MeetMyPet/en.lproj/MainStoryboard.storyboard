@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C3006" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4">
     <dependencies>
         <development version="4500" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller - Camera-->
@@ -1245,7 +1245,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E0u-3H-Tnl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1243" y="-677"/>
+            <point key="canvasLocation" x="-1225" y="-534"/>
         </scene>
         <!--Edit Profile Table View Controller - Edit Profile-->
         <scene sceneID="Lk8-NS-xZt">
@@ -1677,10 +1677,25 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <barButtonItem key="leftBarButtonItem" title="Clear" id="G2D-nV-sMJ"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="9Z7-zt-QKY"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="city" destination="Y9n-xZ-wuF" id="4vP-8a-oEg"/>
+                        <outlet property="country" destination="hLI-Qq-SXw" id="SZA-jd-xgN"/>
+                        <outlet property="ownerEmail" destination="rAs-7t-mk6" id="gFM-um-UdT"/>
+                        <outlet property="petAge" destination="KOU-HV-f22" id="BLH-Uh-0fH"/>
+                        <outlet property="petAnimal" destination="RmL-vj-HdA" id="A04-LT-x45"/>
+                        <outlet property="petBreed" destination="j2c-dp-dwS" id="jVq-y4-PwG"/>
+                        <outlet property="petChar" destination="ZhZ-Yy-Mf7" id="eA8-V9-lfF"/>
+                        <outlet property="petChip" destination="qMX-mu-1ej" id="tBj-jo-9cx"/>
+                        <outlet property="petGender" destination="yZa-Vk-pPg" id="HMM-ca-LlU"/>
+                        <outlet property="petHobbies" destination="ah3-P1-h1n" id="w8G-qq-YvW"/>
+                        <outlet property="petName" destination="2iB-vF-FWO" id="fgB-0Z-Md2"/>
+                        <outlet property="petNeuSpay" destination="ibA-6q-d1B" id="sa1-Sa-tbR"/>
+                        <outlet property="petVac" destination="swU-Y6-DbH" id="ogR-P3-C4l"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cnd-di-4ep" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-827" y="-746"/>
+            <point key="canvasLocation" x="-706" y="-534"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="Re7-UT-hz8">
@@ -1781,6 +1796,21 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         </class>
         <class className="TPEditProfileTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TPEditProfileTableViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="city" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="country" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="ownerEmail" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="petAge" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="petAnimal" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="petBreed" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="petChar" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="petChip" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="petGender" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="petHobbies" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="petName" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="petNeuSpay" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="petVac" candidateClass="UITextView"/>
+            </relationships>
         </class>
         <class className="TPFeedTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TPFeedTableViewController.h"/>
@@ -1798,9 +1828,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         </class>
         <class className="TPLoginViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TPLoginViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="loginButtonClicked:"/>
-            </relationships>
         </class>
         <class className="TPLostFormViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TPLostFormViewController.h"/>
