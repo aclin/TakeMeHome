@@ -17,7 +17,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _defaultImage = [UIImage imageNamed:@"default-dog.jpg"];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(loadActionSheet:)];
     [_myImage addGestureRecognizer:tap];
     [_myImage setUserInteractionEnabled:YES];
@@ -25,6 +24,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    _defaultImage = [UIImage imageNamed:@"default_photo.png"];
     if (pictureTaken==false)
         [self performSelector:@selector(takePicture:) withObject:self];
 }
@@ -63,13 +63,22 @@
                                           delegate:self cancelButtonTitle:@"Ok"
                                  otherButtonTitles:nil];
     //else // All is well
-    // alert = [[UIAlertView alloc] initWithTitle:@"Success"
-    // message:@"Image saved to Photo Album."
-    // delegate:self cancelButtonTitle:@"Ok"
-    // otherButtonTitles:nil];
-    // [alert show];
+    //        alert = [[UIAlertView alloc] initWithTitle:@"Success"
+    //                                           message:@"Image saved to Photo Album."
+    //                                          delegate:self cancelButtonTitle:@"Ok"
+    //                                 otherButtonTitles:nil];
+    //    [alert show];
     [self performSelector:@selector(loadActionSheet:) withObject:self];
 }
+
+
+- (void) imagePickerControllerDidCancel: (UIImagePickerController *) picker {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    pictureTaken = false;
+    self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:0];
+}
+
 
 - (IBAction)loadActionSheet:(id)sender
 {
@@ -81,6 +90,7 @@
     UIWindow *mainWindow = [[UIApplication sharedApplication] windows][0];
     [targetSheet showInView:mainWindow];
 }
+
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -116,11 +126,12 @@
     [imagePicker setDelegate:self];
     [imagePicker setAllowsEditing:YES];
     
-    // Use ModalView for iOS 5.1 or earlier
-    // [self presentModalViewController:imagePicker animated:NO];
+    //    Use ModalView for iOS 5.1 or earlier
+    //    [self presentModalViewController:imagePicker animated:NO];
     [self presentViewController:imagePicker animated:YES completion:nil];
     
 }
+
 
 
 @end

@@ -1517,8 +1517,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="qOv-88-4lM" kind="relationship" relationship="viewControllers" id="gls-a4-45c"/>
                         <segue destination="QP4-JF-gub" kind="relationship" relationship="viewControllers" id="uAk-Rp-LvO"/>
+                        <segue destination="qOv-88-4lM" kind="relationship" relationship="viewControllers" id="gls-a4-45c"/>
                         <segue destination="CUN-Cl-QkU" kind="relationship" relationship="viewControllers" id="hbH-Vb-sCd"/>
                     </connections>
                 </tabBarController>
@@ -1719,6 +1719,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
