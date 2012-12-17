@@ -1318,6 +1318,7 @@
             </objects>
             <point key="canvasLocation" x="-1417" y="-403"/>
         </scene>
+<<<<<<< HEAD
         <!--Adopt Table View Controller - Adopt Form-->
         <scene sceneID="wbu-2m-M0D">
             <objects>
@@ -2134,6 +2135,8 @@
             </objects>
             <point key="canvasLocation" x="295" y="-2872"/>
         </scene>
+=======
+>>>>>>> prototype1
     </scenes>
     <resources>
         <image name="82-dog-paw.png" width="24" height="24"/>
@@ -2145,6 +2148,7 @@
         <image name="first.png" width="30" height="30"/>
         <image name="takeMeHome.png" width="2050" height="1794"/>
     </resources>
+<<<<<<< HEAD
     <classes>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
@@ -2245,6 +2249,8 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
     </classes>
+=======
+>>>>>>> prototype1
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

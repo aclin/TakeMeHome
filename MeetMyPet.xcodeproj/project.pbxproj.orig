@@ -427,6 +427,7 @@
 				ED28E274167AD38F0054BEF3 /* action-people.png in Resources */,
 				ED28E275167AD38F0054BEF3 /* action-photo.png in Resources */,
 				ED28E276167AD38F0054BEF3 /* Paw.png in Resources */,
+<<<<<<< HEAD
 				ED257071167F579900163A54 /* TPFoundToolbar.xib in Resources */,
 				ED257073167F5E8D00163A54 /* TPLostToolbar.xib in Resources */,
 				ED257079167F686400163A54 /* appicon.png in Resources */,
@@ -435,7 +436,9 @@
 				ED257081167F730100163A54 /* launchimage.png in Resources */,
 				ED257083167F735700163A54 /* Default@2x.png in Resources */,
 				ED257087167F73E400163A54 /* appicon@2x.png in Resources */,
+=======
 				9DA5C8B9167E345C00159879 /* local_profile.plist in Resources */,
+>>>>>>> prototype1
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
