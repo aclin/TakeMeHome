@@ -35,6 +35,7 @@
 		9DA1648A167A2151003CE8FF /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DA16489167A2151003CE8FF /* FacebookSDK.framework */; };
 		9DA1648C167A217B003CE8FF /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9DA1648B167A217B003CE8FF /* FacebookSDKResources.bundle */; };
 		9DA16492167A2B60003CE8FF /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DA16491167A2B60003CE8FF /* AdSupport.framework */; };
+		9DA5C8B9167E345C00159879 /* local_profile.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9DA5C8B8167E345C00159879 /* local_profile.plist */; };
 		9DDD0298166F092400F6FE1B /* TPFeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD0297166F092400F6FE1B /* TPFeedTableViewController.m */; };
 		9DDD029C166F0E2700F6FE1B /* TPHomeCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD029B166F0E2700F6FE1B /* TPHomeCollectionViewController.m */; };
 		9DDD02B0166F3A7400F6FE1B /* TPFeedTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD02AF166F3A7400F6FE1B /* TPFeedTableCell.m */; };
@@ -87,6 +88,7 @@
 		9DA16489167A2151003CE8FF /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		9DA1648B167A217B003CE8FF /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		9DA16491167A2B60003CE8FF /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		9DA5C8B8167E345C00159879 /* local_profile.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = local_profile.plist; sourceTree = "<group>"; };
 		9DDD0296166F092400F6FE1B /* TPFeedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPFeedTableViewController.h; sourceTree = "<group>"; };
 		9DDD0297166F092400F6FE1B /* TPFeedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPFeedTableViewController.m; sourceTree = "<group>"; };
 		9DDD029A166F0E2700F6FE1B /* TPHomeCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPHomeCollectionViewController.h; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				9D0DFAE5166E140F00431132 /* Default.png */,
 				9D0DFAE7166E140F00431132 /* Default@2x.png */,
 				9D0DFAE9166E140F00431132 /* Default-568h@2x.png */,
+				9DA5C8B8167E345C00159879 /* local_profile.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				ED28E274167AD38F0054BEF3 /* action-people.png in Resources */,
 				ED28E275167AD38F0054BEF3 /* action-photo.png in Resources */,
 				ED28E276167AD38F0054BEF3 /* Paw.png in Resources */,
+				9DA5C8B9167E345C00159879 /* local_profile.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

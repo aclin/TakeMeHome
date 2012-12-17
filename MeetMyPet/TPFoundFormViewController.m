@@ -41,7 +41,8 @@
 
 - (IBAction)cancelForm:(id)sender {
     UIActionSheet *targetSheet = [[UIActionSheet alloc] initWithTitle:@"You have not submitted this form!"
-                                                             delegate:self cancelButtonTitle:@"Cancel"
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Cancel"
                                                destructiveButtonTitle:nil
                                                     otherButtonTitles:@"Submit Form", @"Discard and Go Back", nil];
     UIWindow *mainWindow = [[UIApplication sharedApplication] windows][0];

@@ -1077,7 +1077,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDV-Qn-v51">
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="230" id="QIH-zB-REA"/>
-                                                        <constraint firstAttribute="height" constant="46" id="z9x-l5-BvA"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1097,6 +1096,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                         <constraints>
                                             <constraint firstItem="eDV-Qn-v51" firstAttribute="leading" secondItem="FSj-zI-MKG" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="IG7-Xx-OMD"/>
                                             <constraint firstItem="PaB-hi-5Xz" firstAttribute="top" secondItem="yGo-Fh-WyF" secondAttribute="top" constant="14" id="Iyn-Tl-lBc"/>
+                                            <constraint firstAttribute="bottom" secondItem="eDV-Qn-v51" secondAttribute="bottom" constant="20" type="default" id="aOs-BA-CGL"/>
                                             <constraint firstItem="eDV-Qn-v51" firstAttribute="top" secondItem="FSj-zI-MKG" secondAttribute="top" type="default" id="aYN-Jn-7hN"/>
                                             <constraint firstItem="FSj-zI-MKG" firstAttribute="centerY" secondItem="yGo-Fh-WyF" secondAttribute="centerY" type="default" id="gIF-jt-chx"/>
                                             <constraint firstItem="PaB-hi-5Xz" firstAttribute="leading" secondItem="FSj-zI-MKG" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="giF-Ge-Jj4"/>
@@ -1238,10 +1238,26 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <navigationItem key="navigationItem" title="Pet Profile" id="cJG-dh-JFe">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="l3l-v1-yop">
                             <connections>
-                                <segue destination="DeN-XG-hEj" kind="push" identifier="editProfileDetail" id="iEo-Li-AsN"/>
+                                <segue destination="DeN-XG-hEj" kind="push" id="w9y-Vg-V8O"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="city" destination="Yuw-4D-CKM" id="2TO-9d-g1J"/>
+                        <outlet property="country" destination="f3g-HG-hQu" id="0Xm-mP-spT"/>
+                        <outlet property="ownerEmail" destination="W7F-u2-A3Q" id="Kkw-L3-wKm"/>
+                        <outlet property="ownerName" destination="cfl-QO-SAV" id="hj0-BJ-wQv"/>
+                        <outlet property="petAge" destination="jtA-LA-hmO" id="ucI-5B-zLR"/>
+                        <outlet property="petAnimal" destination="A7B-0q-Fpg" id="AC9-a2-mWV"/>
+                        <outlet property="petBreed" destination="PxT-Az-NLB" id="uDP-xn-plX"/>
+                        <outlet property="petChar" destination="pkx-cq-L8j" id="byw-Dw-3Bx"/>
+                        <outlet property="petChip" destination="OPz-1J-oje" id="pS1-yg-2ct"/>
+                        <outlet property="petGender" destination="eTB-Qg-Vac" id="SCB-M3-gJU"/>
+                        <outlet property="petHobbies" destination="qyA-Nv-1Sy" id="uXr-St-fcD"/>
+                        <outlet property="petName" destination="u0R-vK-H4c" id="wIg-r3-QoD"/>
+                        <outlet property="petNeuSpay" destination="Zs6-pc-p7x" id="Mn8-0L-ulU"/>
+                        <outlet property="petVac" destination="eDV-Qn-v51" id="2jA-D6-TA6"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E0u-3H-Tnl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1262,40 +1278,37 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="takeMeHome.png" translatesAutoresizingMaskIntoConstraints="NO" id="tTO-c5-7Pr">
                                     <constraints>
                                         <constraint firstAttribute="width" constant="152" id="3SU-QE-MAR"/>
-                                        <constraint firstAttribute="height" constant="136" id="V1S-l1-410"/>
+                                        <constraint firstAttribute="height" constant="136" id="9D2-h9-iRW"/>
                                     </constraints>
                                 </imageView>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Pet Name" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2iB-vF-FWO">
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pet Name" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2iB-vF-FWO">
                                     <constraints>
                                         <constraint firstAttribute="width" constant="97" id="1kI-Sq-ROn"/>
                                     </constraints>
-                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Gender" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yZa-Vk-pPg">
-                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Gender" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yZa-Vk-pPg">
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Breed" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j2c-dp-dwS">
-                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Breed" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j2c-dp-dwS">
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="tTO-c5-7Pr" firstAttribute="centerY" secondItem="bYX-sm-sdS" secondAttribute="centerY" type="default" id="4gi-yJ-ggg"/>
-                                <constraint firstItem="2iB-vF-FWO" firstAttribute="top" secondItem="bYX-sm-sdS" secondAttribute="top" constant="20" symbolic="YES" type="default" id="CCs-Yp-JLA"/>
-                                <constraint firstItem="j2c-dp-dwS" firstAttribute="top" secondItem="yZa-Vk-pPg" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Eng-tN-9ka"/>
                                 <constraint firstItem="tTO-c5-7Pr" firstAttribute="leading" secondItem="bYX-sm-sdS" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="FVe-O2-8sP"/>
                                 <constraint firstItem="yZa-Vk-pPg" firstAttribute="leading" secondItem="tTO-c5-7Pr" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="Fce-Us-O0K"/>
                                 <constraint firstItem="yZa-Vk-pPg" firstAttribute="trailing" secondItem="2iB-vF-FWO" secondAttribute="trailing" type="default" id="LM0-5a-dq8"/>
                                 <constraint firstItem="j2c-dp-dwS" firstAttribute="leading" secondItem="tTO-c5-7Pr" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="Q3e-Ju-8rm"/>
                                 <constraint firstItem="2iB-vF-FWO" firstAttribute="leading" secondItem="tTO-c5-7Pr" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="Rlj-YU-AgN"/>
+                                <constraint firstItem="j2c-dp-dwS" firstAttribute="top" secondItem="bYX-sm-sdS" secondAttribute="top" constant="78" id="bmb-Xg-8AQ"/>
                                 <constraint firstItem="j2c-dp-dwS" firstAttribute="trailing" secondItem="yZa-Vk-pPg" secondAttribute="trailing" type="default" id="lxW-ZL-0xO"/>
-                                <constraint firstItem="yZa-Vk-pPg" firstAttribute="top" secondItem="2iB-vF-FWO" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="uLF-qn-Vqf"/>
+                                <constraint firstItem="yZa-Vk-pPg" firstAttribute="top" secondItem="bYX-sm-sdS" secondAttribute="top" constant="49" id="neq-sZ-idq"/>
+                                <constraint firstItem="2iB-vF-FWO" firstAttribute="top" secondItem="bYX-sm-sdS" secondAttribute="top" constant="20" symbolic="YES" type="default" id="t6q-GH-oaG"/>
+                                <constraint firstItem="tTO-c5-7Pr" firstAttribute="centerY" secondItem="bYX-sm-sdS" secondAttribute="centerY" type="default" id="zQv-yO-G3U"/>
                             </constraints>
                         </view>
                         <sections>
@@ -1316,11 +1329,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Year" borderStyle="roundedRect" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KOU-HV-f22">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Year" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KOU-HV-f22">
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="186" id="RJ9-bI-hGE"/>
                                                     </constraints>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
@@ -1348,11 +1360,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Dog or Cat" borderStyle="roundedRect" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RmL-vj-HdA">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Dog or Cat" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RmL-vj-HdA">
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="186" id="YIx-jG-8tX"/>
                                                     </constraints>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
@@ -1378,13 +1389,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Say something about pet" translatesAutoresizingMaskIntoConstraints="NO" id="ZhZ-Yy-Mf7">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZhZ-Yy-Mf7">
                                                     <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="260" id="8Dc-3x-APr"/>
                                                         <constraint firstAttribute="height" constant="73" id="9Yt-8S-Kwk"/>
                                                     </constraints>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
@@ -1413,13 +1423,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Say something about pet" translatesAutoresizingMaskIntoConstraints="NO" id="ah3-P1-h1n">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ah3-P1-h1n">
                                                     <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="73" id="RuC-dY-sZK"/>
                                                         <constraint firstAttribute="width" constant="260" id="ahL-OT-v1P"/>
                                                     </constraints>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
@@ -1512,13 +1521,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Say something about pet" translatesAutoresizingMaskIntoConstraints="NO" id="swU-Y6-DbH">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="swU-Y6-DbH">
                                                     <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="260" id="FqP-qJ-BI8"/>
                                                         <constraint firstAttribute="height" constant="73" id="GKd-2c-iAA"/>
                                                     </constraints>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
@@ -1580,11 +1588,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="email@abc.ecd.com" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rAs-7t-mk6">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="user@domain.com" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rAs-7t-mk6">
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="186" id="wHT-Sq-0Zs"/>
                                                     </constraints>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                 </textField>
@@ -1617,11 +1624,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Tapei" borderStyle="roundedRect" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y9n-xZ-wuF">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Taipei" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y9n-xZ-wuF">
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="186" id="x97-xT-3HU"/>
                                                     </constraints>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
@@ -1647,11 +1653,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Taiwan" borderStyle="roundedRect" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hLI-Qq-SXw">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Taiwan" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hLI-Qq-SXw">
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="186" id="Opq-Uw-1Fu"/>
                                                     </constraints>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
@@ -1673,9 +1678,17 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <outlet property="delegate" destination="DeN-XG-hEj" id="4mc-uV-Fcy"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Edit Profile" id="PUf-o6-7iQ">
-                        <barButtonItem key="leftBarButtonItem" title="Clear" id="G2D-nV-sMJ"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="9Z7-zt-QKY"/>
+                    <navigationItem key="navigationItem" title="Edit Profile" id="h99-Ul-L6P">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="4AJ-oV-GjN">
+                            <connections>
+                                <action selector="cancelForm:" destination="DeN-XG-hEj" id="55Q-hm-ETI"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="xBi-jf-ZgK">
+                            <connections>
+                                <action selector="saveProfile:" destination="DeN-XG-hEj" id="S2c-wR-pie"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="city" destination="Y9n-xZ-wuF" id="4vP-8a-oEg"/>
@@ -1689,7 +1702,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="petGender" destination="yZa-Vk-pPg" id="HMM-ca-LlU"/>
                         <outlet property="petHobbies" destination="ah3-P1-h1n" id="w8G-qq-YvW"/>
                         <outlet property="petName" destination="2iB-vF-FWO" id="fgB-0Z-Md2"/>
-                        <outlet property="petNeuSpay" destination="ibA-6q-d1B" id="sa1-Sa-tbR"/>
+                        <outlet property="petNeuSpay" destination="dvE-zk-vQh" id="Lmz-Sa-JSC"/>
+                        <outlet property="petProfilePic" destination="tTO-c5-7Pr" id="IaG-Mz-YzQ"/>
                         <outlet property="petVac" destination="swU-Y6-DbH" id="ogR-P3-C4l"/>
                     </connections>
                 </tableViewController>
@@ -1713,7 +1727,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LkV-eh-Cvz">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="6E1-6k-Ld3"/>
+                                    <constraint firstAttribute="height" constant="43" id="o6b-Ch-FBm"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Button" image="X-Large_278x44_glowy.png">
@@ -1781,89 +1795,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="first.png" width="30" height="30"/>
         <image name="takeMeHome.png" width="2050" height="1794"/>
     </resources>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="TPCameraViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPCameraViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="loadActionSheet:"/>
-                <relationship kind="action" name="takePicture:"/>
-                <relationship kind="outlet" name="myImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="myLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="TPEditProfileTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPEditProfileTableViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="city" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="country" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="ownerEmail" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="petAge" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="petAnimal" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="petBreed" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="petChar" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="petChip" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="petGender" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="petHobbies" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="petName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="petNeuSpay" candidateClass="UITableViewCell"/>
-                <relationship kind="outlet" name="petVac" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="TPFeedTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPFeedTableViewController.h"/>
-        </class>
-        <class className="TPFoundFormViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPFoundFormViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelForm:"/>
-                <relationship kind="outlet" name="foundDate" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="foundMap" candidateClass="MKMapView"/>
-            </relationships>
-        </class>
-        <class className="TPHomeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPHomeViewController.h"/>
-        </class>
-        <class className="TPLoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPLoginViewController.h"/>
-        </class>
-        <class className="TPLostFormViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPLostFormViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelForm:"/>
-                <relationship kind="outlet" name="chipImplanted" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="genderSegCtrl" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="lostMap" candidateClass="MKMapView"/>
-                <relationship kind="outlet" name="petBreed" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="petName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="petType" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="profileImage" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="TPLostFoundCollectionViewController" superclassName="UICollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPLostFoundCollectionViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="createReport:"/>
-            </relationships>
-        </class>
-        <class className="TPProfileTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPProfileTableViewController.h"/>
-        </class>
-        <class className="UICollectionReusableView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
-        </class>
-        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
-        </class>
-        <class className="UICollectionViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewController.h"/>
-        </class>
-        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
