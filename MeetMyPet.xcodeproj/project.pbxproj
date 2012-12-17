@@ -13,7 +13,6 @@
 		9D0DFAD8166E140F00431132 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D0DFAD7166E140F00431132 /* CoreGraphics.framework */; };
 		9D0DFADE166E140F00431132 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9D0DFADC166E140F00431132 /* InfoPlist.strings */; };
 		9D0DFAE0166E140F00431132 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0DFADF166E140F00431132 /* main.m */; };
-		9D0DFAE6166E140F00431132 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D0DFAE5166E140F00431132 /* Default.png */; };
 		9D0DFAE8166E140F00431132 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D0DFAE7166E140F00431132 /* Default@2x.png */; };
 		9D0DFAEA166E140F00431132 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D0DFAE9166E140F00431132 /* Default-568h@2x.png */; };
 		9D0DFAED166E140F00431132 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D0DFAEB166E140F00431132 /* MainStoryboard.storyboard */; };
@@ -38,6 +37,16 @@
 		9DDD0298166F092400F6FE1B /* TPFeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD0297166F092400F6FE1B /* TPFeedTableViewController.m */; };
 		9DDD029C166F0E2700F6FE1B /* TPHomeCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD029B166F0E2700F6FE1B /* TPHomeCollectionViewController.m */; };
 		9DDD02B0166F3A7400F6FE1B /* TPFeedTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD02AF166F3A7400F6FE1B /* TPFeedTableCell.m */; };
+		ED257008167EECBB00163A54 /* TPAdoptTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED257007167EECBB00163A54 /* TPAdoptTableViewController.m */; };
+		ED257010167EF4E900163A54 /* TPAdoptCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED25700F167EF4E900163A54 /* TPAdoptCollectionViewController.m */; };
+		ED257071167F579900163A54 /* TPFoundToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED257070167F579900163A54 /* TPFoundToolbar.xib */; };
+		ED257073167F5E8D00163A54 /* TPLostToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED257072167F5E8D00163A54 /* TPLostToolbar.xib */; };
+		ED257079167F686400163A54 /* appicon.png in Resources */ = {isa = PBXBuildFile; fileRef = ED257078167F686400163A54 /* appicon.png */; };
+		ED25707D167F72CA00163A54 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = ED25707C167F72C900163A54 /* Icon.png */; };
+		ED25707F167F72E500163A54 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = ED25707E167F72E400163A54 /* Default.png */; };
+		ED257081167F730100163A54 /* launchimage.png in Resources */ = {isa = PBXBuildFile; fileRef = ED257080167F730100163A54 /* launchimage.png */; };
+		ED257083167F735700163A54 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED257082167F735700163A54 /* Default@2x.png */; };
+		ED257087167F73E400163A54 /* appicon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED257086167F73E400163A54 /* appicon@2x.png */; };
 		ED28E261167ACEED0054BEF3 /* TPProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED28E260167ACEED0054BEF3 /* TPProfileTableViewController.m */; };
 		ED28E264167ACF4D0054BEF3 /* TPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED28E263167ACF4D0054BEF3 /* TPLoginViewController.m */; };
 		ED28E267167ACFB40054BEF3 /* TPHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED28E266167ACFB40054BEF3 /* TPHomeViewController.m */; };
@@ -62,7 +71,6 @@
 		9D0DFADD166E140F00431132 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9D0DFADF166E140F00431132 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9D0DFAE1166E140F00431132 /* MeetMyPet-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MeetMyPet-Prefix.pch"; sourceTree = "<group>"; };
-		9D0DFAE5166E140F00431132 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		9D0DFAE7166E140F00431132 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		9D0DFAE9166E140F00431132 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		9D0DFAEC166E140F00431132 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
@@ -93,6 +101,18 @@
 		9DDD029B166F0E2700F6FE1B /* TPHomeCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPHomeCollectionViewController.m; sourceTree = "<group>"; };
 		9DDD02AE166F3A7400F6FE1B /* TPFeedTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPFeedTableCell.h; sourceTree = "<group>"; };
 		9DDD02AF166F3A7400F6FE1B /* TPFeedTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPFeedTableCell.m; sourceTree = "<group>"; };
+		ED257006167EECBB00163A54 /* TPAdoptTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPAdoptTableViewController.h; sourceTree = "<group>"; };
+		ED257007167EECBB00163A54 /* TPAdoptTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPAdoptTableViewController.m; sourceTree = "<group>"; };
+		ED25700E167EF4E900163A54 /* TPAdoptCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPAdoptCollectionViewController.h; sourceTree = "<group>"; };
+		ED25700F167EF4E900163A54 /* TPAdoptCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPAdoptCollectionViewController.m; sourceTree = "<group>"; };
+		ED257070167F579900163A54 /* TPFoundToolbar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPFoundToolbar.xib; sourceTree = "<group>"; };
+		ED257072167F5E8D00163A54 /* TPLostToolbar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPLostToolbar.xib; sourceTree = "<group>"; };
+		ED257078167F686400163A54 /* appicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = appicon.png; path = ../appicon.png; sourceTree = "<group>"; };
+		ED25707C167F72C900163A54 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Icon.png; sourceTree = "<group>"; };
+		ED25707E167F72E400163A54 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
+		ED257080167F730100163A54 /* launchimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = launchimage.png; path = ../launchimage.png; sourceTree = "<group>"; };
+		ED257082167F735700163A54 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
+		ED257086167F73E400163A54 /* appicon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "appicon@2x.png"; path = "../appicon@2x.png"; sourceTree = "<group>"; };
 		ED28E25F167ACEED0054BEF3 /* TPProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPProfileTableViewController.h; sourceTree = "<group>"; };
 		ED28E260167ACEED0054BEF3 /* TPProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPProfileTableViewController.m; sourceTree = "<group>"; };
 		ED28E262167ACF4D0054BEF3 /* TPLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPLoginViewController.h; sourceTree = "<group>"; };
@@ -191,7 +211,6 @@
 				9D0DFADC166E140F00431132 /* InfoPlist.strings */,
 				9D0DFADF166E140F00431132 /* main.m */,
 				9D0DFAE1166E140F00431132 /* MeetMyPet-Prefix.pch */,
-				9D0DFAE5166E140F00431132 /* Default.png */,
 				9D0DFAE7166E140F00431132 /* Default@2x.png */,
 				9D0DFAE9166E140F00431132 /* Default-568h@2x.png */,
 			);
@@ -220,6 +239,12 @@
 		9DA16478167A1B9C003CE8FF /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				ED257086167F73E400163A54 /* appicon@2x.png */,
+				ED257082167F735700163A54 /* Default@2x.png */,
+				ED257080167F730100163A54 /* launchimage.png */,
+				ED25707E167F72E400163A54 /* Default.png */,
+				ED25707C167F72C900163A54 /* Icon.png */,
+				ED257078167F686400163A54 /* appicon.png */,
 				ED28E26B167AD38F0054BEF3 /* 82-dog-paw.png */,
 				ED28E26C167AD38F0054BEF3 /* 86-camera.png */,
 				ED28E26D167AD38F0054BEF3 /* action-location.png */,
@@ -250,6 +275,8 @@
 				9D09EA0716727A4300AF676E /* TPLostFormViewController.m */,
 				9D1B9A34167385C90076F90F /* TPFoundFormViewController.h */,
 				9D1B9A35167385C90076F90F /* TPFoundFormViewController.m */,
+				ED257070167F579900163A54 /* TPFoundToolbar.xib */,
+				ED257072167F5E8D00163A54 /* TPLostToolbar.xib */,
 			);
 			name = "Lost and Found Forms";
 			sourceTree = "<group>";
@@ -291,10 +318,30 @@
 				ED28E265167ACFB40054BEF3 /* TPHomeViewController.h */,
 				ED28E266167ACFB40054BEF3 /* TPHomeViewController.m */,
 				9D1B9A3E16745EA30076F90F /* Lost and Found Collection */,
+				ED257000167EEC1E00163A54 /* Adopt Collection View */,
 				9DD307B61671C956002CCE4C /* Lost and Found Forms */,
+				ED257005167EEC8200163A54 /* Adopt Forms */,
 				9D7F1172167A74EA006C45C8 /* Profile */,
 			);
 			name = "Home View";
+			sourceTree = "<group>";
+		};
+		ED257000167EEC1E00163A54 /* Adopt Collection View */ = {
+			isa = PBXGroup;
+			children = (
+				ED25700E167EF4E900163A54 /* TPAdoptCollectionViewController.h */,
+				ED25700F167EF4E900163A54 /* TPAdoptCollectionViewController.m */,
+			);
+			name = "Adopt Collection View";
+			sourceTree = "<group>";
+		};
+		ED257005167EEC8200163A54 /* Adopt Forms */ = {
+			isa = PBXGroup;
+			children = (
+				ED257006167EECBB00163A54 /* TPAdoptTableViewController.h */,
+				ED257007167EECBB00163A54 /* TPAdoptTableViewController.m */,
+			);
+			name = "Adopt Forms";
 			sourceTree = "<group>";
 		};
 		ED28E27A167AD4890054BEF3 /* Edit Profile */ = {
@@ -359,7 +406,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D0DFADE166E140F00431132 /* InfoPlist.strings in Resources */,
-				9D0DFAE6166E140F00431132 /* Default.png in Resources */,
 				9D0DFAE8166E140F00431132 /* Default@2x.png in Resources */,
 				9D0DFAEA166E140F00431132 /* Default-568h@2x.png in Resources */,
 				9D0DFAED166E140F00431132 /* MainStoryboard.storyboard in Resources */,
@@ -378,6 +424,14 @@
 				ED28E274167AD38F0054BEF3 /* action-people.png in Resources */,
 				ED28E275167AD38F0054BEF3 /* action-photo.png in Resources */,
 				ED28E276167AD38F0054BEF3 /* Paw.png in Resources */,
+				ED257071167F579900163A54 /* TPFoundToolbar.xib in Resources */,
+				ED257073167F5E8D00163A54 /* TPLostToolbar.xib in Resources */,
+				ED257079167F686400163A54 /* appicon.png in Resources */,
+				ED25707D167F72CA00163A54 /* Icon.png in Resources */,
+				ED25707F167F72E500163A54 /* Default.png in Resources */,
+				ED257081167F730100163A54 /* launchimage.png in Resources */,
+				ED257083167F735700163A54 /* Default@2x.png in Resources */,
+				ED257087167F73E400163A54 /* appicon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +455,8 @@
 				ED28E267167ACFB40054BEF3 /* TPHomeViewController.m in Sources */,
 				ED28E26A167AD0860054BEF3 /* TPAppDelegate.m in Sources */,
 				ED28E279167AD4450054BEF3 /* TPEditProfileTableViewController.m in Sources */,
+				ED257008167EECBB00163A54 /* TPAdoptTableViewController.m in Sources */,
+				ED257010167EF4E900163A54 /* TPAdoptCollectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
