@@ -20,6 +20,9 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(loadActionSheet:)];
     [_myImage addGestureRecognizer:tap];
     [_myImage setUserInteractionEnabled:YES];
+    
+    UIImage *patternImage = [UIImage imageNamed:@"background"];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:patternImage];
 }
 
 - (void)viewDidAppear:(BOOL)animated

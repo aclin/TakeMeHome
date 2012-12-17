@@ -33,6 +33,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    UIImage *patternImage = [UIImage imageNamed:@"background"];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:patternImage];
+    
     [[NSNotificationCenter defaultCenter]
      addObserver:self
      selector:@selector(sessionStateChanged:)
