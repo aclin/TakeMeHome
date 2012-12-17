@@ -15,7 +15,10 @@
 			<key>CFBundleIconFiles</key>
 			<array>
 				<string>Icon.png</string>
+<<<<<<< HEAD
+=======
 				<string>appicon.png</string>
+>>>>>>> prototype1-johnny
 				<string>appicon@2x.png</string>
 			</array>
 		</dict>
