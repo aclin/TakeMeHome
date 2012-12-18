@@ -31,6 +31,9 @@
     [[self foundMap] setDelegate:self];
     [[self foundMap] setShowsUserLocation:YES];
     
+    UIImage *patternImage = [UIImage imageNamed:@"background.png"];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:patternImage];
+    
 }
 
 - (void)didReceiveMemoryWarning

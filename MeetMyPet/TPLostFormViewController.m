@@ -33,6 +33,9 @@
 	// Do any additional setup after loading the view.
     [[self lostMap] setDelegate:self];
     [[self lostMap] setShowsUserLocation:YES];
+    
+    UIImage *patternImage = [UIImage imageNamed:@"background.png"];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:patternImage];
 }
 
 - (void)didReceiveMemoryWarning
