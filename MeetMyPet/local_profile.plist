@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>petName</key>
+	<string></string>
+	<key>petGender</key>
+	<true/>
+	<key>petBreed</key>
+	<string></string>
+	<key>petAge</key>
+	<string></string>
+	<key>petAnimal</key>
+	<string></string>
+	<key>petChar</key>
+	<string></string>
+	<key>petHobbies</key>
+	<string></string>
+	<key>petChip</key>
+	<false/>
+	<key>petNeuSpay</key>
+	<false/>
+	<key>petVac</key>
+	<string></string>
+	<key>ownerName</key>
+	<string></string>
+	<key>ownerEmail</key>
+	<string></string>
+	<key>city</key>
+	<string></string>
+	<key>country</key>
+	<string></string>
+</dict>
+</plist>

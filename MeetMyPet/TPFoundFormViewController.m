@@ -10,9 +10,13 @@
 
 @interface TPFoundFormViewController ()
 
+@property (strong, nonatomic) UIDatePicker *datePicker;
+@property(strong, nonatomic) UIToolbar *toolbar;
+
 @end
 
 @implementation TPFoundFormViewController
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -23,10 +27,38 @@
     return self;
 }
 
+- (void)dealloc {
+    self.foundMap.delegate = nil;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    self.toolbar = [[NSBundle mainBundle] loadNibNamed:@"TPFoundToolbar" owner:self options:nil][0];
+    self.foundDate.inputAccessoryView = self.toolbar;
+    
+    self.datePicker = [[UIDatePicker alloc] init];
+    self.foundDate.inputView = self.datePicker;
+    
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+	df.dateStyle = NSDateFormatterMediumStyle;
+	self.foundDate.text = [NSString stringWithFormat:@"%@",
+                           [df stringFromDate:[NSDate date]]];
+    
+    
+    
+	self.datePicker.datePickerMode = UIDatePickerModeDate;
+	self.datePicker.hidden = NO;
+	self.datePicker.date = [NSDate date];
+
+    
+	[self.datePicker addTarget:self
+                        action:@selector(pickDate:)
+              forControlEvents:UIControlEventValueChanged];
+
+    
     [[self foundDate] setDelegate:self];
     [[self foundMap] setDelegate:self];
     [[self foundMap] setShowsUserLocation:YES];
@@ -44,7 +76,8 @@
 
 - (IBAction)cancelForm:(id)sender {
     UIActionSheet *targetSheet = [[UIActionSheet alloc] initWithTitle:@"You have not submitted this form!"
-                                                             delegate:self cancelButtonTitle:@"Cancel"
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Cancel"
                                                destructiveButtonTitle:nil
                                                     otherButtonTitles:@"Submit Form", @"Discard and Go Back", nil];
     UIWindow *mainWindow = [[UIApplication sharedApplication] windows][0];
@@ -57,21 +90,60 @@
         
     } else if (buttonIndex == 1) {
         // Discard the form and return to the previous page
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [self.navigationController popViewControllerAnimated:YES];
     } else {
         return;
     }
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
-    UIDatePicker *datePicker = [[UIDatePicker alloc] init];
-    [datePicker addTarget:self action:@selector(pickDate) forControlEvents:UIControlEventValueChanged];
-    self.foundDate.inputView = datePicker;
+    self.toolbar = [[NSBundle mainBundle] loadNibNamed:@"TPFoundToolbar" owner:self options:nil][0];
+    self.foundDate.inputAccessoryView = self.toolbar;
+    self.datePicker = [[UIDatePicker alloc] init];
+    self.foundDate.inputView = self.datePicker;
+    
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+	df.dateStyle = NSDateFormatterMediumStyle;
+	self.foundDate.text = [NSString stringWithFormat:@"%@",
+                           [df stringFromDate:[NSDate date]]];
+    
+    
+    
+	self.datePicker.datePickerMode = UIDatePickerModeDate;
+	self.datePicker.hidden = NO;
+	self.datePicker.date = [NSDate date];
+    
+    
+	[self.datePicker addTarget:self
+                        action:@selector(pickDate:)
+              forControlEvents:UIControlEventValueChanged];
 }
 
+
+
 - (void)pickDate:(UIDatePicker *)sender {
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+   	df.dateStyle = NSDateFormatterMediumStyle;
+	self.foundDate.text = [NSString stringWithFormat:@"%@",
+                      [df stringFromDate:self.datePicker.date]];
+
+}
+
+- (IBAction)toolbarDone:(id)sender{
+    self.datePicker.hidden = YES;
+    self.toolbar.hidden = YES;
+    [self.foundDate resignFirstResponder];
     
 }
+
+
+- (IBAction)submitForm:(id)sender{
+    
+    [self.datePicker removeFromSuperview];
+
+
+}
+
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
     NSLog(@"accuracy: %f", userLocation.location.horizontalAccuracy);
@@ -82,5 +154,6 @@
         [mapView setRegion:myRegion animated:YES];
     }
 }
+
 
 @end
