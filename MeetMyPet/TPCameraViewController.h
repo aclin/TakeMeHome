@@ -12,6 +12,7 @@ BOOL pictureTaken;
 
 @interface TPCameraViewController : UIViewController
 
+@property(strong, nonatomic) NSMutableData *tempData;
 @property (strong, nonatomic) IBOutlet UIImageView *myImage;
 @property (weak, nonatomic) IBOutlet UILabel *myLabel;
 @property (nonatomic) UIImage *defaultImage;

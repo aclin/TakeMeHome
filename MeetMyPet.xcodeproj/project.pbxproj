@@ -35,6 +35,8 @@
 		9DA5C8B9167E345C00159879 /* local_profile.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9DA5C8B8167E345C00159879 /* local_profile.plist */; };
 		9DDD0298166F092400F6FE1B /* TPFeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD0297166F092400F6FE1B /* TPFeedTableViewController.m */; };
 		9DDD02B0166F3A7400F6FE1B /* TPFeedTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD02AF166F3A7400F6FE1B /* TPFeedTableCell.m */; };
+		ED10E7191681F6F700B7EBD3 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = ED10E7161681F6F700B7EBD3 /* NSString+MD5.m */; };
+		ED10E71A1681F6F700B7EBD3 /* NSData+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = ED10E7181681F6F700B7EBD3 /* NSData+MD5.m */; };
 		ED257008167EECBB00163A54 /* TPAdoptTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED257007167EECBB00163A54 /* TPAdoptTableViewController.m */; };
 		ED257010167EF4E900163A54 /* TPAdoptCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED25700F167EF4E900163A54 /* TPAdoptCollectionViewController.m */; };
 		ED257071167F579900163A54 /* TPFoundToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED257070167F579900163A54 /* TPFoundToolbar.xib */; };
@@ -109,6 +111,10 @@
 		9DDD0297166F092400F6FE1B /* TPFeedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPFeedTableViewController.m; sourceTree = "<group>"; };
 		9DDD02AE166F3A7400F6FE1B /* TPFeedTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPFeedTableCell.h; sourceTree = "<group>"; };
 		9DDD02AF166F3A7400F6FE1B /* TPFeedTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPFeedTableCell.m; sourceTree = "<group>"; };
+		ED10E7151681F6F700B7EBD3 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
+		ED10E7161681F6F700B7EBD3 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
+		ED10E7171681F6F700B7EBD3 /* NSData+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MD5.h"; sourceTree = "<group>"; };
+		ED10E7181681F6F700B7EBD3 /* NSData+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MD5.m"; sourceTree = "<group>"; };
 		ED257006167EECBB00163A54 /* TPAdoptTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPAdoptTableViewController.h; sourceTree = "<group>"; };
 		ED257007167EECBB00163A54 /* TPAdoptTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPAdoptTableViewController.m; sourceTree = "<group>"; };
 		ED25700E167EF4E900163A54 /* TPAdoptCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPAdoptCollectionViewController.h; sourceTree = "<group>"; };
@@ -218,6 +224,7 @@
 		9D0DFAD9166E140F00431132 /* MeetMyPet */ = {
 			isa = PBXGroup;
 			children = (
+				ED10E7141681F6E000B7EBD3 /* MD5Hash */,
 				9DDD029D166F268600F6FE1B /* Home View */,
 				9DA16478167A1B9C003CE8FF /* Images */,
 				9DA1648D167A21C7003CE8FF /* Login */,
@@ -245,8 +252,6 @@
 				9D0DFADC166E140F00431132 /* InfoPlist.strings */,
 				9D0DFADF166E140F00431132 /* main.m */,
 				9D0DFAE1166E140F00431132 /* MeetMyPet-Prefix.pch */,
-				9D0DFAE7166E140F00431132 /* Default@2x.png */,
-				9D0DFAE9166E140F00431132 /* Default-568h@2x.png */,
 				9DA5C8B8167E345C00159879 /* local_profile.plist */,
 			);
 			name = "Supporting Files";
@@ -352,6 +357,17 @@
 				9D7F1172167A74EA006C45C8 /* Profile */,
 			);
 			name = "Home View";
+			sourceTree = "<group>";
+		};
+		ED10E7141681F6E000B7EBD3 /* MD5Hash */ = {
+			isa = PBXGroup;
+			children = (
+				ED10E7151681F6F700B7EBD3 /* NSString+MD5.h */,
+				ED10E7161681F6F700B7EBD3 /* NSString+MD5.m */,
+				ED10E7171681F6F700B7EBD3 /* NSData+MD5.h */,
+				ED10E7181681F6F700B7EBD3 /* NSData+MD5.m */,
+			);
+			name = MD5Hash;
 			sourceTree = "<group>";
 		};
 		ED257000167EEC1E00163A54 /* Adopt Collection View */ = {
@@ -523,6 +539,8 @@
 				F4A943E8167EEF8200020104 /* BHCollectionViewController.m in Sources */,
 				F4A943E9167EEF8200020104 /* BHEmblemView.m in Sources */,
 				F4A943EA167EEF8200020104 /* BHPhotoAlbumLayout.m in Sources */,
+				ED10E7191681F6F700B7EBD3 /* NSString+MD5.m in Sources */,
+				ED10E71A1681F6F700B7EBD3 /* NSData+MD5.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

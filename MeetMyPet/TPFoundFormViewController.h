@@ -12,9 +12,18 @@
 
 @interface TPFoundFormViewController : UITableViewController <UIActionSheetDelegate, MKMapViewDelegate, UITextFieldDelegate,UINavigationControllerDelegate>
 
+//@property (strong, nonatomic) NSNumber *petID;
+//@property (strong, nonatomic) NSNumber *typeID;
+
+
+@property (strong, nonatomic) IBOutlet UITextField *Email;
 
 @property (strong, nonatomic) IBOutlet UITextField *foundDate;
 @property (strong, nonatomic) IBOutlet MKMapView *foundMap;
+@property (strong, nonatomic) IBOutlet UIImageView *photoID;
+
+
+@property(strong, nonatomic) NSMutableData *tempData;    //下載時暫存用的記憶體
 
 
 

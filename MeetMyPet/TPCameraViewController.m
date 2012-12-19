@@ -7,9 +7,16 @@
 //
 
 #import "TPCameraViewController.h"
+#import <FacebookSDK/FacebookSDK.h>
+#import "NSString+MD5.h"
+#import "NSData+MD5.h"
+#import <CommonCrypto/CommonDigest.h>
 
 @interface TPCameraViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate>
-
+{
+    NSURLConnection *connect;
+}
+@property (strong, nonatomic) NSDictionary<FBGraphUser> *user;
 @end
 
 @implementation TPCameraViewController
@@ -104,10 +111,12 @@
         // [self.navigationController pushViewController:lostFormViewController animated:YES];
     } else if (buttonIndex == 1) {
         // Report found
+        [self uploadPhotoDB];
         //[self performSegueWithIdentifier:@"showFoundForm" sender:self];
         // TPFoundFormViewController *foundFormViewController = [[TPFoundFormViewController alloc] init];
         // [self.navigationController pushViewController:foundFormViewController animated:YES];
     } else if (buttonIndex == 2) {
+        [self uploadPhotoDB];
         //
     } else if (buttonIndex == 3) {
         //
@@ -133,6 +142,59 @@
     //    [self presentModalViewController:imagePicker animated:NO];
     [self presentViewController:imagePicker animated:YES completion:nil];
     
+}
+
+-(void)uploadPhotoDB{
+    
+    NSString * owner = self.user.id;
+    
+    NSLog(@"owner:%@",owner);
+    
+    NSDate *currDate = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    [dateFormatter setDateFormat:@"dd.MM.YY HH:mm:ss"];
+    NSString *dateString = [dateFormatter stringFromDate:currDate];
+    
+    NSString *str =[NSString stringWithFormat:@"%@%@", owner, dateString];
+    
+    str = [str MD5];
+    
+    NSString *post = [NSString stringWithFormat:@"hashURL=%@",str];
+    NSLog(@"%@", post);
+    
+	NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+	NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+	
+	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+	[request setURL:[NSURL URLWithString:@"http://secret-temple-2872.herokuapp.com/api/PhotoUpload/"]];
+	[request setHTTPMethod:@"POST"];
+	[request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+	[request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+	
+	[request setHTTPBody:postData];
+    
+    connect = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{   //發生錯誤
+	NSLog(@"發生錯誤");
+}
+- (void)connection: (NSURLConnection *)connection didReceiveResponse: (NSURLResponse *)aResponse {  //連線建立成功
+    //取得狀態
+    NSInteger status = (NSInteger)[(NSHTTPURLResponse *)aResponse statusCode];
+    NSLog(@"%d", status);
+}
+-(void) connection:(NSURLConnection *)connection didReceiveData: (NSData *) incomingData
+{   //收到封包，將收到的資料塞進緩衝中並修改進度條
+	[self.tempData appendData:incomingData];
+}
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{   //檔案下載完成
+    NSString *loadData = [[NSMutableString alloc] initWithData:self.tempData encoding:NSUTF8StringEncoding];
+    
+    NSLog(@"%@", loadData);
 }
 
 
