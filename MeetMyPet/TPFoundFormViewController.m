@@ -183,7 +183,7 @@
     str = [str MD5];
     
     
-    NSString *post = [NSString stringWithFormat:@"hashURL=%@ &condition=%d &typeID=%d &petID=%d &date=%@ &photoID=%d &email=%@ &longitude=%f &latitude=%f",str, 1,typeID , petID, self.foundDate.text,petID,self.Email.text, self.foundMap.userLocation.coordinate.longitude, self.foundMap.userLocation.coordinate.latitude];
+    NSString *post = [NSString stringWithFormat:@"hashURL=%@ &condition=%d &typeID=%d &petID=%d &date=%@ &email=%@ &longitude=%f &latitude=%f",str, 1,typeID , petID, self.foundDate.text,self.Email.text, self.foundMap.userLocation.coordinate.longitude, self.foundMap.userLocation.coordinate.latitude];
     NSLog(@"%@", post);
     
 	NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
