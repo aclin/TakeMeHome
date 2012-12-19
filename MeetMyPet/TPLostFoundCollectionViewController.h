@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "TPLostFormViewController.h"
 #import "TPFoundFormViewController.h"
+#import "BHCollectionViewController.h"
 
-@interface TPLostFoundCollectionViewController : UICollectionViewController <UIActionSheetDelegate>
+@interface TPLostFoundCollectionViewController : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegate, UIActionSheetDelegate>
 
 - (IBAction)createReport:(id)sender;
 

@@ -10,15 +10,15 @@
 #import <MapKit/MapKit.h>
 
 
-@interface TPFoundFormViewController : UITableViewController <UIActionSheetDelegate, MKMapViewDelegate, UITextFieldDelegate,UINavigationControllerDelegate>
+@interface TPFoundFormViewController : UITableViewController <UIActionSheetDelegate, MKMapViewDelegate, UITextFieldDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
-
+@property (strong, nonatomic) IBOutlet UIImageView *petProfilePic;
 @property (strong, nonatomic) IBOutlet UITextField *foundDate;
 @property (strong, nonatomic) IBOutlet MKMapView *foundMap;
 
 
-
-
+- (IBAction)loadPhoto:(id)sender;
+- (IBAction)takePicture:(id)sender;
 - (IBAction)submitForm:(id)sender;
 - (IBAction)cancelForm:(id)sender;
 - (void)pickDate;

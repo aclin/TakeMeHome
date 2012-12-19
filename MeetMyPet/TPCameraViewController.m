@@ -129,8 +129,6 @@
     [imagePicker setDelegate:self];
     [imagePicker setAllowsEditing:YES];
     
-    //    Use ModalView for iOS 5.1 or earlier
-    //    [self presentModalViewController:imagePicker animated:NO];
     [self presentViewController:imagePicker animated:YES completion:nil];
     
 }

@@ -33,6 +33,10 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(loadPhoto:)];
+    [_petProfilePic addGestureRecognizer:tap];
+    [_petProfilePic setUserInteractionEnabled:YES];
+    
     UIImage *patternImage = [UIImage imageNamed:@"background.png"];
     self.navigationController.view.backgroundColor = [UIColor colorWithPatternImage:patternImage];
     
@@ -49,7 +53,7 @@
 // If this is the first time the user loads this page
 - (void)loadProfile {
     // Store on disk
-    NSError *error;
+    //NSError *error;
     NSArray *plistPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *plistDocumentsDirectory = [plistPaths objectAtIndex:0];
     //    NSLog(@"plistDocumentsDirectory: %@", plistDocumentsDirectory);
@@ -61,7 +65,11 @@
     if ([plistFileMgr fileExistsAtPath:plistPath]) {
         NSMutableDictionary *savedPlist = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
         self.petName.text = [savedPlist valueForKey:@"petName"];
-    
+        if ([[savedPlist valueForKey:@"petGender"] isEqualToString:@"Male"]) {
+            self.petGender.selectedSegmentIndex = 0;
+        } else {
+            self.petGender.selectedSegmentIndex = 1;
+        }
         self.petBreed.text = [savedPlist valueForKey:@"petBreed"];
         self.petAge.text = [savedPlist valueForKey:@"petAge"];
         self.petAnimal.text = [savedPlist valueForKey:@"petAnimal"];
@@ -82,6 +90,8 @@
         self.ownerEmail.text = [savedPlist valueForKey:@"ownerEmail"];
         self.city.text = [savedPlist valueForKey:@"city"];
         self.country.text = [savedPlist valueForKey:@"country"];
+        
+        [self openPhoto:@"profile_photo.jpg"];
     } else {
         NSLog(@"local_profile.plist does not exist");
     }
@@ -107,6 +117,7 @@
     NSMutableDictionary *localProfilePlist = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
     
     [localProfilePlist setObject:[NSString stringWithFormat:@"%@", self.petName.text] forKey:@"petName"];
+    [localProfilePlist setObject:[NSString stringWithFormat:@"%@", [self.petGender titleForSegmentAtIndex:self.petGender.selectedSegmentIndex]] forKey:@"petGender"];
     [localProfilePlist setObject:[NSString stringWithFormat:@"%@", self.petBreed.text] forKey:@"petBreed"];
     [localProfilePlist setObject:[NSString stringWithFormat:@"%@", self.petAge.text] forKey:@"petAge"];
     [localProfilePlist setObject:[NSString stringWithFormat:@"%@", self.petAnimal.text] forKey:@"petAnimal"];
@@ -127,9 +138,40 @@
     [localProfilePlist setObject:[NSString stringWithFormat:@"%@", self.ownerEmail.text] forKey:@"ownerEmail"];
     [localProfilePlist setObject:[NSString stringWithFormat:@"%@", self.city.text] forKey:@"city"];
     [localProfilePlist setObject:[NSString stringWithFormat:@"%@", self.country.text] forKey:@"country"];
+    if (photoChanged)
+        [self savePhoto:_petProfilePic.image];
     
     [localProfilePlist writeToFile:plistPath atomically:YES];
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+- (void) savePhoto:(UIImage*) image{
+    
+    NSData *jpgData = UIImageJPEGRepresentation(image, 0.5);
+    NSString *filePath = [self documentsPathForFileName:@"profile_photo.jpg"];
+    [jpgData writeToFile:filePath atomically:YES]; //Write the file
+    NSLog(@"%@", filePath);
+}
+
+- (void)openPhoto:(NSString*)filename{
+    
+    NSString *filePath = [self documentsPathForFileName:filename];
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]){ //photo exist
+        NSData *jpgData = [NSData dataWithContentsOfFile:filePath];
+        UIImage *image = [UIImage imageWithData:jpgData];
+        [_petProfilePic setImage:image];
+    }
+    
+}
+
+- (NSString *)documentsPathForFileName:(NSString *)name
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+    NSString *documentsPath = [paths objectAtIndex:0];
+    //NSLog(@"%@", documentsPath);
+    return [documentsPath stringByAppendingPathComponent:name];
 }
 
 - (IBAction)cancelForm:(id)sender {
@@ -138,18 +180,82 @@
                                                     cancelButtonTitle:@"Cancel"
                                                destructiveButtonTitle:nil
                                                     otherButtonTitles:@"Discard and Go Back", nil];
+    targetSheet.tag = 1;
+    
+    UIWindow *mainWindow = [[UIApplication sharedApplication] windows][0];
+    [targetSheet showInView:mainWindow];
+}
+
+- (IBAction)loadPhoto:(id)sender
+{
+    UIActionSheet *targetSheet = [[UIActionSheet alloc] initWithTitle:@"Choose where to load image:"
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Cancel"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"Take a Picture", @"Choose from Gallery", nil];
+    targetSheet.tag = 2;
     UIWindow *mainWindow = [[UIApplication sharedApplication] windows][0];
     [targetSheet showInView:mainWindow];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 0) {
-        // Discard the changes to the profile and return to the previous page
-//        [self dismissViewControllerAnimated:YES completion:nil];
-        [self.navigationController popViewControllerAnimated:YES];
-    } else {
-        return;
+    if(actionSheet.tag == 1){
+        if (buttonIndex == 0) {
+            // Discard the changes to the profile and return to the previous page
+            //        [self dismissViewControllerAnimated:YES completion:nil];
+            [self.navigationController popViewControllerAnimated:YES];
+        } else {
+            return;
+        }
+    }else{
+        if (buttonIndex == 0) {
+            [self performSelector:@selector(takePicture:) withObject:self];
+        } else if(buttonIndex == 1) {
+            [self makeUIImagePickerControllerForCamera:self];
+        } else {
+            return;
+        }
     }
+}
+
+- (IBAction)takePicture:(id)sender
+{
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+    } else {
+        [imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    }
+    
+    [imagePicker setDelegate:self];
+    [imagePicker setAllowsEditing:YES];
+    
+    [self presentViewController:imagePicker animated:YES completion:nil];
+    
+}
+
+- (IBAction) makeUIImagePickerControllerForCamera:(id)sender {
+    
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+    
+    //[picker setMediaTypes:[NSArray arrayWithObjects:(NSString *) kUTTypeImage, nil]];
+    
+    [self presentViewController:picker animated:YES completion:nil];
+}
+
+-(void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    // Get the image from the result
+    //image.size = CGsize
+    
+    UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
+    [_petProfilePic setImage:image];
+    photoChanged = TRUE;
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

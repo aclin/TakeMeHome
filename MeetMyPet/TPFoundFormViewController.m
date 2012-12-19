@@ -63,9 +63,12 @@
     [[self foundMap] setDelegate:self];
     [[self foundMap] setShowsUserLocation:YES];
     
-    UIImage *patternImage = [UIImage imageNamed:@"background.png"];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:patternImage];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(loadPhoto:)];
+    [_petProfilePic addGestureRecognizer:tap];
+    [_petProfilePic setUserInteractionEnabled:YES];
     
+    UIImage *patternImage = [UIImage imageNamed:@"background.png"];
+    self.navigationController.view.backgroundColor = [UIColor colorWithPatternImage:patternImage];
 }
 
 - (void)didReceiveMemoryWarning
@@ -80,21 +83,11 @@
                                                     cancelButtonTitle:@"Cancel"
                                                destructiveButtonTitle:nil
                                                     otherButtonTitles:@"Submit Form", @"Discard and Go Back", nil];
+    targetSheet.tag = 1;
     UIWindow *mainWindow = [[UIApplication sharedApplication] windows][0];
     [targetSheet showInView:mainWindow];
 }
 
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 0) {
-        // Submit the form to the server
-        
-    } else if (buttonIndex == 1) {
-        // Discard the form and return to the previous page
-        [self.navigationController popViewControllerAnimated:YES];
-    } else {
-        return;
-    }
-}
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     self.toolbar = [[NSBundle mainBundle] loadNibNamed:@"TPFoundToolbar" owner:self options:nil][0];
@@ -154,6 +147,80 @@
         [mapView setRegion:myRegion animated:YES];
     }
 }
+
+- (IBAction)loadPhoto:(id)sender
+{
+    UIActionSheet *targetSheet = [[UIActionSheet alloc] initWithTitle:@"Choose where to load image:"
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Cancel"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"Take a Picture", @"Choose from Gallery", nil];
+    targetSheet.tag = 2;
+    UIWindow *mainWindow = [[UIApplication sharedApplication] windows][0];
+    [targetSheet showInView:mainWindow];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if(actionSheet.tag == 1){
+        if (buttonIndex == 0) {
+            // Submit the form to the server
+            
+        } else if (buttonIndex == 1) {
+            // Discard the form and return to the previous page
+            [self.navigationController popViewControllerAnimated:YES];
+        } else {
+            return;
+        }
+    }else{
+        if (buttonIndex == 0) {
+            [self performSelector:@selector(takePicture:) withObject:self];
+        } else if(buttonIndex == 1) {
+            [self makeUIImagePickerControllerForCamera:self];
+        } else {
+            return;
+        }
+    }
+}
+
+- (IBAction)takePicture:(id)sender
+{
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+    } else {
+        [imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    }
+    
+    [imagePicker setDelegate:self];
+    [imagePicker setAllowsEditing:YES];
+    
+    [self presentViewController:imagePicker animated:YES completion:nil];
+    
+}
+
+- (IBAction) makeUIImagePickerControllerForCamera:(id)sender {
+    
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+    
+    //[picker setMediaTypes:[NSArray arrayWithObjects:(NSString *) kUTTypeImage, nil]];
+    
+   [self presentViewController:picker animated:YES completion:nil];
+}
+
+-(void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    // Get the image from the result
+    //image.size = CGsize
+    
+    UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
+    [_petProfilePic setImage:image];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 
 @end

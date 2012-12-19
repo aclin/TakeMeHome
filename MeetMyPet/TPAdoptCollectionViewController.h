@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TPAdoptCollectionViewController : UICollectionViewController <UIActionSheetDelegate>
+
+@interface TPAdoptCollectionViewController : UICollectionViewController <UIActionSheetDelegate>{
+    BOOL useProfile;
+}
 
 
+- (IBAction)createReport:(id)sender;
 
 @end

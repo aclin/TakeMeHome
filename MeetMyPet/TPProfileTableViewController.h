@@ -20,10 +20,14 @@
 @property (strong, nonatomic) IBOutlet UILabel *petChip;
 @property (strong, nonatomic) IBOutlet UILabel *petNeuSpay;
 @property (strong, nonatomic) IBOutlet UILabel *petVac;
+@property (strong, nonatomic) IBOutlet UIImageView *petProfilePic;
 
 @property (strong, nonatomic) IBOutlet UILabel *ownerName;
 @property (strong, nonatomic) IBOutlet UILabel *ownerEmail;
 @property (strong, nonatomic) IBOutlet UILabel *city;
 @property (strong, nonatomic) IBOutlet UILabel *country;
+
+- (void)openPhoto:(NSString*) filename;
+- (NSString *)documentsPathForFileName:(NSString *)name;
 
 @end

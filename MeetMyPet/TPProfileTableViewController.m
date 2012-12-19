@@ -35,7 +35,6 @@
     
     UIImage *patternImage = [UIImage imageNamed:@"background.png"];
     self.navigationController.view.backgroundColor = [UIColor colorWithPatternImage:patternImage];
-    self.tableView.backgroundColor = [UIColor clearColor];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -52,7 +51,7 @@
 
 - (void)loadProfile {
     // Store on disk
-    NSError *error;
+    //NSError *error;
     NSArray *plistPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *plistDocumentsDirectory = [plistPaths objectAtIndex:0];
     //    NSLog(@"plistDocumentsDirectory: %@", plistDocumentsDirectory);
@@ -64,7 +63,7 @@
     if ([plistFileMgr fileExistsAtPath:plistPath]) {
         NSMutableDictionary *savedPlist = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
         self.petName.text = [savedPlist valueForKey:@"petName"];
-        
+        self.petGender.text = [savedPlist valueForKey:@"petGender"];
         self.petBreed.text = [savedPlist valueForKey:@"petBreed"];
         self.petAge.text = [savedPlist valueForKey:@"petAge"];
         self.petAnimal.text = [savedPlist valueForKey:@"petAnimal"];
@@ -85,7 +84,29 @@
         self.ownerEmail.text = [savedPlist valueForKey:@"ownerEmail"];
         self.city.text = [savedPlist valueForKey:@"city"];
         self.country.text = [savedPlist valueForKey:@"country"];
+        
+        [self openPhoto:@"profile_photo.jpg"];
     }
+}
+
+- (void)openPhoto:(NSString*)filename{
+    
+    NSString *filePath = [self documentsPathForFileName:filename];
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]){ //photo exist
+        NSData *jpgData = [NSData dataWithContentsOfFile:filePath];
+        UIImage *image = [UIImage imageWithData:jpgData];
+        [_petProfilePic setImage:image];
+    }
+    
+}
+
+- (NSString *)documentsPathForFileName:(NSString *)name
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+    NSString *documentsPath = [paths objectAtIndex:0];
+    //NSLog(@"%@", documentsPath);
+    return [documentsPath stringByAppendingPathComponent:name];
 }
 
 @end

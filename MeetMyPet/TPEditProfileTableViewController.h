@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TPEditProfileTableViewController : UITableViewController <UIActionSheetDelegate>
+bool *photoChanged;
+
+@interface TPEditProfileTableViewController : UITableViewController <UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UIImageView *petProfilePic;
 @property (strong, nonatomic) IBOutlet UITextField *petName;
-@property (strong, nonatomic) IBOutlet UITextField *petGender;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *petGender;
 @property (strong, nonatomic) IBOutlet UITextField *petBreed;
 @property (strong, nonatomic) IBOutlet UITextField *petAge;
 @property (strong, nonatomic) IBOutlet UITextField *petAnimal;
@@ -28,5 +30,12 @@
 
 - (IBAction)saveProfile:(id)sender;
 - (IBAction)cancelForm:(id)sender;
+- (IBAction)loadPhoto:(id)sender;
+- (IBAction)takePicture:(id)sender;
+- (void) savePhoto:(UIImage*)image;
+- (void)openPhoto:(NSString*) filename;
+- (NSString *)documentsPathForFileName:(NSString *)name;
+@property (strong, nonatomic) IBOutlet UIImageView *camera;
+
 
 @end

@@ -9,19 +9,23 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@interface TPLostFormViewController : UITableViewController <UIActionSheetDelegate, MKMapViewDelegate,UITextFieldDelegate>
+@interface TPLostFormViewController : UITableViewController <UIActionSheetDelegate, MKMapViewDelegate,UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
-@property (strong, nonatomic) IBOutlet UIImageView *profileImage;
+@property (strong, nonatomic) IBOutlet UIImageView *petProfilePic;
 @property (strong, nonatomic) IBOutlet UITextField *petName;
-@property (strong, nonatomic) IBOutlet UITextField *petType;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *petGender;
 @property (strong, nonatomic) IBOutlet UITextField *petBreed;
-@property (strong, nonatomic) IBOutlet UITextField *gender;
-@property (strong, nonatomic) IBOutlet UISegmentedControl *chipImplanted;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *petChip;
 @property (strong, nonatomic) IBOutlet MKMapView *lostMap;
 @property (strong, nonatomic) IBOutlet UITextField *lostDate;
 
+@property (strong, nonatomic) IBOutlet UILabel *ownerName;
+@property (strong, nonatomic) IBOutlet UITextField *ownerEmail;
+
 - (IBAction)cancelForm:(id)sender;
 - (IBAction)submitForm:(id)sender;
+- (IBAction)loadPhoto:(id)sender;
+- (IBAction)takePicture:(id)sender;
 
 - (IBAction)toolbarDone:(id)sender;
 

@@ -245,8 +245,6 @@
 				9D0DFADC166E140F00431132 /* InfoPlist.strings */,
 				9D0DFADF166E140F00431132 /* main.m */,
 				9D0DFAE1166E140F00431132 /* MeetMyPet-Prefix.pch */,
-				9D0DFAE7166E140F00431132 /* Default@2x.png */,
-				9D0DFAE9166E140F00431132 /* Default-568h@2x.png */,
 				9DA5C8B8167E345C00159879 /* local_profile.plist */,
 			);
 			name = "Supporting Files";
@@ -255,8 +253,7 @@
 		9D1B9A3E16745EA30076F90F /* Lost and Found Collection */ = {
 			isa = PBXGroup;
 			children = (
-				F4A943DB167EEEF900020104 /* View */,
-				F4A943D4167EEEC900020104 /* Model */,
+				9DD307B61671C956002CCE4C /* Lost and Found Forms */,
 				9D1B9A3F16745ECE0076F90F /* TPLostFoundCollectionViewController.h */,
 				9D1B9A4016745ECE0076F90F /* TPLostFoundCollectionViewController.m */,
 			);
@@ -343,12 +340,12 @@
 		9DDD029D166F268600F6FE1B /* Home View */ = {
 			isa = PBXGroup;
 			children = (
+				F4A943DB167EEEF900020104 /* View */,
+				F4A943D4167EEEC900020104 /* Model */,
 				ED28E265167ACFB40054BEF3 /* TPHomeViewController.h */,
 				ED28E266167ACFB40054BEF3 /* TPHomeViewController.m */,
 				9D1B9A3E16745EA30076F90F /* Lost and Found Collection */,
 				ED257000167EEC1E00163A54 /* Adopt Collection View */,
-				9DD307B61671C956002CCE4C /* Lost and Found Forms */,
-				ED257005167EEC8200163A54 /* Adopt Forms */,
 				9D7F1172167A74EA006C45C8 /* Profile */,
 			);
 			name = "Home View";
@@ -357,6 +354,7 @@
 		ED257000167EEC1E00163A54 /* Adopt Collection View */ = {
 			isa = PBXGroup;
 			children = (
+				ED257005167EEC8200163A54 /* Adopt Forms */,
 				ED25700E167EF4E900163A54 /* TPAdoptCollectionViewController.h */,
 				ED25700F167EF4E900163A54 /* TPAdoptCollectionViewController.m */,
 			);

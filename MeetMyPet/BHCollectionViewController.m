@@ -19,7 +19,7 @@ static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
 @interface BHCollectionViewController ()
 
 @property (nonatomic, strong) NSMutableArray *albums;
-@property (nonatomic, weak) IBOutlet BHPhotoAlbumLayout *photoAlbumLayout;
+@property (nonatomic, weak) BHPhotoAlbumLayout *photoAlbumLayout;
 @property (nonatomic, strong) NSOperationQueue *thumbnailQueue;
 
 @end

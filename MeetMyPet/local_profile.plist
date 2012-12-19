@@ -5,7 +5,7 @@
 	<key>petName</key>
 	<string></string>
 	<key>petGender</key>
-	<true/>
+	<string></string>
 	<key>petBreed</key>
 	<string></string>
 	<key>petAge</key>
