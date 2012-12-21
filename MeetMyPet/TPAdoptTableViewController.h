@@ -23,9 +23,9 @@
 @property (strong, nonatomic) IBOutlet UITextField *ownerEmail;
 @property (strong, nonatomic) IBOutlet UITextField *city;
 @property (strong, nonatomic) IBOutlet UITextField *country;
-@property (nonatomic) BOOL *usingProfile;
+@property (strong, nonatomic) NSString *usingProfile;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil set:(BOOL *)useProfile;
+//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil set:(BOOL *)useProfile;
 
 - (id)initWithProfile:(BOOL)useProfile;
 - (IBAction)loadPhoto:(id)sender;

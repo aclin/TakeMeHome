@@ -102,6 +102,10 @@
         //[self performSegueWithIdentifier:@"showLostForm" sender:self];
         // TPLostFormViewController *lostFormViewController = [[TPLostFormViewController alloc] init];
         // [self.navigationController pushViewController:lostFormViewController animated:YES];
+        [self savePhoto: _myImage.image];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Profile Picture" message:@"Profile picture changed succesfully." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"No", nil];
+        
+        [alert show];
     } else if (buttonIndex == 1) {
         // Report found
         //[self performSegueWithIdentifier:@"showFoundForm" sender:self];
@@ -131,6 +135,23 @@
     
     [self presentViewController:imagePicker animated:YES completion:nil];
     
+}
+
+- (void) savePhoto:(UIImage*) image{
+    
+    NSData *jpgData = UIImageJPEGRepresentation(image, 0.5);
+    NSString *filePath = [self documentsPathForFileName:@"profile_photo.jpg"];
+    [jpgData writeToFile:filePath atomically:YES]; //Write the file
+    NSLog(@"%@", filePath);
+}
+
+
+- (NSString *)documentsPathForFileName:(NSString *)name
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+    NSString *documentsPath = [paths objectAtIndex:0];
+    //NSLog(@"%@", documentsPath);
+    return [documentsPath stringByAppendingPathComponent:name];
 }
 
 

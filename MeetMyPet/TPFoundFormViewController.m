@@ -7,9 +7,20 @@
 //
 
 #import "TPFoundFormViewController.h"
+#import <FacebookSDK/FacebookSDK.h>
+#import "NSString+MD5.h"
+#import "NSData+MD5.h"
+#import <CommonCrypto/CommonDigest.h>
 
-@interface TPFoundFormViewController ()
+@interface TPFoundFormViewController (){
+    
+    int petID;
+    int typeID;
+    
+    NSURLConnection *connect;
+}
 
+@property (strong, nonatomic) NSDictionary<FBGraphUser> *user;
 @property (strong, nonatomic) UIDatePicker *datePicker;
 @property(strong, nonatomic) UIToolbar *toolbar;
 
@@ -129,15 +140,6 @@
     
 }
 
-
-- (IBAction)submitForm:(id)sender{
-    
-    [self.datePicker removeFromSuperview];
-
-
-}
-
-
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
     NSLog(@"accuracy: %f", userLocation.location.horizontalAccuracy);
     if (userLocation.location.horizontalAccuracy < 100.0f) {
@@ -204,7 +206,7 @@
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     picker.allowsEditing = YES;
-    picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     
     //[picker setMediaTypes:[NSArray arrayWithObjects:(NSString *) kUTTypeImage, nil]];
     
@@ -220,6 +222,53 @@
     [_petProfilePic setImage:image];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+
+- (IBAction)submitForm:(id)sender{
+    
+    //[self uploadPhotoDB];
+    
+    typeID = 2;
+    petID = 1;
+    
+    NSString * owner = self.user.id;
+    
+    NSLog(@"owner:%@",owner);
+    
+    NSDate *currDate = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    [dateFormatter setDateFormat:@"dd.MM.YY HH:mm:ss"];
+    NSString *dateString = [dateFormatter stringFromDate:currDate];
+    
+    NSString *str =[NSString stringWithFormat:@"%@%@", owner, dateString];
+    
+    str = [str MD5];
+    
+    
+    NSString *post = [NSString stringWithFormat:@"hashURL=%@ &condition=%d &typeID=%d &petID=%d &date=%@ &longitude=%f &latitude=%f",str, 1,typeID , petID, self.foundDate.text, self.foundMap.userLocation.coordinate.longitude, self.foundMap.userLocation.coordinate.latitude];
+    NSLog(@"%@", post);
+    
+	NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+	NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+    
+	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+	[request setURL:[NSURL URLWithString:@"http://secret-temple-2872.herokuapp.com/api/FormUpload/"]];
+	[request setHTTPMethod:@"POST"];
+	[request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+	[request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    
+	[request setHTTPBody:postData];
+    
+    self.tempData = [NSMutableData alloc];
+	connect = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
+    
+    [self.datePicker removeFromSuperview];
+    [self.foundDate resignFirstResponder];
+    //[self.Email resignFirstResponder];
+    
+}
+
 
 
 

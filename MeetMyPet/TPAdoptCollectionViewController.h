@@ -10,7 +10,7 @@
 
 
 @interface TPAdoptCollectionViewController : UICollectionViewController <UIActionSheetDelegate>{
-    BOOL useProfile;
+    NSString *useProfile;
 }
 
 

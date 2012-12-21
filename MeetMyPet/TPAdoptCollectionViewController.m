@@ -160,13 +160,13 @@ static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 0) {
         // Report using existing profile
-        useProfile = TRUE;
+        useProfile = @"Yes";
         [self performSegueWithIdentifier:@"showAdoptForm" sender:self];
         //TPAdoptTableViewController *adoptFormViewController = [[TPAdoptTableViewController alloc] initWithNibName:@"TPAdoptTableViewController" bundle:nil set:TRUE];
         //[self.navigationController pushViewController:adoptFormViewController animated:YES];
     } else if (buttonIndex == 1) {
         // Report using new post
-        useProfile = FALSE;
+        useProfile = @"No";
         [self performSegueWithIdentifier:@"showAdoptForm" sender:self];
         //        TPFoundFormViewController *foundFormViewController = [[TPFoundFormViewController alloc] init];
         //        [self.navigationController pushViewController:foundFormViewController animated:YES];
@@ -178,7 +178,7 @@ static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"showAdoptForm"]){
         TPAdoptTableViewController *adoptFormViewController = segue.destinationViewController;
-        adoptFormViewController.usingProfile = &(useProfile);
+        adoptFormViewController.usingProfile = *(&(useProfile));
     }
 }
 

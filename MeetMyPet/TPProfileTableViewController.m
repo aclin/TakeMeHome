@@ -7,6 +7,7 @@
 //
 
 #import "TPProfileTableViewController.h"
+#import "TPPlist.h"
 
 @interface TPProfileTableViewController ()
 
@@ -80,7 +81,7 @@
             self.petNeuSpay.text = @"No";
         }
         self.petVac.text = [savedPlist valueForKey:@"petVac"];
-        
+        self.ownerName = [savedPlist valueForKey:@"ownerName"];
         self.ownerEmail.text = [savedPlist valueForKey:@"ownerEmail"];
         self.city.text = [savedPlist valueForKey:@"city"];
         self.country.text = [savedPlist valueForKey:@"country"];

@@ -19,8 +19,6 @@
 
 @implementation TPHomeViewController
 
-@synthesize user = _user;
-
 - (void)sessionStateChanged:(NSNotification*)notification {
     if (!FBSession.activeSession.isOpen) {
         [self performSegueWithIdentifier:@"SegueToLogin" sender:self];
@@ -75,6 +73,8 @@
     if(FBSession.activeSession.isOpen ||
                FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded ||
                FBSession.activeSession.state == FBSessionStateCreatedOpening) {
+        [self populateUserDetails];
+        [self saveProfile];
     } else {
         [self performSegueWithIdentifier:@"SegueToLogin" sender:self];
     }
@@ -92,4 +92,65 @@
     [appDelegate closeSession];
 }
 
+- (void)populateUserDetails
+{
+    if (FBSession.activeSession.isOpen) {
+        [[FBRequest requestForMe] startWithCompletionHandler:
+         ^(FBRequestConnection *connection,
+           NSDictionary<FBGraphUser> *userName,
+           NSError *error) {
+             if (!error) {
+                 self.user = userName;
+                 self.lblName.text = userName.name;
+                 [self openPhoto:@"profile_photo.jpg"];
+             }
+         }];
+    }
+}
+
+- (void)saveProfile {
+    // Store on disk
+    
+    NSError *error;
+    NSArray *plistPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *plistDocumentsDirectory = [plistPaths objectAtIndex:0];
+    //    NSLog(@"plistDocumentsDirectory: %@", plistDocumentsDirectory);
+    NSString *plistPath = [plistDocumentsDirectory stringByAppendingPathComponent:@"local_profile.plist"];
+    NSFileManager *plistFileMgr = [NSFileManager defaultManager];
+    //    NSLog(@"plistPath: %@", plistPath);
+    
+    // Create a plist if it doesn't already exist
+    if (![plistFileMgr fileExistsAtPath:plistPath]) {
+        NSString *bundle = [[NSBundle mainBundle] pathForResource:@"local_profile" ofType:@"plist"];
+        [plistFileMgr copyItemAtPath:bundle toPath:plistPath error:&error];
+        
+        // Write to the plist
+        NSMutableDictionary *localProfilePlist = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+        
+        [localProfilePlist setObject:[NSString stringWithFormat:@"%@", self.user.name] forKey:@"ownerName"];
+        [localProfilePlist setObject:[NSString stringWithFormat:@"%@", self.user.id] forKey:@"petID"];
+    }
+    
+}
+
+- (void)openPhoto:(NSString*)filename{
+    
+    NSString *filePath = [self documentsPathForFileName:filename];
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]){ //photo exist
+        NSData *jpgData = [NSData dataWithContentsOfFile:filePath];
+        UIImage *image = [UIImage imageWithData:jpgData];
+        [_petProfilePic setImage:image];
+    }
+    
+}
+
+- (NSString *)documentsPathForFileName:(NSString *)name
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+    NSString *documentsPath = [paths objectAtIndex:0];
+    //NSLog(@"%@", documentsPath);
+    return [documentsPath stringByAppendingPathComponent:name];
+}
+    
 @end

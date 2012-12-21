@@ -117,6 +117,7 @@ static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
             if ([weakSelf.collectionView.indexPathsForVisibleItems containsObject:indexPath]) {
                 BHAlbumPhotoCell *cell =
                 (BHAlbumPhotoCell *)[weakSelf.collectionView cellForItemAtIndexPath:indexPath];
+                //cell.tag = arc4random() % 100;
                 cell.imageView.image = image;
             }
         });
@@ -173,7 +174,8 @@ static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    [self performSegueWithIdentifier:@"ShowFeedDetail" sender:cell];
+    //NSLog(@"ID: %d", cell.tag);
+    [self performSegueWithIdentifier:@"showFoundPost" sender:cell];
     //NSLog(@"row %@ pressed", indexPath);
 }
 

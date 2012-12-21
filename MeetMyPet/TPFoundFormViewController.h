@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *foundDate;
 @property (strong, nonatomic) IBOutlet MKMapView *foundMap;
 
+@property(strong,nonatomic)NSMutableData *tempData;
 
 - (IBAction)loadPhoto:(id)sender;
 - (IBAction)takePicture:(id)sender;

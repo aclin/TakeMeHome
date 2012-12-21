@@ -37,15 +37,21 @@
     [_petProfilePic addGestureRecognizer:tap];
     [_petProfilePic setUserInteractionEnabled:YES];
     
+    //_usingProfile = FALSE;
+    
     UIImage *patternImage = [UIImage imageNamed:@"background.png"];
     self.navigationController.view.backgroundColor = [UIColor colorWithPatternImage:patternImage];
 }
 
 
 - (void) viewDidAppear:(BOOL)animated{
-    if ([self usingProfile]){
+    if ([_usingProfile isEqualToString:@"Yes"]){
         [self loadProfile];
     }
+}
+
+- (void) viewDidDisappear:(BOOL)animated{
+    _usingProfile = @"No";
 }
 
 
@@ -168,7 +174,7 @@
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     picker.allowsEditing = YES;
-    picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     
     //[picker setMediaTypes:[NSArray arrayWithObjects:(NSString *) kUTTypeImage, nil]];
     

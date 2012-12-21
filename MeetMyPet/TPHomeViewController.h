@@ -10,4 +10,10 @@
 
 @interface TPHomeViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIImageView *petProfilePic;
+@property (strong, nonatomic) IBOutlet UILabel *lblName;
+
+- (void)openPhoto:(NSString*) filename;
+- (NSString *)documentsPathForFileName:(NSString *)name;
+
 @end
