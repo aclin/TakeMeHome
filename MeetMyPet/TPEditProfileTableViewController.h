@@ -36,6 +36,7 @@ bool *photoChanged;
 - (void)openPhoto:(NSString*) filename;
 - (NSString *)documentsPathForFileName:(NSString *)name;
 @property (strong, nonatomic) IBOutlet UIImageView *camera;
-
+- (NSDictionary *)buildParams;
+- (void)uploadProfile;
 
 @end

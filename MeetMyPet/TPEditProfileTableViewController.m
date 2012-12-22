@@ -7,6 +7,10 @@
 //
 
 #import "TPEditProfileTableViewController.h"
+#import "NSString+MD5.h"
+#import "AFHTTPClient.h"
+#import "AFHTTPRequestOperation.h"
+#import "AFJSONRequestOperation.h"
 
 @interface TPEditProfileTableViewController ()
 
@@ -142,6 +146,9 @@
         [self savePhoto:_petProfilePic.image];
     
     [localProfilePlist writeToFile:plistPath atomically:YES];
+    
+    [self uploadProfile];
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -256,6 +263,59 @@
     [_petProfilePic setImage:image];
     photoChanged = TRUE;
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (NSDictionary *)buildParams {
+    NSString *gender, *chip, *spay;
+    if (_petGender.selectedSegmentIndex == 0) {
+        gender = @"Male";
+    } else {
+        gender = @"Female";
+    }
+    if (_petChip.selectedSegmentIndex == 0) {
+        chip = @"YES";
+    } else {
+        chip = @"NO";
+    }
+    if (_petNeuSpay.selectedSegmentIndex == 0) {
+        spay = @"YES";
+    } else {
+        spay = @"NO";
+    }
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+                            _petName.text, @"petName",
+                            _petAge.text, @"petAge",
+                            _petBreed.text, @"petBreed",
+                            gender, @"petGender",
+                            _petChar.text, @"petChar",
+                            _petHobbies.text, @"petHobbies",
+                            chip, @"petChip",
+                            spay, @"petNeuSpay",
+                            _petVac.text, @"petVac",
+                            _city.text, @"city",
+                            _country.text, @"country",
+                            _ownerEmail.text, @"email",
+                            @"123", @"petID",
+                            @"a1b2c3", @"hashURL",
+                            nil];
+    return params;
+}
+
+- (void)uploadProfile {
+    NSURL *url = [NSURL URLWithString:@"https://secret-temple-2872.herokuapp.com"];
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
+    NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST"
+                                                            path:@"/test/profileTest.php"
+                                                      parameters:[self buildParams]];
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        NSLog(@"JSON: %@", JSON);
+        NSLog(@"Response: %d", response.statusCode);
+        
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        NSLog(@"Error: %@ \nResponse: %d", error, response.statusCode);
+    }];
+    
+    [operation start];
 }
 
 @end
