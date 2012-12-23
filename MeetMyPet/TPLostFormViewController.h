@@ -25,5 +25,7 @@
 
 - (IBAction)toolbarDone:(id)sender;
 
+@property(strong, nonatomic) NSMutableData *tempData;
+
 
 @end
