@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FacebookSDK/FacebookSDK.h>
 
 bool *photoChanged;
+NSString *fname;
 
 @interface TPEditProfileTableViewController : UITableViewController <UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
+@property (strong, nonatomic) NSDictionary<FBGraphUser> *user;
 @property (strong, nonatomic) IBOutlet UIImageView *petProfilePic;
 @property (strong, nonatomic) IBOutlet UITextField *petName;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *petGender;
@@ -23,10 +26,13 @@ bool *photoChanged;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *petChip;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *petNeuSpay;
 @property (strong, nonatomic) IBOutlet UITextView *petVac;
-
+@property (strong, nonatomic) IBOutlet UILabel *ownerName;
 @property (strong, nonatomic) IBOutlet UITextField *ownerEmail;
 @property (strong, nonatomic) IBOutlet UITextField *city;
 @property (strong, nonatomic) IBOutlet UITextField *country;
+
+@property (strong, nonatomic) NSString *petID;
+@property (strong, nonatomic) NSString *userName;
 
 - (IBAction)saveProfile:(id)sender;
 - (IBAction)cancelForm:(id)sender;
@@ -34,6 +40,7 @@ bool *photoChanged;
 - (IBAction)takePicture:(id)sender;
 - (void) savePhoto:(UIImage*)image;
 - (void)openPhoto:(NSString*) filename;
+- (void)uploadPhoto:(UIImage*)image;
 - (NSString *)documentsPathForFileName:(NSString *)name;
 @property (strong, nonatomic) IBOutlet UIImageView *camera;
 - (NSDictionary *)buildParams;

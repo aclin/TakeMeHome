@@ -95,6 +95,11 @@
         self.city.text = [savedPlist valueForKey:@"city"];
         self.country.text = [savedPlist valueForKey:@"country"];
         
+        _petID = [savedPlist valueForKey:@"petID"];
+        NSLog(@"%@", _petID);
+        _ownerName.text = [savedPlist valueForKey:@"ownerName"];
+        _userName = [savedPlist valueForKey:@"ownerName"];
+        
         [self openPhoto:@"profile_photo.jpg"];
     } else {
         NSLog(@"local_profile.plist does not exist");
@@ -142,8 +147,13 @@
     [localProfilePlist setObject:[NSString stringWithFormat:@"%@", self.ownerEmail.text] forKey:@"ownerEmail"];
     [localProfilePlist setObject:[NSString stringWithFormat:@"%@", self.city.text] forKey:@"city"];
     [localProfilePlist setObject:[NSString stringWithFormat:@"%@", self.country.text] forKey:@"country"];
-    if (photoChanged)
+    if (photoChanged) {
         [self savePhoto:_petProfilePic.image];
+        [self uploadPhoto:_petProfilePic.image];
+        NSLog(@"%@", @"Photo changed");
+    } else {
+        fname = @"";
+    }
     
     [localProfilePlist writeToFile:plistPath atomically:YES];
     
@@ -159,6 +169,48 @@
     NSString *filePath = [self documentsPathForFileName:@"profile_photo.jpg"];
     [jpgData writeToFile:filePath atomically:YES]; //Write the file
     NSLog(@"%@", filePath);
+}
+
+- (void)uploadPhoto:(UIImage*) image {
+    // Create request
+    NSURL *url = [NSURL URLWithString:@"https://csie.ntu.edu.tw/~r00944044/mpptmh/"];
+    
+    NSDate *currDate = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    [dateFormatter setDateFormat:@"dd.MM.YY HH:mm:ss"];
+    NSString *dateString = [dateFormatter stringFromDate:currDate];
+    
+    fname = [NSString stringWithFormat:@"%@%@", _ownerName, dateString];
+    fname = [[fname MD5] stringByAppendingString:@".jpg"];
+    
+    NSData *imageToUpload = UIImageJPEGRepresentation(image, 8);
+    AFHTTPClient *client= [AFHTTPClient clientWithBaseURL:url];
+    
+    NSMutableURLRequest *request = [client multipartFormRequestWithMethod:@"POST"
+                                                                     path:@"photoupload.php"
+                                                               parameters:nil
+                                                constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
+                                                    [formData appendPartWithFileData: imageToUpload
+                                                                                name:@"file"
+                                                                            fileName:fname
+                                                                            mimeType:@"image/jpeg"];
+                                                }];
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSString *response = [operation responseString];
+        NSLog(@"response: [%@]",response);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if([operation.response statusCode] == 403){
+            NSLog(@"Upload Failed");
+            return;
+        }
+        NSLog(@"error: %@", [operation error]);
+        
+    }];
+    
+    [operation start];
 }
 
 - (void)openPhoto:(NSString*)filename{
@@ -295,8 +347,8 @@
                             _city.text, @"city",
                             _country.text, @"country",
                             _ownerEmail.text, @"email",
-                            @"123", @"petID",
-                            @"a1b2c3", @"hashURL",
+                            _petID, @"petID",
+                            fname, @"hashURL",
                             nil];
     return params;
 }
@@ -305,17 +357,34 @@
     NSURL *url = [NSURL URLWithString:@"https://secret-temple-2872.herokuapp.com"];
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
     NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST"
-                                                            path:@"/test/profileTest.php"
+                                                            path:@"/api/ProfileUpload/"
                                                       parameters:[self buildParams]];
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        NSLog(@"JSON: %@", JSON);
-        NSLog(@"Response: %d", response.statusCode);
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSString *response = [operation responseString];
+        NSLog(@"response: [%@]\n",response);
+        NSLog(@"Response Object: %@", [NSString stringWithFormat:@"%@", responseObject]);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if([operation.response statusCode] == 403){
+            NSLog(@"Upload Failed");
+            return;
+        }
+        NSLog(@"error: %@", [operation error]);
         
-    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        NSLog(@"Error: %@ \nResponse: %d", error, response.statusCode);
     }];
     
     [operation start];
+//    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+//        NSLog(@"JSON: %@", JSON);
+//        NSLog(@"Response: %d", response.statusCode);
+//        
+//    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+//        NSLog(@"Error: %@ \nResponse: %d", error, response.statusCode);
+//    }];
+//    
+//    [operation start];
 }
 
 @end
