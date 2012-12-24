@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C3006" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4">
     <dependencies>
         <development version="4500" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
@@ -45,25 +45,25 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rM4-vD-fuV">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rM4-vD-fuV">
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="GiU-1z-wpx"/>
                                     <constraint firstAttribute="width" constant="168" id="Nks-GQ-hV8"/>
-                                    <constraint firstAttribute="height" constant="50" id="U4z-wU-SkY"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                                <state key="normal" title="Lost &amp; Found">
+                                <state key="normal" title="Lost &amp; Found" backgroundImage="button.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="DRZ-mZ-DqF" kind="push" id="sr3-ZT-lor"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1zH-YU-VJf">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1zH-YU-VJf">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="sWK-Q9-E6W"/>
+                                    <constraint firstAttribute="height" constant="70" id="Azj-eF-r7V"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Adopt">
+                                <state key="normal" title="Adopt" backgroundImage="button.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -74,12 +74,12 @@
                                     <segue destination="NuQ-Sk-wAD" kind="push" id="GVO-Az-4i5"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1CV-YH-Ayf">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1CV-YH-Ayf">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="hgq-rg-3hD"/>
+                                    <constraint firstAttribute="height" constant="70" id="ai6-ak-4Nh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Profile Settings">
+                                <state key="normal" title="Profile Settings" backgroundImage="button.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -117,19 +117,19 @@
                         </subviews>
                         <color key="backgroundColor" red="0.98431378602981567" green="0.90980398654937744" blue="0.68627452850341797" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="1zH-YU-VJf" secondAttribute="bottom" constant="64" id="Al5-yw-pSz"/>
+                            <constraint firstItem="1CV-YH-Ayf" firstAttribute="bottom" secondItem="rPE-if-s8p" secondAttribute="bottom" type="default" id="Avo-Z7-QCC"/>
                             <constraint firstItem="zgR-Xl-Rv7" firstAttribute="top" secondItem="rPE-if-s8p" secondAttribute="top" constant="126" id="Cif-xp-E17"/>
+                            <constraint firstItem="rM4-vD-fuV" firstAttribute="top" secondItem="rPE-if-s8p" secondAttribute="top" constant="167" id="HgC-zE-0Om"/>
                             <constraint firstItem="1CV-YH-Ayf" firstAttribute="leading" secondItem="1zH-YU-VJf" secondAttribute="leading" type="default" id="KTx-lB-LmR"/>
                             <constraint firstItem="rM4-vD-fuV" firstAttribute="trailing" secondItem="1zH-YU-VJf" secondAttribute="trailing" type="default" id="M95-De-bqq"/>
-                            <constraint firstItem="W9W-Qs-XaN" firstAttribute="centerX" secondItem="rM4-vD-fuV" secondAttribute="centerX" type="default" id="Mj7-sa-o4L"/>
+                            <constraint firstItem="1zH-YU-VJf" firstAttribute="centerX" secondItem="rPE-if-s8p" secondAttribute="centerX" type="default" id="NDV-K8-tP1"/>
                             <constraint firstItem="zgR-Xl-Rv7" firstAttribute="centerX" secondItem="W9W-Qs-XaN" secondAttribute="centerX" type="default" id="VkZ-fO-xUQ"/>
                             <constraint firstItem="dhm-St-Ai2" firstAttribute="centerX" secondItem="zgR-Xl-Rv7" secondAttribute="centerX" type="default" id="ZMZ-pF-Apq"/>
                             <constraint firstItem="W9W-Qs-XaN" firstAttribute="top" secondItem="rPE-if-s8p" secondAttribute="top" constant="152" id="bdz-nV-UiG"/>
                             <constraint firstItem="1zH-YU-VJf" firstAttribute="leading" secondItem="rM4-vD-fuV" secondAttribute="leading" type="default" id="cki-SL-Zvo"/>
-                            <constraint firstItem="1CV-YH-Ayf" firstAttribute="top" secondItem="1zH-YU-VJf" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="dCR-lF-fcg"/>
-                            <constraint firstItem="1zH-YU-VJf" firstAttribute="top" secondItem="rM4-vD-fuV" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="fPZ-a5-qqQ"/>
-                            <constraint firstItem="zgR-Xl-Rv7" firstAttribute="centerX" secondItem="rPE-if-s8p" secondAttribute="centerX" type="default" id="fs8-qD-Ild"/>
+                            <constraint firstItem="W9W-Qs-XaN" firstAttribute="centerX" secondItem="rM4-vD-fuV" secondAttribute="centerX" type="default" id="miK-yS-VvX"/>
                             <constraint firstItem="1zH-YU-VJf" firstAttribute="trailing" secondItem="1CV-YH-Ayf" secondAttribute="trailing" type="default" id="pA9-cH-9vZ"/>
-                            <constraint firstItem="rM4-vD-fuV" firstAttribute="top" secondItem="rPE-if-s8p" secondAttribute="top" constant="180" id="rmX-d2-vrt"/>
                             <constraint firstItem="dhm-St-Ai2" firstAttribute="top" secondItem="rPE-if-s8p" secondAttribute="top" constant="20" symbolic="YES" type="default" id="vM7-u0-fPT"/>
                         </constraints>
                     </view>
@@ -150,7 +150,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dsP-xy-m6g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2173" y="-849"/>
+            <point key="canvasLocation" x="-2162" y="-943"/>
         </scene>
         <!--Lost Found Collection View Controller-->
         <scene sceneID="2oS-1p-GNL">
@@ -1684,7 +1684,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NcM-ae-0S3">
-                                <color key="backgroundColor" red="0.36862745879999997" green="0.25490197539999998" blue="0.18431372939999999" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="backgroundColor" red="0.40000000000000002" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eDH-rl-Ssy">
                                 <color key="backgroundColor" red="0.40000000000000002" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -2785,6 +2785,7 @@
         <image name="X-Large_278x44_glowy.png" width="280" height="47"/>
         <image name="action-people.png" width="80" height="80"/>
         <image name="action-photo.png" width="80" height="80"/>
+        <image name="button.png" width="991" height="443"/>
         <image name="default_photo.png" width="280" height="280"/>
         <image name="first.png" width="30" height="30"/>
         <image name="takeMeHome.png" width="2050" height="1794"/>
@@ -2864,6 +2865,7 @@
             <relationships>
                 <relationship kind="action" name="cancelForm:"/>
                 <relationship kind="action" name="loadPhoto:"/>
+                <relationship kind="action" name="makeUIImagePickerControllerForCamera:"/>
                 <relationship kind="action" name="submitForm:"/>
                 <relationship kind="action" name="takePicture:"/>
                 <relationship kind="action" name="toolbarDone:"/>
