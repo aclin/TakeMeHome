@@ -39,6 +39,25 @@
     
     UIImageView *boxBackView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]];
     [self.tableView setBackgroundView:boxBackView];
+    
+    NSArray *plistPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *plistDocumentsDirectory = [plistPaths objectAtIndex:0];
+    //    NSLog(@"plistDocumentsDirectory: %@", plistDocumentsDirectory);
+    NSString *plistPath = [plistDocumentsDirectory stringByAppendingPathComponent:@"local_profile.plist"];
+    NSFileManager *plistFileMgr = [NSFileManager defaultManager];
+    //    NSLog(@"plistPath: %@", plistPath);
+    
+    // Read data from the plist if the plist file exists
+    if ([plistFileMgr fileExistsAtPath:plistPath]) {
+        NSMutableDictionary *savedPlist = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+ 
+        _ownerName.text = [savedPlist valueForKey:@"ownerName"];
+
+        //[self openPhoto:@"profile_photo.jpg"];
+    } else {
+        NSLog(@"local_profile.plist does not exist");
+    }
+
 
 }
 
@@ -85,13 +104,11 @@
             self.petNeuSpay.text = @"No";
         }
         self.petVac.text = [savedPlist valueForKey:@"petVac"];
-        self.ownerName = [savedPlist valueForKey:@"ownerName"];
+        self.ownerName.text = [savedPlist valueForKey:@"ownerName"];
         self.ownerEmail.text = [savedPlist valueForKey:@"ownerEmail"];
         self.city.text = [savedPlist valueForKey:@"city"];
         self.country.text = [savedPlist valueForKey:@"country"];
-    
-        _ownerName.text = [savedPlist valueForKey:@"ownerName"];
-        
+
         [self openPhoto:@"profile_photo.jpg"];
     }
 }
