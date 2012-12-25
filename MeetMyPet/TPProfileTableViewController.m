@@ -34,8 +34,12 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    UIImage *patternImage = [UIImage imageNamed:@"background.png"];
-    self.navigationController.view.backgroundColor = [UIColor colorWithPatternImage:patternImage];
+//    UIImage *patternImage = [UIImage imageNamed:@"background.png"];
+//    self.navigationController.view.backgroundColor = [UIColor colorWithPatternImage:patternImage];
+    
+    UIImageView *boxBackView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]];
+    [self.tableView setBackgroundView:boxBackView];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -85,6 +89,8 @@
         self.ownerEmail.text = [savedPlist valueForKey:@"ownerEmail"];
         self.city.text = [savedPlist valueForKey:@"city"];
         self.country.text = [savedPlist valueForKey:@"country"];
+    
+        _ownerName.text = [savedPlist valueForKey:@"ownerName"];
         
         [self openPhoto:@"profile_photo.jpg"];
     }

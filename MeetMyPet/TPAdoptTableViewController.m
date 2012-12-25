@@ -7,8 +7,18 @@
 //
 
 #import "TPAdoptTableViewController.h"
+#import <FacebookSDK/FacebookSDK.h>
+#import "NSString+MD5.h"
+#import "NSData+MD5.h"
+#import <CommonCrypto/CommonDigest.h>
+#import "AFHTTPClient.h"
+#import "AFHTTPRequestOperation.h"
+#import "AFJSONRequestOperation.h"
 
 @interface TPAdoptTableViewController ()
+{
+    NSString * typeID;
+}
 
 @end
 
@@ -39,8 +49,35 @@
     
     //_usingProfile = FALSE;
     
-    UIImage *patternImage = [UIImage imageNamed:@"background.png"];
-    self.navigationController.view.backgroundColor = [UIColor colorWithPatternImage:patternImage];
+//    UIImage *patternImage = [UIImage imageNamed:@"background.png"];
+//    self.navigationController.view.backgroundColor = [UIColor colorWithPatternImage:patternImage];
+    
+    UIImageView *boxBackView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]];
+    [self.tableView setBackgroundView:boxBackView];
+    
+    
+    NSArray *plistPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *plistDocumentsDirectory = [plistPaths objectAtIndex:0];
+    //    NSLog(@"plistDocumentsDirectory: %@", plistDocumentsDirectory);
+    NSString *plistPath = [plistDocumentsDirectory stringByAppendingPathComponent:@"local_profile.plist"];
+    NSFileManager *plistFileMgr = [NSFileManager defaultManager];
+    //    NSLog(@"plistPath: %@", plistPath);
+    
+    // Read data from the plist if the plist file exists
+    if ([plistFileMgr fileExistsAtPath:plistPath]) {
+        NSMutableDictionary *savedPlist = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+        _petID = [savedPlist valueForKey:@"petID"];
+        _ownerName.text = [savedPlist valueForKey:@"ownerName"];
+        
+        NSLog(@"PetID: %@",_petID);
+        
+        NSLog(@"OwnerName: %@",_ownerName.text);
+        //[self openPhoto:@"profile_photo.jpg"];
+    } else {
+        NSLog(@"local_profile.plist does not exist");
+    }
+
+
 }
 
 
@@ -99,6 +136,11 @@
         self.ownerEmail.text = [savedPlist valueForKey:@"ownerEmail"];
         self.city.text = [savedPlist valueForKey:@"city"];
         self.country.text = [savedPlist valueForKey:@"country"];
+        
+        _petID = [savedPlist valueForKey:@"petID"];
+        _ownerName.text = [savedPlist valueForKey:@"ownerName"];
+        
+        fname = [savedPlist valueForKey:@"hashURL"];
         
         [self openPhoto:@"profile_photo.jpg"];
     }
@@ -210,5 +252,111 @@
     //NSLog(@"%@", documentsPath);
     return [documentsPath stringByAppendingPathComponent:name];
 }
+
+- (NSDictionary *)buildParams {
+    typeID = @"3";
+    NSString *gender, *chip, *spay;
+    if (_petGender.selectedSegmentIndex == 0) {
+        gender = @"Male";
+    } else {
+        gender = @"Female";
+    }
+    if (_petChip.selectedSegmentIndex == 0) {
+        chip = @"YES";
+    } else {
+        chip = @"NO";
+    }
+    if (_petNeuSpay.selectedSegmentIndex == 0) {
+        spay = @"YES";
+    } else {
+        spay = @"NO";
+    }
+
+
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+                            typeID, @"typeID",
+                            _petID, @"petID",
+                            fname, @"hashURL",
+                            _ownerEmail.text , @"email",
+                            _petName.text , @"petName",
+                            _petBreed.text, @"petBreed",
+                            gender, @"petGender",
+                            chip,@"petChip",
+                            _petAge.text, @"petAge",
+                            _petChar.text, @"petChar",
+                            _petVac.text, @"petVac",
+                            spay, @"petNeuSpay",
+                            _city.text, @"city",
+                            _country.text , @"country",
+                            _ownerName.text , @"username",
+                            nil];
+    return params;
+}
+- (void)uploadPhoto:(UIImage*) image {
+    // Create request
+    NSURL *url = [NSURL URLWithString:@"https://csie.ntu.edu.tw/~r00944044/mpptmh/"];
+    
+    NSDate *currDate = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    [dateFormatter setDateFormat:@"dd.MM.YY HH:mm:ss"];
+    NSString *dateString = [dateFormatter stringFromDate:currDate];
+    
+    fname = [NSString stringWithFormat:@"%@%@", _ownerName.text, dateString];
+    fname = [[fname MD5] stringByAppendingString:@".jpg"];
+    
+    NSData *imageToUpload = UIImageJPEGRepresentation(image, 8);
+    AFHTTPClient *client= [AFHTTPClient clientWithBaseURL:url];
+    
+    NSMutableURLRequest *request = [client multipartFormRequestWithMethod:@"POST"
+                                                                     path:@"photoupload.php"
+                                                               parameters:nil
+                                                constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
+                                                    [formData appendPartWithFileData: imageToUpload
+                                                                                name:@"file"
+                                                                            fileName:fname
+                                                                            mimeType:@"image/jpeg"];
+                                                }];
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSString *response = [operation responseString];
+        NSLog(@"response: [%@]",response);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if([operation.response statusCode] == 403){
+            NSLog(@"Upload Failed");
+            return;
+        }
+        NSLog(@"error: %@", [operation error]);
+        
+    }];
+    
+    [operation start];
+}
+
+- (IBAction)submitForm:(id)sender{
+    
+    //[self savePhoto:_petProfilePic.image];
+    [self uploadPhoto:_petProfilePic.image];
+    
+    NSURL *url = [NSURL URLWithString:@"https://secret-temple-2872.herokuapp.com"];
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
+    NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST"
+                                                            path:@"api/FormUpload/index.php"
+                                                      parameters:[self buildParams]];
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        NSLog(@"JSON: %@", JSON);
+        NSLog(@"Response: %d", response.statusCode);
+        
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        NSLog(@"Error: %@ \nResponse: %d", error, response.statusCode);
+    }];
+    
+    [operation start];
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
+
 
 @end

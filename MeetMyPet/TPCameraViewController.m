@@ -7,6 +7,7 @@
 //
 
 #import "TPCameraViewController.h"
+#import "TPFoundFormViewController.h"
 
 @interface TPCameraViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate>
 
@@ -108,9 +109,10 @@
         [alert show];
     } else if (buttonIndex == 1) {
         // Report found
-        //[self performSegueWithIdentifier:@"showFoundForm" sender:self];
-        // TPFoundFormViewController *foundFormViewController = [[TPFoundFormViewController alloc] init];
-        // [self.navigationController pushViewController:foundFormViewController animated:YES];
+         //[self performSegueWithIdentifier:@"showFoundForm" sender:self];
+//         TPFoundFormViewController *foundFormViewController = [[TPFoundFormViewController alloc] initWithNibName:@"TPFoundFormViewController" bundle:nil];
+//        foundFormViewController.petProfilePic.image = _myImage.image;
+//         [self.navigationController pushViewController:foundFormViewController animated:YES];
     } else if (buttonIndex == 2) {
         //
     } else if (buttonIndex == 3) {

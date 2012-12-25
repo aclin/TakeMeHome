@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+NSString *fname;
 @interface TPAdoptTableViewController : UITableViewController <UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UIImageView *petProfilePic;
@@ -24,8 +24,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *city;
 @property (strong, nonatomic) IBOutlet UITextField *country;
 @property (strong, nonatomic) NSString *usingProfile;
+@property (strong, nonatomic) NSString *petID;
 
-//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil set:(BOOL *)useProfile;
 
 - (id)initWithProfile:(BOOL)useProfile;
 - (IBAction)loadPhoto:(id)sender;
@@ -33,5 +33,8 @@
 - (IBAction)takePicture:(id)sender;
 - (void)openPhoto:(NSString*)filename;
 - (NSString *)documentsPathForFileName:(NSString *)name;
+- (IBAction)submitForm:(id)sender;
+- (NSDictionary *)buildParams;
+
 
 @end

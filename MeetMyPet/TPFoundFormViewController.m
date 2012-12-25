@@ -11,13 +11,14 @@
 #import "NSString+MD5.h"
 #import "NSData+MD5.h"
 #import <CommonCrypto/CommonDigest.h>
+#import "AFHTTPClient.h"
+#import "AFHTTPRequestOperation.h"
+#import "AFJSONRequestOperation.h"
 
 @interface TPFoundFormViewController (){
     
-    int petID;
-    int typeID;
-    
-    NSURLConnection *connect;
+    NSString * typeID;
+
 }
 
 @property (strong, nonatomic) NSDictionary<FBGraphUser> *user;
@@ -78,8 +79,35 @@
     [_petProfilePic addGestureRecognizer:tap];
     [_petProfilePic setUserInteractionEnabled:YES];
     
-    UIImage *patternImage = [UIImage imageNamed:@"background.png"];
-    self.navigationController.view.backgroundColor = [UIColor colorWithPatternImage:patternImage];
+//    UIImage *patternImage = [UIImage imageNamed:@"background.png"];
+//    self.navigationController.view.backgroundColor = [UIColor colorWithPatternImage:patternImage];
+    
+    UIImageView *boxBackView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]];
+    [self.tableView setBackgroundView:boxBackView];
+
+    
+    
+    NSArray *plistPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *plistDocumentsDirectory = [plistPaths objectAtIndex:0];
+    //    NSLog(@"plistDocumentsDirectory: %@", plistDocumentsDirectory);
+    NSString *plistPath = [plistDocumentsDirectory stringByAppendingPathComponent:@"local_profile.plist"];
+    NSFileManager *plistFileMgr = [NSFileManager defaultManager];
+    //    NSLog(@"plistPath: %@", plistPath);
+    
+    // Read data from the plist if the plist file exists
+    if ([plistFileMgr fileExistsAtPath:plistPath]) {
+        NSMutableDictionary *savedPlist = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+        _petID = [savedPlist valueForKey:@"petID"];
+        _username = [savedPlist valueForKey:@"ownerName"];
+        
+        NSLog(@"PetID: %@",_petID);
+        
+        NSLog(@"OwnerName: %@",_username);
+        //[self openPhoto:@"profile_photo.jpg"];
+    } else {
+        NSLog(@"local_profile.plist does not exist");
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -223,49 +251,137 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void) savePhoto:(UIImage*) image{
+    
+    NSData *jpgData = UIImageJPEGRepresentation(image, 0.5);
+    NSString *filePath = [self documentsPathForFileName:@"profile_photo.jpg"];
+    [jpgData writeToFile:filePath atomically:YES]; //Write the file
+    NSLog(@"%@", filePath);
+}
+- (void)openPhoto:(NSString*)filename{
+    
+    NSString *filePath = [self documentsPathForFileName:filename];
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]){ //photo exist
+        NSData *jpgData = [NSData dataWithContentsOfFile:filePath];
+        UIImage *image = [UIImage imageWithData:jpgData];
+        [_petProfilePic setImage:image];
+    }
+    
+}
 
-- (IBAction)submitForm:(id)sender{
-    
-    //[self uploadPhotoDB];
-    
-    typeID = 2;
-    petID = 1;
-    
-    NSString * owner = self.user.id;
-    
-    NSLog(@"owner:%@",owner);
+- (NSString *)documentsPathForFileName:(NSString *)name
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+    NSString *documentsPath = [paths objectAtIndex:0];
+    //NSLog(@"%@", documentsPath);
+    return [documentsPath stringByAppendingPathComponent:name];
+}
+
+- (NSDictionary *)buildParams {
+    typeID = @"2";
+    NSString * latitude = [NSString stringWithFormat:@"%f", _foundMap.userLocation.coordinate.latitude];
+    NSString * longitude = [NSString stringWithFormat:@"%f", _foundMap.userLocation.coordinate.longitude];
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+                            _petID, @"petID",
+                            fname, @"hashURL",
+                            _foundDate.text, @"date",
+                            latitude, @"latitude",
+                            longitude, @"longitude",
+                            _username , @"username",
+                            typeID, @"typeID",
+                            nil];
+    return params;
+}
+- (void)uploadPhoto:(UIImage*) image {
+    // Create request
+    NSURL *url = [NSURL URLWithString:@"https://csie.ntu.edu.tw/~r00944044/mpptmh/"];
     
     NSDate *currDate = [NSDate date];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
     [dateFormatter setDateFormat:@"dd.MM.YY HH:mm:ss"];
     NSString *dateString = [dateFormatter stringFromDate:currDate];
     
-    NSString *str =[NSString stringWithFormat:@"%@%@", owner, dateString];
+    fname = [NSString stringWithFormat:@"%@%@", _username, dateString];
+    fname = [[fname MD5] stringByAppendingString:@".jpg"];
     
-    str = [str MD5];
+    NSData *imageToUpload = UIImageJPEGRepresentation(image, 8);
+    AFHTTPClient *client= [AFHTTPClient clientWithBaseURL:url];
+    
+    NSMutableURLRequest *request = [client multipartFormRequestWithMethod:@"POST"
+                                                                     path:@"photoupload.php"
+                                                               parameters:nil
+                                                constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
+                                                    [formData appendPartWithFileData: imageToUpload
+                                                                                name:@"file"
+                                                                            fileName:fname
+                                                                            mimeType:@"image/jpeg"];
+                                                }];
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSString *response = [operation responseString];
+        NSLog(@"response: [%@]",response);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if([operation.response statusCode] == 403){
+            NSLog(@"Upload Failed");
+            return;
+        }
+        NSLog(@"error: %@", [operation error]);
+        
+    }];
+    
+    [operation start];
+}
+
+
+
+
+- (IBAction)submitForm:(id)sender{
+    
+    //[self savePhoto:_petProfilePic.image];
+    [self uploadPhoto:_petProfilePic.image];
+    
+    NSURL *url = [NSURL URLWithString:@"https://secret-temple-2872.herokuapp.com"];
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
+    NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST"
+                                                            path:@"api/FormUpload/index.php"
+                                                      parameters:[self buildParams]];
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        NSLog(@"JSON: %@", JSON);
+        NSLog(@"Response: %d", response.statusCode);
+        
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        NSLog(@"Error: %@ \nResponse: %d", error, response.statusCode);
+    }];
+    
+    [operation start];
+    
+    [self.navigationController popViewControllerAnimated:YES];
     
     
-    NSString *post = [NSString stringWithFormat:@"hashURL=%@ &condition=%d &typeID=%d &petID=%d &date=%@ &longitude=%f &latitude=%f",str, 1,typeID , petID, self.foundDate.text, self.foundMap.userLocation.coordinate.longitude, self.foundMap.userLocation.coordinate.latitude];
-    NSLog(@"%@", post);
-    
-	NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-	NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
-    
-	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-	[request setURL:[NSURL URLWithString:@"http://secret-temple-2872.herokuapp.com/api/FormUpload/"]];
-	[request setHTTPMethod:@"POST"];
-	[request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-	[request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-    
-	[request setHTTPBody:postData];
-    
-    self.tempData = [NSMutableData alloc];
-	connect = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    
-    
-    [self.datePicker removeFromSuperview];
-    [self.foundDate resignFirstResponder];
-    //[self.Email resignFirstResponder];
+//  NSString *post = [NSString stringWithFormat:@"hashURL=%@ &condition=%d &typeID=%d &petID=%d &date=%@ &longitude=%f &latitude=%f",str, 1,typeID , petID, self.foundDate.text, self.foundMap.userLocation.coordinate.longitude, self.foundMap.userLocation.coordinate.latitude];
+//    NSLog(@"%@", post);
+//    
+//	NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+//	NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+//    
+//	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+//	[request setURL:[NSURL URLWithString:@"http://secret-temple-2872.herokuapp.com/api/FormUpload/"]];
+//	[request setHTTPMethod:@"POST"];
+//	[request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+//	[request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+//    
+//	[request setHTTPBody:postData];
+//    
+//    self.tempData = [NSMutableData alloc];
+//	connect = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+//    
+//    
+//    [self.datePicker removeFromSuperview];
+//    [self.foundDate resignFirstResponder];
+//    //[self.Email resignFirstResponder];
     
 }
 

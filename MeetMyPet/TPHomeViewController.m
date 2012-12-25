@@ -74,7 +74,7 @@
                FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded ||
                FBSession.activeSession.state == FBSessionStateCreatedOpening) {
         [self populateUserDetails];
-        [self saveProfile];
+        
     } else {
         [self performSegueWithIdentifier:@"SegueToLogin" sender:self];
     }
@@ -102,6 +102,7 @@
              if (!error) {
                  self.user = userName;
                  self.lblName.text = userName.name;
+                 [self saveProfile];
                  [self openPhoto:@"profile_photo.jpg"];
              }
          }];
@@ -129,6 +130,11 @@
         
         [localProfilePlist setObject:[NSString stringWithFormat:@"%@", self.user.name] forKey:@"ownerName"];
         [localProfilePlist setObject:[NSString stringWithFormat:@"%@", self.user.id] forKey:@"petID"];
+        
+        NSLog(@"%@",self.user.name);
+        NSLog(@"%@",self.user.id);
+        
+         [localProfilePlist writeToFile:plistPath atomically:YES];
     }
     
 }

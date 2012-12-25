@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
+NSString *fname;
+
 @interface TPLostFormViewController : UITableViewController <UIActionSheetDelegate, MKMapViewDelegate,UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UIImageView *petProfilePic;
@@ -19,8 +21,9 @@
 @property (strong, nonatomic) IBOutlet MKMapView *lostMap;
 @property (strong, nonatomic) IBOutlet UITextField *lostDate;
 
-@property (strong, nonatomic) IBOutlet UILabel *ownerName;
+@property (strong, nonatomic) IBOutlet UILabel *username;
 @property (strong, nonatomic) IBOutlet UITextField *ownerEmail;
+@property (strong, nonatomic) NSString *petID;
 
 - (IBAction)cancelForm:(id)sender;
 - (IBAction)submitForm:(id)sender;
@@ -28,6 +31,10 @@
 - (IBAction)takePicture:(id)sender;
 
 - (IBAction)toolbarDone:(id)sender;
+
+
+- (NSString *)documentsPathForFileName:(NSString *)name;
+- (NSDictionary *)buildParams;
 
 
 @end

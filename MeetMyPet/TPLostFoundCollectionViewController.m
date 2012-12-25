@@ -42,6 +42,7 @@ static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
     UIImage *patternImage = [UIImage imageNamed:@"background.png"];
     self.collectionView.backgroundColor = [UIColor colorWithPatternImage:patternImage];
     
+    
     self.albums = [NSMutableArray array];
     
     NSURL *urlPrefix = [NSURL URLWithString:@"https://raw.github.com/johnny78716/TakeMeHome_Photos/master/pets/"];

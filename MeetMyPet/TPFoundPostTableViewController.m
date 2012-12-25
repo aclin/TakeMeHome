@@ -41,6 +41,8 @@ NSURLConnection *connect;
 
 - (void)viewDidAppear:(BOOL)animated{
     [self loadData];
+    UIImageView *boxBackView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]];
+    [self.tableView setBackgroundView:boxBackView];
 }
 
 - (void)didReceiveMemoryWarning

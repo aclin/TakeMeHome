@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 bool *photoChanged;
+NSString *fname;
 
 @interface TPEditProfileTableViewController : UITableViewController <UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
@@ -23,10 +24,12 @@ bool *photoChanged;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *petChip;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *petNeuSpay;
 @property (strong, nonatomic) IBOutlet UITextView *petVac;
-
+@property (strong, nonatomic) IBOutlet UILabel *username;
 @property (strong, nonatomic) IBOutlet UITextField *ownerEmail;
 @property (strong, nonatomic) IBOutlet UITextField *city;
 @property (strong, nonatomic) IBOutlet UITextField *country;
+
+@property (strong, nonatomic) NSString *petID;
 
 - (IBAction)saveProfile:(id)sender;
 - (IBAction)cancelForm:(id)sender;
