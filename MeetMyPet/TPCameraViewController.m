@@ -8,6 +8,8 @@
 
 #import "TPCameraViewController.h"
 #import "TPFoundFormViewController.h"
+#import "TPAdoptTableViewController.h"
+#import "TPLostFormViewController.h"
 
 @interface TPCameraViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate>
 
@@ -108,15 +110,29 @@
         
         [alert show];
     } else if (buttonIndex == 1) {
-        // Report found
-         //[self performSegueWithIdentifier:@"showFoundForm" sender:self];
-//         TPFoundFormViewController *foundFormViewController = [[TPFoundFormViewController alloc] initWithNibName:@"TPFoundFormViewController" bundle:nil];
-//        foundFormViewController.petProfilePic.image = _myImage.image;
-//         [self.navigationController pushViewController:foundFormViewController animated:YES];
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
+        TPLostFormViewController *lostFormViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"LostFormView"];
+        
+        lostFormViewController.image = _myImage.image;
+        lostFormViewController.test = @"1";
+        [self.navigationController pushViewController:lostFormViewController animated:YES];
+        
     } else if (buttonIndex == 2) {
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
+        TPFoundFormViewController *foundFormViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"FoundFormView"];
+        
+        foundFormViewController.image = _myImage.image;
+        foundFormViewController.test = @"2";
+        [self.navigationController pushViewController:foundFormViewController animated:YES];
         //
     } else if (buttonIndex == 3) {
-        //
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
+        TPAdoptTableViewController *adoptFormViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"AdoptFormView"];
+        
+        adoptFormViewController.image = _myImage.image;
+        adoptFormViewController.test = @"3";
+        [self.navigationController pushViewController:adoptFormViewController animated:YES];
+        
     } else {
         self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:0];
     }

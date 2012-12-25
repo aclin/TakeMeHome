@@ -41,6 +41,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    if(_test == @"1")
+        _petProfilePic.image = _image;
 	// Do any additional setup after loading the view.
     self.toolbar = [[NSBundle mainBundle] loadNibNamed:@"TPLostToolbar" owner:self options:nil][0];
     self.lostDate.inputAccessoryView = self.toolbar;

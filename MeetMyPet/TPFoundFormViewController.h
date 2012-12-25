@@ -12,6 +12,7 @@
 NSString *fname;
 @interface TPFoundFormViewController : UITableViewController <UIActionSheetDelegate, MKMapViewDelegate, UITextFieldDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
+@property (strong, nonatomic) IBOutlet UIImage *image;
 @property (strong, nonatomic) IBOutlet UIImageView *petProfilePic;
 @property (strong, nonatomic) IBOutlet UITextField *foundDate;
 @property (strong, nonatomic) IBOutlet MKMapView *foundMap;
@@ -20,6 +21,8 @@ NSString *fname;
 @property (strong, nonatomic) NSString *username;
 
 @property(strong,nonatomic)NSMutableData *tempData;
+
+@property(strong, nonatomic) NSString *test;
 
 - (IBAction)loadPhoto:(id)sender;
 - (IBAction)takePicture:(id)sender;

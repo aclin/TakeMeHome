@@ -48,6 +48,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    if(_test == @"2")
+        _petProfilePic.image = _image;
+    
     self.toolbar = [[NSBundle mainBundle] loadNibNamed:@"TPFoundToolbar" owner:self options:nil][0];
     self.foundDate.inputAccessoryView = self.toolbar;
     
