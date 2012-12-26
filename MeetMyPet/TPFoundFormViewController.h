@@ -36,5 +36,5 @@ NSString *fname;
 - (NSDictionary *)buildParams;
 
 - (IBAction)toolbarDone:(id)sender;
-//- (IBAction)toolbarClear:(id)sender;
+
 @end

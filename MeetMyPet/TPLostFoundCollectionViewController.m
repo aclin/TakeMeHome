@@ -177,7 +177,7 @@ static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
     //NSLog(@"ID: %d", cell.tag);
     [self performSegueWithIdentifier:@"showFoundPost" sender:cell];
-    //NSLog(@"row %@ pressed", indexPath);
+    NSLog(@"row %@ pressed", indexPath);
 }
 
 @end

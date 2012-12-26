@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 NSString *fname;
-@interface TPAdoptTableViewController : UITableViewController <UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface TPAdoptTableViewController : UITableViewController <UIActionSheetDelegate, UINavigationControllerDelegate, UITextFieldDelegate,UIImagePickerControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UIImage *image;
 @property(strong, nonatomic) NSString *test;
@@ -28,8 +28,9 @@ NSString *fname;
 @property (strong, nonatomic) IBOutlet UITextField *country;
 @property (strong, nonatomic) NSString *usingProfile;
 @property (strong, nonatomic) NSString *petID;
+@property (strong, nonatomic) IBOutlet UITextField *date;
 
-
+- (void)pickDate;
 - (id)initWithProfile:(BOOL)useProfile;
 - (IBAction)loadPhoto:(id)sender;
 - (IBAction)cancelForm:(id)sender;
@@ -38,6 +39,6 @@ NSString *fname;
 - (NSString *)documentsPathForFileName:(NSString *)name;
 - (IBAction)submitForm:(id)sender;
 - (NSDictionary *)buildParams;
-
+- (IBAction)toolbarDone:(id)sender;
 
 @end

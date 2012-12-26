@@ -7,12 +7,47 @@
 //
 
 #import "TPFeedTableViewController.h"
+#import "AFHTTPClient.h"
+#import "AFHTTPRequestOperation.h"
+#import "AFJSONRequestOperation.h"
+#import "TPFeedTableCell.h"
+#import "UIImageView+AFNetworking.h"
+#import "TPAdoptPostTableViewController.h"
+#import "TPLostPostTableViewController.h"
+#import "TPFoundPostTableViewController.h"
+
+
+// Dictionary Keys
+NSString *const FeedDictKeyCity = @"City";
+NSString *const FeedDictKeyCountry = @"Country";
+NSString *const FeedDictKeyEmail = @"Email";
+NSString *const FeedDictKeyDate = @"Date";
+NSString *const FeedDictKeyPostID = @"ID";
+NSString *const FeedDictKeyImageName = @"ImageName";
+NSString *const FeedDictKeyPetAge = @"PetAge";
+NSString *const FeedDictKeyPetBreed = @"PetBreed";
+NSString *const FeedDictKeyPetChar = @"PetChar";
+NSString *const FeedDictKeyPetChip = @"PetChip";
+NSString *const FeedDictKeyPetGender = @"PetGender";
+NSString *const FeedDictKeyPetName = @"PetName";
+NSString *const FeedDictKeyPetNeuSpay = @"PetNeuSpay";
+NSString *const FeedDictKeyPetVac = @"PetVac";
+NSString *const FeedDictKeyPetinfoID = @"PetinfoID";
+NSString *const FeedDictKeyPhotoID = @"PhotoID";
+NSString *const FeedDictKeyTypeID = @"Type";
+NSString *const FeedDictKeyType = @"TypeName";
+NSString *const FeedDictKeyUserName = @"UserName";
+
+//Map Dictionary Keys
+NSString *const FeedDictKeyLongitude=@"Longitude";
+NSString *const FeedDictKeyLatitude=@"Latitude";
 
 @interface TPFeedTableViewController ()
 
 @end
 
 @implementation TPFeedTableViewController
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -27,12 +62,22 @@
 {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
+    NSArray *plistPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *plistDocumentsDirectory = [plistPaths objectAtIndex:0];
+    
+    NSString *plistPath = [plistDocumentsDirectory stringByAppendingPathComponent:@"local_profile.plist"];
+    NSFileManager *plistFileMgr = [NSFileManager defaultManager];
+    if ([plistFileMgr fileExistsAtPath:plistPath]) {
+        NSMutableDictionary *savedPlist = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+        _petID = [savedPlist valueForKey:@"petID"];
+        NSLog(@"PetID: %@",_petID);
+    } else {
+        NSLog(@"local_profile.plist does not exist");
+    }
+    
+    [self loadPosts];
+    
+    }
 
 - (void)didReceiveMemoryWarning
 {
@@ -40,80 +85,121 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
+-(void)loadPosts{
+    
+    NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
+                           _petID, @"petID", //Lost
+                           nil];
+    NSURL *url = [NSURL URLWithString:@"https://secret-temple-2872.herokuapp.com"];
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
+    NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST"
+                                                            path:@"/api/UserPost/"
+                                                      parameters:param];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        NSArray *entries = [NSArray arrayWithArray:JSON];
+        _myPosts = entries;
+        NSLog(@"Entry count: %d", _myPosts.count);
+        
+        for(NSDictionary *entry in entries) {
+            NSLog(@"Entry: %@", entry);
+        }
+        
+        [self performSelector:@selector(reloadTable:) withObject:self];
+        
+    } failure:^( NSURLRequest *request , NSHTTPURLResponse *response , NSError *error , id JSON ){
+        NSLog(@"%@", [NSString stringWithFormat:@"%@", error]);}];
+    [operation start];
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
-    return 0;
+    [self.tableView reloadData];
 }
+
+-(void)reloadTable:(id)sender
+{
+    [self.tableView reloadData];
+}
+
+-(IBAction)reload:(id)sender
+{
+    [self loadPosts];
+}
+
+#pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    return 0;
+    //NSLog(@"Entry count for row creation: %d", _myPosts.count);
+    return [_myPosts count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    NSUInteger row = indexPath.row;
     
-    // Configure the cell...
+    _date= [ _myPosts[row] valueForKeyPath:FeedDictKeyDate];
+    _type = [ _myPosts[row] valueForKeyPath:FeedDictKeyType];
+    _imageName = [ _myPosts[row] valueForKeyPath:FeedDictKeyImageName];
     
+    TPFeedTableCell *feedCell = (TPFeedTableCell *)cell;
+    feedCell.dateOfPosts.text = _date;
+    feedCell.typeOfPosts.text = _type;
+    NSString *imageURL = [NSString stringWithFormat:@"http://www.csie.ntu.edu.tw/~r00944044/mpptmh/tmhphotos/%@" ,  _imageName];
+    [feedCell.feedImage setImageWithURL:[NSURL URLWithString:imageURL]];    
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-#pragma mark - Table view delegate
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    
+    NSUInteger row = indexPath.row;
+    
+    NSDictionary *entry = _myPosts[row];
+    _type = [entry objectForKey:FeedDictKeyType];
+    NSLog(@" TYPE1: %@", _type);
+    
+    if ([_type isEqualToString:@"Lost"])
+        [self performSegueWithIdentifier:@"showUserLostPost" sender:self];
+    else if ([_type isEqualToString:@"Found"])
+        [self performSegueWithIdentifier:@"showUserFoundPost" sender:self];
+    else if ([_type isEqualToString:@"Adopt"])
+        [self performSegueWithIdentifier:@"showUserAdoptPost" sender:self];
+    
+    
+    
 }
+
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    NSUInteger row = indexPath.row;
+    
+    NSDictionary *entry = _myPosts[row];
+    _type = [entry objectForKey:FeedDictKeyType];
+    NSLog(@" TYPE2: %@", _type);
+    if ([segue.identifier isEqualToString:@"showUserAdoptPost"]) {
+        
+        TPAdoptPostTableViewController *detailPage = segue.destinationViewController;
+        detailPage.adoptPost = _myPosts[row];
+    }
+    
+    if ([segue.identifier isEqualToString:@"showUserLostPost"]) {
+        
+        TPLostPostTableViewController *detailPage = segue.destinationViewController;
+        detailPage.lostData = _myPosts[row];
+    }
+    
+    if ([segue.identifier isEqualToString:@"showUserFoundPost"]) {
+        
+        TPFoundPostTableViewController *detailPage = segue.destinationViewController;
+        detailPage.foundData = _myPosts[row];
+    }
+    
+    
+}
+
 
 @end

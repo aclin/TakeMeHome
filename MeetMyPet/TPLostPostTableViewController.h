@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "TPLocation.h"
 
-@interface TPLostPostTableViewController : UITableViewController
+@interface TPLostPostTableViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource,MKMapViewDelegate, CLLocationManagerDelegate, MKAnnotation>
+
+@property (strong, nonatomic) NSDictionary *lostData;
 @property (strong, nonatomic) IBOutlet UIImageView *petProfilePic;
 @property (strong, nonatomic) IBOutlet UILabel *petName;
 @property (strong, nonatomic) IBOutlet UILabel *petBreed;

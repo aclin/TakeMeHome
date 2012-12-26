@@ -75,6 +75,12 @@
 		ED7607C816895DD6002939D3 /* bottomfocus.png in Resources */ = {isa = PBXBuildFile; fileRef = ED7607C616895DD6002939D3 /* bottomfocus.png */; };
 		ED7607C916895DD6002939D3 /* tabbg2.png in Resources */ = {isa = PBXBuildFile; fileRef = ED7607C716895DD6002939D3 /* tabbg2.png */; };
 		ED7607D11689DF45002939D3 /* mask.png in Resources */ = {isa = PBXBuildFile; fileRef = ED7607D01689DF45002939D3 /* mask.png */; };
+		ED7607E3168A0600002939D3 /* ipad-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = ED7607E2168A05FF002939D3 /* ipad-arrow.png */; };
+		ED760811168AA70F002939D3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED760810168AA70E002939D3 /* CoreLocation.framework */; };
+		ED760821168AF427002939D3 /* TPAdoptToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED760820168AF427002939D3 /* TPAdoptToolbar.xib */; };
+		ED760829168B076C002939D3 /* TPAdoptPostTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED760828168B076C002939D3 /* TPAdoptPostTableViewController.m */; };
+		EDF8888F168B64A100F66C21 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = EDF8888E168B64A100F66C21 /* 1.png */; };
+		EDF88894168B6E8400F66C21 /* TPLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF88893168B6E8400F66C21 /* TPLocation.m */; };
 		F4A943D9167EEEF500020104 /* BHAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A943D6167EEEF500020104 /* BHAlbum.m */; };
 		F4A943DA167EEEF500020104 /* BHPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A943D8167EEEF500020104 /* BHPhoto.m */; };
 		F4A943E6167EEF8200020104 /* BHAlbumPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A943DD167EEF8200020104 /* BHAlbumPhotoCell.m */; };
@@ -189,6 +195,14 @@
 		ED7607C616895DD6002939D3 /* bottomfocus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottomfocus.png; sourceTree = "<group>"; };
 		ED7607C716895DD6002939D3 /* tabbg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbg2.png; sourceTree = "<group>"; };
 		ED7607D01689DF45002939D3 /* mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mask.png; sourceTree = "<group>"; };
+		ED7607E2168A05FF002939D3 /* ipad-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-arrow.png"; sourceTree = "<group>"; };
+		ED760810168AA70E002939D3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		ED760820168AF427002939D3 /* TPAdoptToolbar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPAdoptToolbar.xib; sourceTree = "<group>"; };
+		ED760827168B076C002939D3 /* TPAdoptPostTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPAdoptPostTableViewController.h; sourceTree = "<group>"; };
+		ED760828168B076C002939D3 /* TPAdoptPostTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPAdoptPostTableViewController.m; sourceTree = "<group>"; };
+		EDF8888E168B64A100F66C21 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		EDF88892168B6E8400F66C21 /* TPLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPLocation.h; sourceTree = "<group>"; };
+		EDF88893168B6E8400F66C21 /* TPLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPLocation.m; sourceTree = "<group>"; };
 		F4A943D5167EEEF500020104 /* BHAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHAlbum.h; sourceTree = "<group>"; };
 		F4A943D6167EEEF500020104 /* BHAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHAlbum.m; sourceTree = "<group>"; };
 		F4A943D7167EEEF500020104 /* BHPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHPhoto.h; sourceTree = "<group>"; };
@@ -245,6 +259,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED760811168AA70F002939D3 /* CoreLocation.framework in Frameworks */,
 				F4A943EE167EF1F800020104 /* QuartzCore.framework in Frameworks */,
 				9DA16492167A2B60003CE8FF /* AdSupport.framework in Frameworks */,
 				9DA16488167A202A003CE8FF /* Social.framework in Frameworks */,
@@ -264,6 +279,7 @@
 		9D0DFAC4166E140F00431132 = {
 			isa = PBXGroup;
 			children = (
+				ED760810168AA70E002939D3 /* CoreLocation.framework */,
 				ED7607BC16894760002939D3 /* Default-568h@2x.png */,
 				F4B46DB316828F9A0001082D /* AFNetworking */,
 				9D0DFAD9166E140F00431132 /* MeetMyPet */,
@@ -359,6 +375,8 @@
 		9DA16478167A1B9C003CE8FF /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				EDF8888E168B64A100F66C21 /* 1.png */,
+				ED7607E2168A05FF002939D3 /* ipad-arrow.png */,
 				ED76079C1688DA5D002939D3 /* menubar.png */,
 				ED7607D01689DF45002939D3 /* mask.png */,
 				ED76079D1688DA5D002939D3 /* menubar@2x.png */,
@@ -444,6 +462,7 @@
 		9DDD029D166F268600F6FE1B /* Home View */ = {
 			isa = PBXGroup;
 			children = (
+				EDF88891168B6E6800F66C21 /* Annotation */,
 				F4B46D9D168263D50001082D /* MD5 */,
 				F4A943DB167EEEF900020104 /* View */,
 				F4A943D4167EEEC900020104 /* Model */,
@@ -459,6 +478,7 @@
 		ED257000167EEC1E00163A54 /* Adopt Collection View */ = {
 			isa = PBXGroup;
 			children = (
+				ED760826168B0724002939D3 /* Adopt Posts */,
 				ED257005167EEC8200163A54 /* Adopt Forms */,
 				ED25700E167EF4E900163A54 /* TPAdoptCollectionViewController.h */,
 				ED25700F167EF4E900163A54 /* TPAdoptCollectionViewController.m */,
@@ -470,6 +490,7 @@
 			isa = PBXGroup;
 			children = (
 				ED257006167EECBB00163A54 /* TPAdoptTableViewController.h */,
+				ED760820168AF427002939D3 /* TPAdoptToolbar.xib */,
 				ED257007167EECBB00163A54 /* TPAdoptTableViewController.m */,
 			);
 			name = "Adopt Forms";
@@ -482,6 +503,24 @@
 				ED28E278167AD4450054BEF3 /* TPEditProfileTableViewController.m */,
 			);
 			name = "Edit Profile";
+			sourceTree = "<group>";
+		};
+		ED760826168B0724002939D3 /* Adopt Posts */ = {
+			isa = PBXGroup;
+			children = (
+				ED760827168B076C002939D3 /* TPAdoptPostTableViewController.h */,
+				ED760828168B076C002939D3 /* TPAdoptPostTableViewController.m */,
+			);
+			name = "Adopt Posts";
+			sourceTree = "<group>";
+		};
+		EDF88891168B6E6800F66C21 /* Annotation */ = {
+			isa = PBXGroup;
+			children = (
+				EDF88892168B6E8400F66C21 /* TPLocation.h */,
+				EDF88893168B6E8400F66C21 /* TPLocation.m */,
+			);
+			name = Annotation;
 			sourceTree = "<group>";
 		};
 		F4A943D4167EEEC900020104 /* Model */ = {
@@ -662,6 +701,9 @@
 				ED7607C816895DD6002939D3 /* bottomfocus.png in Resources */,
 				ED7607C916895DD6002939D3 /* tabbg2.png in Resources */,
 				ED7607D11689DF45002939D3 /* mask.png in Resources */,
+				ED7607E3168A0600002939D3 /* ipad-arrow.png in Resources */,
+				ED760821168AF427002939D3 /* TPAdoptToolbar.xib in Resources */,
+				EDF8888F168B64A100F66C21 /* 1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -707,6 +749,8 @@
 				F4B46DCD16828F9B0001082D /* AFURLConnectionOperation.m in Sources */,
 				F4B46DCE16828F9B0001082D /* AFXMLRequestOperation.m in Sources */,
 				F4B46DCF16828F9B0001082D /* UIImageView+AFNetworking.m in Sources */,
+				ED760829168B076C002939D3 /* TPAdoptPostTableViewController.m in Sources */,
+				EDF88894168B6E8400F66C21 /* TPLocation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

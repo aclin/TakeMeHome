@@ -10,4 +10,9 @@
 
 @interface TPFeedTableCell : UITableViewCell
 
+
+@property (strong, nonatomic) IBOutlet UIImageView *feedImage;
+@property (strong, nonatomic) IBOutlet UILabel *dateOfPosts;
+@property (strong, nonatomic) IBOutlet UILabel *typeOfPosts;
+
 @end

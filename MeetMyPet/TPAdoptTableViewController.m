@@ -20,6 +20,9 @@
     NSString * typeID;
 }
 
+@property (strong, nonatomic) UIDatePicker *datePicker;
+@property(strong, nonatomic) UIToolbar *toolbar;
+
 @end
 
 @implementation TPAdoptTableViewController
@@ -38,21 +41,35 @@
     [super viewDidLoad];
     if(_test == @"3")
         _petProfilePic.image = _image;
+    
+    self.toolbar = [[NSBundle mainBundle] loadNibNamed:@"TPFoundToolbar" owner:self options:nil][0];
+    self.date.inputAccessoryView = self.toolbar;
+    
+    self.datePicker = [[UIDatePicker alloc] init];
+    self.date.inputView = self.datePicker;
+    
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+	df.dateStyle = NSDateFormatterMediumStyle;
+	self.date.text = [NSString stringWithFormat:@"%@",
+                           [df stringFromDate:[NSDate date]]];
+    
+    
+    
+	self.datePicker.datePickerMode = UIDatePickerModeDate;
+	self.datePicker.hidden = NO;
+	self.datePicker.date = [NSDate date];
+    
+    
+	[self.datePicker addTarget:self
+                        action:@selector(pickDate:)
+              forControlEvents:UIControlEventValueChanged];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(loadPhoto:)];
     [_petProfilePic addGestureRecognizer:tap];
     [_petProfilePic setUserInteractionEnabled:YES];
-    
-    //_usingProfile = FALSE;
-    
-//    UIImage *patternImage = [UIImage imageNamed:@"background.png"];
-//    self.navigationController.view.backgroundColor = [UIColor colorWithPatternImage:patternImage];
+
     
     UIImageView *boxBackView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]];
     [self.tableView setBackgroundView:boxBackView];
@@ -99,6 +116,48 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    self.toolbar = [[NSBundle mainBundle] loadNibNamed:@"TPAdoptToolbar" owner:self options:nil][0];
+    self.date.inputAccessoryView = self.toolbar;
+    self.datePicker = [[UIDatePicker alloc] init];
+    self.date.inputView = self.datePicker;
+    
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+	df.dateStyle = NSDateFormatterMediumStyle;
+	self.date.text = [NSString stringWithFormat:@"%@",
+                           [df stringFromDate:[NSDate date]]];
+    
+    
+    
+	self.datePicker.datePickerMode = UIDatePickerModeDate;
+	self.datePicker.hidden = NO;
+	self.datePicker.date = [NSDate date];
+    
+    
+	[self.datePicker addTarget:self
+                        action:@selector(pickDate:)
+              forControlEvents:UIControlEventValueChanged];
+}
+
+
+
+- (void)pickDate:(UIDatePicker *)sender {
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+   	df.dateStyle = NSDateFormatterMediumStyle;
+	self.date.text = [NSString stringWithFormat:@"%@",
+                           [df stringFromDate:self.datePicker.date]];
+    
+}
+
+- (IBAction)toolbarDone:(id)sender{
+    self.datePicker.hidden = YES;
+    self.toolbar.hidden = YES;
+    [self.date resignFirstResponder];
+    
+}
+
+
 
 
 - (void)loadProfile {
@@ -291,6 +350,7 @@
                             _city.text, @"city",
                             _country.text , @"country",
                             _ownerName.text , @"username",
+                            _date.text , @"date",
                             nil];
     return params;
 }

@@ -82,8 +82,6 @@
     [_petProfilePic addGestureRecognizer:tap];
     [_petProfilePic setUserInteractionEnabled:YES];
     
-//    UIImage *patternImage = [UIImage imageNamed:@"background.png"];
-//    self.navigationController.view.backgroundColor = [UIColor colorWithPatternImage:patternImage];
     
     UIImageView *boxBackView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]];
     [self.tableView setBackgroundView:boxBackView];
