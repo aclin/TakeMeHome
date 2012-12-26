@@ -13,11 +13,17 @@
 #import "BHAlbum.h"
 #import "BHPhoto.h"
 #import "BHAlbumTitleReusableView.h"
+#import "AFHTTPClient.h"
+#import "AFHTTPRequestOperation.h"
+#import "AFJSONRequestOperation.h"
+#import "TPAdoptTableViewController.h"
 
 static NSString * const PhotoCellIdentifier = @"PhotoCell";
 static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
 
-@interface TPAdoptCollectionViewController ()
+@interface TPAdoptCollectionViewController (){
+    NSArray *feedEntries;
+}
 
 @property (nonatomic, strong) NSMutableArray *albums;
 @property (nonatomic, weak) BHPhotoAlbumLayout *photoAlbumLayout;
@@ -40,32 +46,15 @@ static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
 {
     [super viewDidLoad];
     
+    // Refresher
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(loadImages:)
+             forControlEvents:UIControlEventValueChanged];
+    [self.collectionView addSubview:refreshControl];
+    
     UIImage *patternImage = [UIImage imageNamed:@"background.png"];
     self.collectionView.backgroundColor = [UIColor colorWithPatternImage:patternImage];
-    
-    self.albums = [NSMutableArray array];
-    
-    NSURL *urlPrefix = [NSURL URLWithString:@"https://raw.github.com/johnny78716/TakeMeHome_Photos/master/pets/"];
-	
-    NSInteger photoIndex = 0;
-    
-    for (NSInteger a = 0; a < 12; a++) {
-        BHAlbum *album = [[BHAlbum alloc] init];
-        //album.name = [NSString stringWithFormat:@"Photo Album %d",a + 1];
-        
-        NSUInteger photoCount = 2; //arc4random()%4 + 2;
-        for (NSInteger p = 0; p < photoCount; p++) {
-            // there are up to 25 photos available to load from the code repository
-            NSString *photoFilename = [NSString stringWithFormat:@"thumbnail%d.jpg",photoIndex % 25];
-            NSURL *photoURL = [urlPrefix URLByAppendingPathComponent:photoFilename];
-            BHPhoto *photo = [BHPhoto photoWithImageURL:photoURL];
-            [album addPhoto:photo];
-            
-            photoIndex++;
-        }
-        
-        [self.albums addObject:album];
-    }
+    [self loadFeeds];
     
     [self.collectionView registerClass:[BHAlbumPhotoCell class]
             forCellWithReuseIdentifier:PhotoCellIdentifier];
@@ -75,6 +64,36 @@ static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
     
     self.thumbnailQueue = [[NSOperationQueue alloc] init];
     self.thumbnailQueue.maxConcurrentOperationCount = 3;
+}
+
+- (IBAction)loadImages:(id)sender{
+    self.albums = [NSMutableArray array];
+    
+    NSURL *urlPrefix = [NSURL URLWithString:@"http://www.csie.ntu.edu.tw/~r00944044/mpptmh/tmhphotos/"];
+	
+    NSInteger photoIndex = 0;
+    NSInteger entryCount = [feedEntries count];
+    NSLog(@"Entry count: %d", entryCount);
+    
+    for (NSInteger a = 0; a < entryCount; a++) {
+        BHAlbum *album = [[BHAlbum alloc] init];
+        
+        NSDictionary *entry = feedEntries[a];
+        NSString *type = [entry objectForKey:@"Type"];
+        
+        NSUInteger photoCount = 2;
+        for (NSInteger p = 0; p < photoCount; p++) {
+            NSString *photoFilename = [NSString stringWithFormat:@"%@", [entry objectForKey:@"ImageName"]];
+            NSURL *photoURL = [urlPrefix URLByAppendingPathComponent:photoFilename];
+            BHPhoto *photo = [BHPhoto photoWithImageURL:photoURL];
+            [album addPhoto:photo];
+            
+            photoIndex++;
+        }
+        
+        [self.albums addObject:album];
+    }
+    [self.collectionView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -175,12 +194,85 @@ static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
     }
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+
+    NSLog(@"Data: %@", feedEntries[indexPath.section]);
+    
+    //[self performSegueWithIdentifier:@"showUserAdoptPost" sender:cell];
+}
+
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    NSArray *indexPaths = [self.collectionView indexPathsForSelectedItems];
+    NSIndexPath *index = [indexPaths lastObject];
+    
     if ([segue.identifier isEqualToString:@"showAdoptForm"]){
         TPAdoptTableViewController *adoptFormViewController = segue.destinationViewController;
         adoptFormViewController.usingProfile = *(&(useProfile));
     }
+    
+        if ([segue.identifier isEqualToString:@"showUserAdoptPost"]) {
+    
+//            TPAdoptPostTableViewController *detailPage = segue.destinationViewController;
+//            detailPage.data = feedEntries[index.section];
+        }
+
 }
+
+- (void)loadFeeds{
+    
+    
+    NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
+                           @"3", @"typeID", //Lost
+                           nil];
+    NSURL *url = [NSURL URLWithString:@"https://secret-temple-2872.herokuapp.com"];
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
+    NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST"
+                                                            path:@"/api/FeedDownload/"
+                                                      parameters:param];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        
+        // - Example Entry -
+        //        City = Taipei;
+        //        Country = Taipei;
+        //        Date = "Dec 23, 2012";
+        //        Email = "r2034kimo@hotmail.com";        //        ID = 221;
+        //        ImageName = "c0da5941d13c788a674db1680c8beba8.jpg";
+        //        Latitude = "5.90033";
+        //        Longitude = "-2.39499";
+        //        PetAge = 3;
+        //        PetBreed = Mixed;
+        //        PetChar = fat;
+        //        PetChip = 1;
+        //        PetGender = Female;
+        //        PetName = Dot;
+        //        PetNeuSpay = 1;
+        //        PetVac = Rabies;
+        //        PetinfoID = 41;
+        //        PhotoID = 541;
+        //        Type = 1;
+        //        UserName = "<null>";
+        //        petName = Dot;
+        
+        NSArray *entries = [NSArray arrayWithArray:JSON];
+        feedEntries = entries;
+        
+        
+        
+        for(NSDictionary *entry in entries) {
+            NSLog(@"Entry: %@", entry);
+        }
+        
+        [self performSelector:@selector(loadImages:) withObject:self];
+        
+    } failure:^( NSURLRequest *request , NSHTTPURLResponse *response , NSError *error , id JSON ){
+        NSLog(@"%@", [NSString stringWithFormat:@"%@", error]);}];
+    [operation start];
+    
+}
+
 
 
 @end

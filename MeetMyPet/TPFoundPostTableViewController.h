@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import "TPPlist.h"
+#import "TPLocation.h"
 
-@interface TPFoundPostTableViewController : UITableViewController
+@interface TPFoundPostTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UIImageView *petProfilePic;
 @property (strong, nonatomic) IBOutlet UILabel *dateFound;
 @property (strong, nonatomic) IBOutlet MKMapView *map;
 
+@property (strong, nonatomic) NSDictionary *data;
 @property(strong,nonatomic)NSMutableData *tempData;
 @end

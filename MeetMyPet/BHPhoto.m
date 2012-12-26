@@ -7,7 +7,7 @@
 //
 
 #import "BHPhoto.h"
-
+#import "UIImageView+AFNetworking.h"
 @interface BHPhoto ()
 
 @property (nonatomic, strong, readwrite) NSURL *imageURL;
