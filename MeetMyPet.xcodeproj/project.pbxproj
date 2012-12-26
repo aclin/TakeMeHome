@@ -299,6 +299,7 @@
 		9D0DFAD2166E140F00431132 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F4A7FB4E168B43C90033268A /* CoreLocation.framework */,
 				F4A943ED167EF1F800020104 /* QuartzCore.framework */,
 				9DA16491167A2B60003CE8FF /* AdSupport.framework */,
 				9DA1648B167A217B003CE8FF /* FacebookSDKResources.bundle */,
@@ -378,7 +379,6 @@
 				EDF8888E168B64A100F66C21 /* 1.png */,
 				ED7607E2168A05FF002939D3 /* ipad-arrow.png */,
 				ED76079C1688DA5D002939D3 /* menubar.png */,
-				ED7607D01689DF45002939D3 /* mask.png */,
 				ED76079D1688DA5D002939D3 /* menubar@2x.png */,
 				ED7607971688D751002939D3 /* button.png */,
 				ED7607981688D751002939D3 /* button@2x.png */,
@@ -462,7 +462,7 @@
 		9DDD029D166F268600F6FE1B /* Home View */ = {
 			isa = PBXGroup;
 			children = (
-				EDF88891168B6E6800F66C21 /* Annotation */,
+				F4A7FB5A168B760A0033268A /* Annotation */,
 				F4B46D9D168263D50001082D /* MD5 */,
 				F4A943DB167EEEF900020104 /* View */,
 				F4A943D4167EEEC900020104 /* Model */,

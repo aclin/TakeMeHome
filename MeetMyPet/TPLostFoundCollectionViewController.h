@@ -14,5 +14,6 @@
 @interface TPLostFoundCollectionViewController : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegate, UIActionSheetDelegate>
 
 - (IBAction)createReport:(id)sender;
+- (void)loadFeeds;
 
 @end

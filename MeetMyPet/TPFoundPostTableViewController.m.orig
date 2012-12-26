@@ -67,6 +67,11 @@ NSURLConnection *connect;
     CLLocationDegrees lat = [[_data objectForKey:@"Latitude"] doubleValue];
     CLLocationDegrees lng = [[_data objectForKey:@"Longitude"] doubleValue];
     
+<<<<<<< HEAD
+    NSLog(@"%@", loadData);
+}
+
+=======
     
     NSString *name = @"Last Seen";
     TPLocation *loc = [[TPLocation alloc] initWithName:name coordinate:CLLocationCoordinate2DMake(lat, lng)];
@@ -78,5 +83,6 @@ NSURLConnection *connect;
     [self.map setCenterCoordinate:taipeiCityCoord];
     [self.map setRegion:taipeiCityRegion animated:YES];
 }
+>>>>>>> prototype1.1.2-Johnny
 
 @end

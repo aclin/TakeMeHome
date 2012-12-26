@@ -11,7 +11,13 @@
 #import "TPPlist.h"
 #import "TPLocation.h"
 
+<<<<<<< HEAD
+@interface TPFoundPostTableViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource>
+
+@property (strong, nonatomic) NSDictionary *foundData;
+=======
 @interface TPFoundPostTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
+>>>>>>> prototype1.1.2-Johnny
 @property (strong, nonatomic) IBOutlet UIImageView *petProfilePic;
 @property (strong, nonatomic) IBOutlet UILabel *dateFound;
 @property (strong, nonatomic) IBOutlet MKMapView *map;
