@@ -1,16 +1,14 @@
 //
-//  TPLocation.m
+//  TPAnnotation.m
 //  MeetMyPet
 //
-//  Created by Evelyn on 12/27/12.
-//  Copyright (c) 2012 aclin. All rights reserved.
+//  Created by Allan on 12/12/27.
+//  Copyright (c) 2012年 aclin. All rights reserved.
 //
 
-#import "TPLocation.h"
+#import "TPAnnotation.h"
 
-
-@implementation TPLocation
-
+@implementation TPAnnotation
 
 - (id)initWithName:(NSString *)name coordinate:(CLLocationCoordinate2D)coord {
     if (self = [super init]) {

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import "TPPlist.h"
-#import "TPLocation.h"
+#import "TPAnnotation.h"
 
 @interface TPFoundPostTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UIImageView *petProfilePic;

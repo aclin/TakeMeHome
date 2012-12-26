@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-#import "TPLocation.h"
+#import "TPAnnotation.h"
 
 @interface TPLostPostTableViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource,MKMapViewDelegate, CLLocationManagerDelegate, MKAnnotation>
 

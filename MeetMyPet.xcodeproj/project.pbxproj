@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9D09EA0816727A4300AF676E /* TPLostFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D09EA0716727A4300AF676E /* TPLostFormViewController.m */; };
+		9D0A506B168B973200DF0AA8 /* TPAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0A506A168B973200DF0AA8 /* TPAnnotation.m */; };
 		9D0DFAD4166E140F00431132 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D0DFAD3166E140F00431132 /* UIKit.framework */; };
 		9D0DFAD6166E140F00431132 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D0DFAD5166E140F00431132 /* Foundation.framework */; };
 		9D0DFAD8166E140F00431132 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D0DFAD7166E140F00431132 /* CoreGraphics.framework */; };
@@ -80,7 +81,6 @@
 		ED760821168AF427002939D3 /* TPAdoptToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED760820168AF427002939D3 /* TPAdoptToolbar.xib */; };
 		ED760829168B076C002939D3 /* TPAdoptPostTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED760828168B076C002939D3 /* TPAdoptPostTableViewController.m */; };
 		EDF8888F168B64A100F66C21 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = EDF8888E168B64A100F66C21 /* 1.png */; };
-		EDF88894168B6E8400F66C21 /* TPLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF88893168B6E8400F66C21 /* TPLocation.m */; };
 		F4A943D9167EEEF500020104 /* BHAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A943D6167EEEF500020104 /* BHAlbum.m */; };
 		F4A943DA167EEEF500020104 /* BHPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A943D8167EEEF500020104 /* BHPhoto.m */; };
 		F4A943E6167EEF8200020104 /* BHAlbumPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A943DD167EEF8200020104 /* BHAlbumPhotoCell.m */; };
@@ -113,6 +113,8 @@
 /* Begin PBXFileReference section */
 		9D09EA0616727A4300AF676E /* TPLostFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPLostFormViewController.h; sourceTree = "<group>"; };
 		9D09EA0716727A4300AF676E /* TPLostFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPLostFormViewController.m; sourceTree = "<group>"; };
+		9D0A5069168B973200DF0AA8 /* TPAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPAnnotation.h; sourceTree = "<group>"; };
+		9D0A506A168B973200DF0AA8 /* TPAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPAnnotation.m; sourceTree = "<group>"; };
 		9D0DFACF166E140F00431132 /* MeetMyPet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetMyPet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D0DFAD3166E140F00431132 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9D0DFAD5166E140F00431132 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -201,8 +203,6 @@
 		ED760827168B076C002939D3 /* TPAdoptPostTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPAdoptPostTableViewController.h; sourceTree = "<group>"; };
 		ED760828168B076C002939D3 /* TPAdoptPostTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPAdoptPostTableViewController.m; sourceTree = "<group>"; };
 		EDF8888E168B64A100F66C21 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
-		EDF88892168B6E8400F66C21 /* TPLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPLocation.h; sourceTree = "<group>"; };
-		EDF88893168B6E8400F66C21 /* TPLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPLocation.m; sourceTree = "<group>"; };
 		F4A943D5167EEEF500020104 /* BHAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHAlbum.h; sourceTree = "<group>"; };
 		F4A943D6167EEEF500020104 /* BHAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHAlbum.m; sourceTree = "<group>"; };
 		F4A943D7167EEEF500020104 /* BHPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHPhoto.h; sourceTree = "<group>"; };
@@ -276,10 +276,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9D0A5067168B971300DF0AA8 /* Annotation */ = {
+			isa = PBXGroup;
+			children = (
+				9D0A5069168B973200DF0AA8 /* TPAnnotation.h */,
+				9D0A506A168B973200DF0AA8 /* TPAnnotation.m */,
+			);
+			name = Annotation;
+			sourceTree = "<group>";
+		};
 		9D0DFAC4166E140F00431132 = {
 			isa = PBXGroup;
 			children = (
-				ED760810168AA70E002939D3 /* CoreLocation.framework */,
 				ED7607BC16894760002939D3 /* Default-568h@2x.png */,
 				F4B46DB316828F9A0001082D /* AFNetworking */,
 				9D0DFAD9166E140F00431132 /* MeetMyPet */,
@@ -299,7 +307,7 @@
 		9D0DFAD2166E140F00431132 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F4A7FB4E168B43C90033268A /* CoreLocation.framework */,
+				ED760810168AA70E002939D3 /* CoreLocation.framework */,
 				F4A943ED167EF1F800020104 /* QuartzCore.framework */,
 				9DA16491167A2B60003CE8FF /* AdSupport.framework */,
 				9DA1648B167A217B003CE8FF /* FacebookSDKResources.bundle */,
@@ -462,7 +470,7 @@
 		9DDD029D166F268600F6FE1B /* Home View */ = {
 			isa = PBXGroup;
 			children = (
-				F4A7FB5A168B760A0033268A /* Annotation */,
+				9D0A5067168B971300DF0AA8 /* Annotation */,
 				F4B46D9D168263D50001082D /* MD5 */,
 				F4A943DB167EEEF900020104 /* View */,
 				F4A943D4167EEEC900020104 /* Model */,
@@ -512,15 +520,6 @@
 				ED760828168B076C002939D3 /* TPAdoptPostTableViewController.m */,
 			);
 			name = "Adopt Posts";
-			sourceTree = "<group>";
-		};
-		EDF88891168B6E6800F66C21 /* Annotation */ = {
-			isa = PBXGroup;
-			children = (
-				EDF88892168B6E8400F66C21 /* TPLocation.h */,
-				EDF88893168B6E8400F66C21 /* TPLocation.m */,
-			);
-			name = Annotation;
 			sourceTree = "<group>";
 		};
 		F4A943D4167EEEC900020104 /* Model */ = {
@@ -750,7 +749,7 @@
 				F4B46DCE16828F9B0001082D /* AFXMLRequestOperation.m in Sources */,
 				F4B46DCF16828F9B0001082D /* UIImageView+AFNetworking.m in Sources */,
 				ED760829168B076C002939D3 /* TPAdoptPostTableViewController.m in Sources */,
-				EDF88894168B6E8400F66C21 /* TPLocation.m in Sources */,
+				9D0A506B168B973200DF0AA8 /* TPAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -790,6 +789,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -800,6 +800,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = "-lsqlite3.0";
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -816,12 +817,14 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "-lsqlite3.0";
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -838,6 +841,7 @@
 				GCC_PREFIX_HEADER = "MeetMyPet/MeetMyPet-Prefix.pch";
 				INFOPLIST_FILE = "MeetMyPet/MeetMyPet-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -854,6 +858,7 @@
 				GCC_PREFIX_HEADER = "MeetMyPet/MeetMyPet-Prefix.pch";
 				INFOPLIST_FILE = "MeetMyPet/MeetMyPet-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

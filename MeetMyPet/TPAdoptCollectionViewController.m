@@ -17,6 +17,7 @@
 #import "AFHTTPRequestOperation.h"
 #import "AFJSONRequestOperation.h"
 #import "TPAdoptTableViewController.h"
+#import "TPAdoptPostTableViewController.h"
 
 static NSString * const PhotoCellIdentifier = @"PhotoCell";
 static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
@@ -199,7 +200,7 @@ static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
 
     NSLog(@"Data: %@", feedEntries[indexPath.section]);
     
-    //[self performSegueWithIdentifier:@"showUserAdoptPost" sender:cell];
+    [self performSegueWithIdentifier:@"showUserAdoptPost" sender:cell];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -212,11 +213,10 @@ static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
         adoptFormViewController.usingProfile = *(&(useProfile));
     }
     
-        if ([segue.identifier isEqualToString:@"showUserAdoptPost"]) {
-    
-//            TPAdoptPostTableViewController *detailPage = segue.destinationViewController;
-//            detailPage.data = feedEntries[index.section];
-        }
+    if ([segue.identifier isEqualToString:@"showUserAdoptPost"]) {
+        TPAdoptPostTableViewController *detailPage = segue.destinationViewController;
+        detailPage.adoptPost = feedEntries[index.section];
+    }
 
 }
 

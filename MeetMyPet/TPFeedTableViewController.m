@@ -195,7 +195,7 @@ NSString *const FeedDictKeyLatitude=@"Latitude";
     if ([segue.identifier isEqualToString:@"showUserFoundPost"]) {
         
         TPFoundPostTableViewController *detailPage = segue.destinationViewController;
-        detailPage.foundData = _myPosts[row];
+        detailPage.data = _myPosts[row];
     }
     
     

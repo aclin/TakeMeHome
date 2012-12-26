@@ -69,7 +69,7 @@ NSURLConnection *connect;
     
     
     NSString *name = @"Last Seen";
-    TPLocation *loc = [[TPLocation alloc] initWithName:name coordinate:CLLocationCoordinate2DMake(lat, lng)];
+    TPAnnotation *loc = [[TPAnnotation alloc] initWithName:name coordinate:CLLocationCoordinate2DMake(lat, lng)];
     
     [_map addAnnotation:loc];
     

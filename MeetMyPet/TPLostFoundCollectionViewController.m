@@ -282,11 +282,11 @@ static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
 //        detailPage.data = feedEntries[index.section];
 //    }
     
-//    if ([segue.identifier isEqualToString:@"showUserLostPost"]) {
-//        
-//        TPLostPostTableViewController *detailPage = segue.destinationViewController;
-//        detailPage.data = feedEntries[index.section];
-//    }
+    if ([segue.identifier isEqualToString:@"showUserLostPost"]) {
+        
+        TPLostPostTableViewController *detailPage = segue.destinationViewController;
+        detailPage.lostData = feedEntries[index.section];
+    }
     
     if ([segue.identifier isEqualToString:@"showUserFoundPost"]) {
         
