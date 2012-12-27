@@ -49,7 +49,8 @@ static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
     
     // Refresher
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    [refreshControl addTarget:self action:@selector(loadImages:)
+    refreshControl.tintColor = [UIColor orangeColor];
+    [refreshControl addTarget:self action:@selector(refresh:)
              forControlEvents:UIControlEventValueChanged];
     [self.collectionView addSubview:refreshControl];
     
@@ -67,6 +68,14 @@ static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
     self.thumbnailQueue.maxConcurrentOperationCount = 3;
 }
 
+-(void)refresh:(UIRefreshControl*)sender{
+    
+    //reload feeds
+    [self loadFeeds];
+    [self.collectionView reloadData];
+    [sender endRefreshing];
+}
+
 - (IBAction)loadImages:(id)sender{
     self.albums = [NSMutableArray array];
     
@@ -80,7 +89,6 @@ static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
         BHAlbum *album = [[BHAlbum alloc] init];
         
         NSDictionary *entry = feedEntries[a];
-        NSString *type = [entry objectForKey:@"Type"];
         
         NSUInteger photoCount = 2;
         for (NSInteger p = 0; p < photoCount; p++) {
@@ -224,7 +232,7 @@ static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
     
     
     NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
-                           @"3", @"typeID", //Lost
+                           @"3", @"typeID", //Adopt
                            nil];
     NSURL *url = [NSURL URLWithString:@"https://secret-temple-2872.herokuapp.com"];
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];

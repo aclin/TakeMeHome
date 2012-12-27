@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4">
     <dependencies>
         <development version="4500" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller - Camera-->
@@ -50,7 +50,8 @@
                                     <constraint firstAttribute="height" constant="70" id="2iy-Xw-eE3"/>
                                     <constraint firstAttribute="width" constant="168" id="HOd-Mp-Vjm"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="15"/>
+                                <size key="titleShadowOffset" width="1" height="1"/>
                                 <state key="normal" title="Lost &amp; Found" backgroundImage="button.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -61,8 +62,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1zH-YU-VJf">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="Tn1-nG-4vN"/>
+                                    <constraint firstAttribute="width" constant="168" id="lq3-no-cNn"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="15"/>
                                 <state key="normal" title="Adopt" backgroundImage="button.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -76,11 +78,13 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1CV-YH-Ayf">
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="168" id="HJE-v6-fxd"/>
                                     <constraint firstAttribute="height" constant="70" id="rbs-pL-2Ek"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="15"/>
+                                <size key="titleShadowOffset" width="1" height="1"/>
                                 <state key="normal" title="Profile Settings" backgroundImage="button.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.40000000000000002" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -117,30 +121,22 @@
                         </subviews>
                         <color key="backgroundColor" red="0.98431378602981567" green="0.90980398654937744" blue="0.68627452850341797" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
-                            <constraint firstItem="1CV-YH-Ayf" firstAttribute="bottom" secondItem="rPE-if-s8p" secondAttribute="bottom" type="default" id="8ev-fe-IJ7"/>
-                            <constraint firstItem="1zH-YU-VJf" firstAttribute="leading" secondItem="rM4-vD-fuV" secondAttribute="leading" type="default" id="CqX-ru-wmK"/>
-                            <constraint firstItem="1CV-YH-Ayf" firstAttribute="leading" secondItem="1zH-YU-VJf" secondAttribute="leading" type="default" id="KTx-lB-LmR"/>
+                            <constraint firstItem="1zH-YU-VJf" firstAttribute="trailing" secondItem="W9W-Qs-XaN" secondAttribute="trailing" type="default" id="4eH-vV-too"/>
+                            <constraint firstItem="rM4-vD-fuV" firstAttribute="leading" secondItem="W9W-Qs-XaN" secondAttribute="leading" type="default" id="KEQ-lw-Rcu"/>
+                            <constraint firstAttribute="bottom" secondItem="1zH-YU-VJf" secondAttribute="bottom" constant="81" id="N1Z-U2-khN"/>
                             <constraint firstItem="W9W-Qs-XaN" firstAttribute="top" secondItem="zgR-Xl-Rv7" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="O6i-Cj-omf"/>
-                            <constraint firstItem="W9W-Qs-XaN" firstAttribute="centerX" secondItem="rM4-vD-fuV" secondAttribute="centerX" type="default" id="Pdw-8F-abS"/>
+                            <constraint firstItem="rM4-vD-fuV" firstAttribute="top" secondItem="rPE-if-s8p" secondAttribute="top" constant="177" id="RFE-8V-CIz"/>
                             <constraint firstItem="zgR-Xl-Rv7" firstAttribute="centerX" secondItem="W9W-Qs-XaN" secondAttribute="centerX" type="default" id="VkZ-fO-xUQ"/>
-                            <constraint firstItem="dhm-St-Ai2" firstAttribute="centerX" secondItem="rPE-if-s8p" secondAttribute="centerX" type="default" id="btI-tI-Mlb"/>
+                            <constraint firstAttribute="bottom" secondItem="1CV-YH-Ayf" secondAttribute="bottom" constant="13" id="VzX-1M-ujz"/>
+                            <constraint firstItem="1CV-YH-Ayf" firstAttribute="centerX" secondItem="rPE-if-s8p" secondAttribute="centerX" type="default" id="Xyw-Gh-oxz"/>
+                            <constraint firstItem="W9W-Qs-XaN" firstAttribute="centerX" secondItem="1CV-YH-Ayf" secondAttribute="centerX" type="default" id="YRF-4H-bMj"/>
                             <constraint firstItem="dhm-St-Ai2" firstAttribute="top" secondItem="rPE-if-s8p" secondAttribute="top" constant="20" symbolic="YES" type="default" id="c0x-bx-eF0"/>
-                            <constraint firstItem="rM4-vD-fuV" firstAttribute="top" secondItem="rPE-if-s8p" secondAttribute="top" constant="169" id="csv-JD-RVD"/>
                             <constraint firstItem="dhm-St-Ai2" firstAttribute="centerX" secondItem="zgR-Xl-Rv7" secondAttribute="centerX" type="default" id="fTe-4k-MTu"/>
-                            <constraint firstItem="1CV-YH-Ayf" firstAttribute="top" secondItem="1zH-YU-VJf" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="gBU-DC-ob3"/>
                             <constraint firstItem="zgR-Xl-Rv7" firstAttribute="top" secondItem="rPE-if-s8p" secondAttribute="top" constant="126" id="lzK-v8-4NS"/>
-                            <constraint firstItem="1zH-YU-VJf" firstAttribute="trailing" secondItem="rM4-vD-fuV" secondAttribute="trailing" type="default" id="nyO-Zg-lU7"/>
-                            <constraint firstItem="1zH-YU-VJf" firstAttribute="trailing" secondItem="1CV-YH-Ayf" secondAttribute="trailing" type="default" id="pA9-cH-9vZ"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="82-dog-paw.png" id="dJb-iF-jFj"/>
-                    <navigationItem key="navigationItem" title="Welcome Home" id="zxZ-wc-p7x">
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="boz-tn-6S0">
-                            <connections>
-                                <action selector="logoutButtonClicked:" destination="cnm-CO-Qpb" id="VBA-Zd-yMD"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Welcome Home" id="zxZ-wc-p7x"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="lblName" destination="W9W-Qs-XaN" id="pu3-8L-hjm"/>
@@ -229,9 +225,9 @@
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" id="Hwa-ru-tgp">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.9215686917" blue="0.71764707569999997" alpha="1" colorSpace="deviceRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="100" id="fK5-Jx-1bi" customClass="TPFeedTableCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="100" id="fK5-Jx-1bi" customClass="TPFeedTableCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -244,38 +240,27 @@
                                                 <constraint firstAttribute="height" constant="76" id="E6p-ln-hTf"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIJ-6n-WUm">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIJ-6n-WUm">
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="32" id="7Vd-3R-5Qc"/>
+                                                <constraint firstAttribute="height" constant="32" id="W5g-Gy-IYh"/>
                                                 <constraint firstAttribute="width" constant="172" id="kHD-xE-B2h"/>
                                             </constraints>
-                                            <attributedString key="attributedText">
-                                                <fragment content="Date">
-                                                    <attributes>
-                                                        <color key="NSColor" red="0.94117653369999998" green="0.47058826679999999" blue="0.17254902420000001" alpha="1" colorSpace="deviceRGB"/>
-                                                        <font key="NSFont" size="24" name="BlairMdITCTT-Medium"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
+                                            <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="25"/>
+                                            <color key="textColor" red="0.94117653369999998" green="0.47058826679999999" blue="0.17254902420000001" alpha="1" colorSpace="deviceRGB"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXe-o7-MzB">
-                                            <attributedString key="attributedText">
-                                                <fragment content="Type of Posts">
-                                                    <attributes>
-                                                        <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        <font key="NSFont" size="17" name="Chalkboard"/>
-                                                        <font key="NSOriginalFont" size="17" name="Chalkboard"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Type of Posts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXe-o7-MzB">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="Oyt-3y-wpn"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <color key="backgroundColor" red="0.9803922176361084" green="0.90588241815567017" blue="0.67843139171600342" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="yIJ-6n-WUm" secondAttribute="trailing" constant="20" type="default" id="1Me-Vr-5lK"/>
                                     <constraint firstItem="ibQ-Wh-oR6" firstAttribute="top" secondItem="fK5-Jx-1bi" secondAttribute="top" constant="11" id="9oP-2r-bV0"/>
@@ -293,13 +278,7 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" title="User Posts" id="iD3-G8-fii">
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="mAH-MJ-OyR">
-                            <connections>
-                                <action selector="reload:" destination="fz6-f6-7G4" id="tBj-ih-boI"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="User Posts" id="iD3-G8-fii"/>
                     <connections>
                         <segue destination="che-y9-6tg" kind="push" identifier="showUserFoundPost" id="B1W-VP-OTu"/>
                         <segue destination="mEv-Rq-Npg" kind="push" identifier="showUserLostPost" id="V9T-5L-4b6"/>
@@ -310,11 +289,11 @@
             </objects>
             <point key="canvasLocation" x="-2314" y="-2822"/>
         </scene>
-        <!--Navigation Controller - Notification-->
+        <!--Navigation Controller - My Posts-->
         <scene sceneID="E4H-yx-kxz">
             <objects>
                 <navigationController definesPresentationContext="YES" id="qOv-88-4lM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Notification" image="first.png" id="evc-3a-U2S"/>
+                    <tabBarItem key="tabBarItem" title="My Posts" image="clock.png" id="evc-3a-U2S"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dPs-Gs-dhV">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -821,7 +800,7 @@
             </objects>
             <point key="canvasLocation" x="-1433" y="-837"/>
         </scene>
-        <!--Adopt Post Table View Controller - Adopt Form-->
+        <!--Adopt Post Table View Controller - Adopt Post-->
         <scene sceneID="83F-YL-o1J">
             <objects>
                 <tableViewController id="28C-fT-XYN" customClass="TPAdoptPostTableViewController" sceneMemberID="viewController">
@@ -1172,7 +1151,7 @@
                             <outlet property="delegate" destination="28C-fT-XYN" id="p6y-WS-fUo"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Adopt Form" id="jDD-O9-e9p"/>
+                    <navigationItem key="navigationItem" title="Adopt Post" id="jDD-O9-e9p"/>
                     <connections>
                         <outlet property="city" destination="KSa-sv-6w5" id="sTt-h1-lgO"/>
                         <outlet property="country" destination="fa8-vu-UjA" id="UbN-Id-W5j"/>
@@ -2504,6 +2483,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <segue destination="sg7-Zr-UzD" kind="push" identifier="showAdoptForm" id="mf2-mS-ofj"/>
+                        <segue destination="28C-fT-XYN" kind="push" identifier="showUserAdoptPost" id="0xm-Yt-3W7"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tey-We-fWC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2807,18 +2787,219 @@
         <image name="action-people.png" width="80" height="80"/>
         <image name="action-photo.png" width="80" height="80"/>
         <image name="button.png" width="991" height="443"/>
+        <image name="clock.png" width="38" height="38"/>
         <image name="default_photo.png" width="280" height="280"/>
-        <image name="first.png" width="30" height="30"/>
         <image name="takeMeHome.png" width="2050" height="1794"/>
     </resources>
+    <classes>
+        <class className="BHPhotoAlbumLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BHPhotoAlbumLayout.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="TPAdoptCollectionViewController" superclassName="UICollectionViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPAdoptCollectionViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="createReport:"/>
+            </relationships>
+        </class>
+        <class className="TPAdoptPostTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPAdoptPostTableViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="city" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="country" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="date" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="ownerEmail" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="ownerName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petAge" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petBreed" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petChar" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petChip" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petGender" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="petName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petNeuSpay" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petVac" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="TPAdoptTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPAdoptTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelForm:"/>
+                <relationship kind="action" name="loadPhoto:"/>
+                <relationship kind="action" name="submitForm:"/>
+                <relationship kind="action" name="takePicture:"/>
+                <relationship kind="action" name="toolbarDone:"/>
+                <relationship kind="outlet" name="city" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="country" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="date" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="image" candidateClass="UIImage"/>
+                <relationship kind="outlet" name="ownerEmail" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="ownerName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petAge" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="petBreed" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="petChar" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="petChip" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="petGender" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="petName" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="petNeuSpay" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="petProfilePic" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="petVac" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="TPCameraViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPCameraViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="loadActionSheet:"/>
+                <relationship kind="action" name="takePicture:"/>
+                <relationship kind="outlet" name="myImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="myLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="TPEditProfileTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPEditProfileTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelForm:"/>
+                <relationship kind="action" name="loadPhoto:"/>
+                <relationship kind="action" name="saveProfile:"/>
+                <relationship kind="action" name="takePicture:"/>
+                <relationship kind="outlet" name="camera" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="city" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="country" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="ownerEmail" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="petAge" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="petAnimal" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="petBreed" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="petChar" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="petChip" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="petGender" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="petHobbies" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="petName" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="petNeuSpay" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="petProfilePic" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="petVac" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="username" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="TPFeedTableCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPFeedTableCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dateOfPosts" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="feedImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="typeOfPosts" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="TPFeedTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPFeedTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="reload:"/>
+            </relationships>
+        </class>
+        <class className="TPFoundFormViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPFoundFormViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelForm:"/>
+                <relationship kind="action" name="loadPhoto:"/>
+                <relationship kind="action" name="submitForm:"/>
+                <relationship kind="action" name="takePicture:"/>
+                <relationship kind="action" name="toolbarDone:"/>
+                <relationship kind="outlet" name="foundDate" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="foundMap" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="image" candidateClass="UIImage"/>
+                <relationship kind="outlet" name="petProfilePic" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="TPFoundPostTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPFoundPostTableViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dateFound" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="map" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="petProfilePic" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="TPHomeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPHomeViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="lblName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petProfilePic" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="TPLoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPLoginViewController.h"/>
+        </class>
+        <class className="TPLostFormViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPLostFormViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelForm:"/>
+                <relationship kind="action" name="loadPhoto:"/>
+                <relationship kind="action" name="submitForm:"/>
+                <relationship kind="action" name="takePicture:"/>
+                <relationship kind="action" name="toolbarDone:"/>
+                <relationship kind="outlet" name="image" candidateClass="UIImage"/>
+                <relationship kind="outlet" name="lostDate" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="lostMap" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="ownerEmail" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="petBreed" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="petChip" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="petGender" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="petName" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="petProfilePic" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="username" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="TPLostFoundCollectionViewController" superclassName="UICollectionViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPLostFoundCollectionViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="createReport:"/>
+            </relationships>
+        </class>
+        <class className="TPLostPostTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPLostPostTableViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dateLost" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="map" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="ownerEmail" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="ownerName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petBreed" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petChip" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petGender" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petProfilePic" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="TPProfileTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPProfileTableViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="city" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="country" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="ownerEmail" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="ownerName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petAge" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petAnimal" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petBreed" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petChar" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petChip" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petGender" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petHobbies" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petNeuSpay" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petProfilePic" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="petVac" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="UICollectionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="B1W-VP-OTu"/>
         <segue reference="V9T-5L-4b6"/>
-        <segue reference="maC-fu-DdU"/>
-        <segue reference="Fvg-yp-cCg"/>
+        <segue reference="jPD-Zf-Fef"/>
     </inferredMetricsTieBreakers>
 </document>

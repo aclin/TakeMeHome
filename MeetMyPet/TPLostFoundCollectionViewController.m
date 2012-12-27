@@ -50,7 +50,8 @@ static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
     
     // Refresher
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    [refreshControl addTarget:self action:@selector(loadImages:)
+    refreshControl.tintColor = [UIColor orangeColor];
+    [refreshControl addTarget:self action:@selector(refresh:)
              forControlEvents:UIControlEventValueChanged];
     [self.collectionView addSubview:refreshControl];
     
@@ -66,6 +67,14 @@ static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
     
     self.thumbnailQueue = [[NSOperationQueue alloc] init];
     self.thumbnailQueue.maxConcurrentOperationCount = 3;
+}
+
+-(void)refresh:(UIRefreshControl*)sender{
+    
+    //reload feeds
+    [self loadFeeds];
+    [self.collectionView reloadData];
+    [sender endRefreshing];
 }
 
 - (IBAction)loadImages:(id)sender{

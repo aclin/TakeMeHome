@@ -75,6 +75,13 @@ NSString *const FeedDictKeyLatitude=@"Latitude";
         NSLog(@"local_profile.plist does not exist");
     }
     
+    // Refresher
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    refreshControl.tintColor = [UIColor orangeColor];
+    [refreshControl addTarget:self action:@selector(refresh:)
+             forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:refreshControl];
+    
     [self loadPosts];
     
     }
@@ -85,10 +92,18 @@ NSString *const FeedDictKeyLatitude=@"Latitude";
     // Dispose of any resources that can be recreated.
 }
 
+-(void)refresh:(UIRefreshControl*)sender{
+    
+    //reload feeds
+    [self performSelector:@selector(reload:) withObject:self];
+    //[self.tableView reloadData];
+    [sender endRefreshing];
+}
+
 -(void)loadPosts{
     
     NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
-                           _petID, @"petID", //Lost
+                           _petID, @"petID",
                            nil];
     NSURL *url = [NSURL URLWithString:@"https://secret-temple-2872.herokuapp.com"];
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
@@ -111,7 +126,7 @@ NSString *const FeedDictKeyLatitude=@"Latitude";
         NSLog(@"%@", [NSString stringWithFormat:@"%@", error]);}];
     [operation start];
 
-    [self.tableView reloadData];
+    //[self.tableView reloadData];
 }
 
 -(void)reloadTable:(id)sender

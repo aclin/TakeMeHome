@@ -75,12 +75,12 @@
 		ED7607C116895B81002939D3 /* tabbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED7607BF16895B81002939D3 /* tabbar@2x.png */; };
 		ED7607C816895DD6002939D3 /* bottomfocus.png in Resources */ = {isa = PBXBuildFile; fileRef = ED7607C616895DD6002939D3 /* bottomfocus.png */; };
 		ED7607C916895DD6002939D3 /* tabbg2.png in Resources */ = {isa = PBXBuildFile; fileRef = ED7607C716895DD6002939D3 /* tabbg2.png */; };
-		ED7607D11689DF45002939D3 /* mask.png in Resources */ = {isa = PBXBuildFile; fileRef = ED7607D01689DF45002939D3 /* mask.png */; };
 		ED7607E3168A0600002939D3 /* ipad-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = ED7607E2168A05FF002939D3 /* ipad-arrow.png */; };
 		ED760811168AA70F002939D3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED760810168AA70E002939D3 /* CoreLocation.framework */; };
 		ED760821168AF427002939D3 /* TPAdoptToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED760820168AF427002939D3 /* TPAdoptToolbar.xib */; };
 		ED760829168B076C002939D3 /* TPAdoptPostTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED760828168B076C002939D3 /* TPAdoptPostTableViewController.m */; };
 		EDF8888F168B64A100F66C21 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = EDF8888E168B64A100F66C21 /* 1.png */; };
+		F4A7FB7F168BBB4C0033268A /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = F4A7FB7E168BBB460033268A /* clock.png */; };
 		F4A943D9167EEEF500020104 /* BHAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A943D6167EEEF500020104 /* BHAlbum.m */; };
 		F4A943DA167EEEF500020104 /* BHPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A943D8167EEEF500020104 /* BHPhoto.m */; };
 		F4A943E6167EEF8200020104 /* BHAlbumPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A943DD167EEF8200020104 /* BHAlbumPhotoCell.m */; };
@@ -115,14 +115,14 @@
 		9D09EA0716727A4300AF676E /* TPLostFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPLostFormViewController.m; sourceTree = "<group>"; };
 		9D0A5069168B973200DF0AA8 /* TPAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPAnnotation.h; sourceTree = "<group>"; };
 		9D0A506A168B973200DF0AA8 /* TPAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPAnnotation.m; sourceTree = "<group>"; };
-		9D0DFACF166E140F00431132 /* MeetMyPet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetMyPet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D0DFACF166E140F00431132 /* TakeMeHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TakeMeHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D0DFAD3166E140F00431132 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9D0DFAD5166E140F00431132 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9D0DFAD7166E140F00431132 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		9D0DFADB166E140F00431132 /* MeetMyPet-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MeetMyPet-Info.plist"; sourceTree = "<group>"; };
+		9D0DFADB166E140F00431132 /* TakeMeHome-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TakeMeHome-Info.plist"; sourceTree = "<group>"; };
 		9D0DFADD166E140F00431132 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9D0DFADF166E140F00431132 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		9D0DFAE1166E140F00431132 /* MeetMyPet-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MeetMyPet-Prefix.pch"; sourceTree = "<group>"; };
+		9D0DFAE1166E140F00431132 /* TakeMeHome-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TakeMeHome-Prefix.pch"; sourceTree = "<group>"; };
 		9D0DFAEC166E140F00431132 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		9D0DFAEE166E140F00431132 /* TPCameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPCameraViewController.h; sourceTree = "<group>"; };
 		9D0DFAEF166E140F00431132 /* TPCameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPCameraViewController.m; sourceTree = "<group>"; };
@@ -196,13 +196,13 @@
 		ED7607BF16895B81002939D3 /* tabbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar@2x.png"; sourceTree = "<group>"; };
 		ED7607C616895DD6002939D3 /* bottomfocus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottomfocus.png; sourceTree = "<group>"; };
 		ED7607C716895DD6002939D3 /* tabbg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbg2.png; sourceTree = "<group>"; };
-		ED7607D01689DF45002939D3 /* mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mask.png; sourceTree = "<group>"; };
 		ED7607E2168A05FF002939D3 /* ipad-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-arrow.png"; sourceTree = "<group>"; };
 		ED760810168AA70E002939D3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		ED760820168AF427002939D3 /* TPAdoptToolbar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPAdoptToolbar.xib; sourceTree = "<group>"; };
 		ED760827168B076C002939D3 /* TPAdoptPostTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPAdoptPostTableViewController.h; sourceTree = "<group>"; };
 		ED760828168B076C002939D3 /* TPAdoptPostTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPAdoptPostTableViewController.m; sourceTree = "<group>"; };
 		EDF8888E168B64A100F66C21 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		F4A7FB7E168BBB460033268A /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
 		F4A943D5167EEEF500020104 /* BHAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHAlbum.h; sourceTree = "<group>"; };
 		F4A943D6167EEEF500020104 /* BHAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHAlbum.m; sourceTree = "<group>"; };
 		F4A943D7167EEEF500020104 /* BHPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHPhoto.h; sourceTree = "<group>"; };
@@ -290,7 +290,7 @@
 			children = (
 				ED7607BC16894760002939D3 /* Default-568h@2x.png */,
 				F4B46DB316828F9A0001082D /* AFNetworking */,
-				9D0DFAD9166E140F00431132 /* MeetMyPet */,
+				9D0DFAD9166E140F00431132 /* TakeMeHome */,
 				9D0DFAD2166E140F00431132 /* Frameworks */,
 				9D0DFAD0166E140F00431132 /* Products */,
 			);
@@ -299,7 +299,7 @@
 		9D0DFAD0166E140F00431132 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9D0DFACF166E140F00431132 /* MeetMyPet.app */,
+				9D0DFACF166E140F00431132 /* TakeMeHome.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -323,15 +323,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		9D0DFAD9166E140F00431132 /* MeetMyPet */ = {
+		9D0DFAD9166E140F00431132 /* TakeMeHome */ = {
 			isa = PBXGroup;
 			children = (
-				9DDD029D166F268600F6FE1B /* Home View */,
+				9DDD029D166F268600F6FE1B /* Home */,
 				9DA16478167A1B9C003CE8FF /* Images */,
 				9DA1648D167A21C7003CE8FF /* Login */,
-				9DDD0299166F0DF800F6FE1B /* News Feed */,
+				9DDD0299166F0DF800F6FE1B /* My Posts */,
 				9DDD0292166E659700F6FE1B /* Camera */,
 				9D0DFAEB166E140F00431132 /* MainStoryboard.storyboard */,
+				F4A7FB7E168BBB460033268A /* clock.png */,
 				F4A9441E167F775000020104 /* background.png */,
 				9D0DFAF1166E140F00431132 /* first.png */,
 				9D0DFAF3166E140F00431132 /* first@2x.png */,
@@ -345,16 +346,17 @@
 				F4B46DB016828B1B0001082D /* TPPlist.h */,
 				F4B46DB116828B1E0001082D /* TPPlist.m */,
 			);
+			name = TakeMeHome;
 			path = MeetMyPet;
 			sourceTree = "<group>";
 		};
 		9D0DFADA166E140F00431132 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				9D0DFADB166E140F00431132 /* MeetMyPet-Info.plist */,
+				9D0DFADB166E140F00431132 /* TakeMeHome-Info.plist */,
 				9D0DFADC166E140F00431132 /* InfoPlist.strings */,
 				9D0DFADF166E140F00431132 /* main.m */,
-				9D0DFAE1166E140F00431132 /* MeetMyPet-Prefix.pch */,
+				9D0DFAE1166E140F00431132 /* TakeMeHome-Prefix.pch */,
 				9DA5C8B8167E345C00159879 /* local_profile.plist */,
 			);
 			name = "Supporting Files";
@@ -456,7 +458,7 @@
 			name = Camera;
 			sourceTree = "<group>";
 		};
-		9DDD0299166F0DF800F6FE1B /* News Feed */ = {
+		9DDD0299166F0DF800F6FE1B /* My Posts */ = {
 			isa = PBXGroup;
 			children = (
 				9DDD0296166F092400F6FE1B /* TPFeedTableViewController.h */,
@@ -464,10 +466,10 @@
 				9DDD02AE166F3A7400F6FE1B /* TPFeedTableCell.h */,
 				9DDD02AF166F3A7400F6FE1B /* TPFeedTableCell.m */,
 			);
-			name = "News Feed";
+			name = "My Posts";
 			sourceTree = "<group>";
 		};
-		9DDD029D166F268600F6FE1B /* Home View */ = {
+		9DDD029D166F268600F6FE1B /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				9D0A5067168B971300DF0AA8 /* Annotation */,
@@ -480,7 +482,7 @@
 				ED257000167EEC1E00163A54 /* Adopt Collection View */,
 				9D7F1172167A74EA006C45C8 /* Profile */,
 			);
-			name = "Home View";
+			name = Home;
 			sourceTree = "<group>";
 		};
 		ED257000167EEC1E00163A54 /* Adopt Collection View */ = {
@@ -601,9 +603,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9D0DFACE166E140F00431132 /* MeetMyPet */ = {
+		9D0DFACE166E140F00431132 /* TakeMeHome */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9D0DFAFE166E140F00431132 /* Build configuration list for PBXNativeTarget "MeetMyPet" */;
+			buildConfigurationList = 9D0DFAFE166E140F00431132 /* Build configuration list for PBXNativeTarget "TakeMeHome" */;
 			buildPhases = (
 				9D0DFACB166E140F00431132 /* Sources */,
 				9D0DFACC166E140F00431132 /* Frameworks */,
@@ -613,9 +615,9 @@
 			);
 			dependencies = (
 			);
-			name = MeetMyPet;
+			name = TakeMeHome;
 			productName = MeetMyPet;
-			productReference = 9D0DFACF166E140F00431132 /* MeetMyPet.app */;
+			productReference = 9D0DFACF166E140F00431132 /* TakeMeHome.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -628,7 +630,7 @@
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = aclin;
 			};
-			buildConfigurationList = 9D0DFAC9166E140F00431132 /* Build configuration list for PBXProject "MeetMyPet" */;
+			buildConfigurationList = 9D0DFAC9166E140F00431132 /* Build configuration list for PBXProject "TakeMeHome" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -640,7 +642,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9D0DFACE166E140F00431132 /* MeetMyPet */,
+				9D0DFACE166E140F00431132 /* TakeMeHome */,
 			);
 		};
 /* End PBXProject section */
@@ -699,10 +701,10 @@
 				ED7607C116895B81002939D3 /* tabbar@2x.png in Resources */,
 				ED7607C816895DD6002939D3 /* bottomfocus.png in Resources */,
 				ED7607C916895DD6002939D3 /* tabbg2.png in Resources */,
-				ED7607D11689DF45002939D3 /* mask.png in Resources */,
 				ED7607E3168A0600002939D3 /* ipad-arrow.png in Resources */,
 				ED760821168AF427002939D3 /* TPAdoptToolbar.xib in Resources */,
 				EDF8888F168B64A100F66C21 /* 1.png in Resources */,
+				F4A7FB7F168BBB4C0033268A /* clock.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -838,11 +840,11 @@
 					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MeetMyPet/MeetMyPet-Prefix.pch";
-				INFOPLIST_FILE = "MeetMyPet/MeetMyPet-Info.plist";
+				GCC_PREFIX_HEADER = "MeetMyPet/TakeMeHome-Prefix.pch";
+				INFOPLIST_FILE = "MeetMyPet/TakeMeHome-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = TakeMeHome;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -855,11 +857,11 @@
 					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MeetMyPet/MeetMyPet-Prefix.pch";
-				INFOPLIST_FILE = "MeetMyPet/MeetMyPet-Info.plist";
+				GCC_PREFIX_HEADER = "MeetMyPet/TakeMeHome-Prefix.pch";
+				INFOPLIST_FILE = "MeetMyPet/TakeMeHome-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = TakeMeHome;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -867,7 +869,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9D0DFAC9166E140F00431132 /* Build configuration list for PBXProject "MeetMyPet" */ = {
+		9D0DFAC9166E140F00431132 /* Build configuration list for PBXProject "TakeMeHome" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9D0DFAFC166E140F00431132 /* Debug */,
@@ -876,7 +878,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9D0DFAFE166E140F00431132 /* Build configuration list for PBXNativeTarget "MeetMyPet" */ = {
+		9D0DFAFE166E140F00431132 /* Build configuration list for PBXNativeTarget "TakeMeHome" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9D0DFAFF166E140F00431132 /* Debug */,
