@@ -170,6 +170,7 @@
                     </collectionView>
                     <navigationItem key="navigationItem" id="vuA-vk-aLH">
                         <nil key="title"/>
+                        <barButtonItem key="backBarButtonItem" title="Home" id="21w-DX-Owl"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="1" id="TeW-mJ-5n9">
                             <rect key="frame" x="73" y="6" width="173" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -218,7 +219,7 @@
             </objects>
             <point key="canvasLocation" x="-3345" y="-873"/>
         </scene>
-        <!--Feed Table View Controller - User Posts-->
+        <!--Feed Table View Controller - My Posts-->
         <scene sceneID="Pdc-Pm-dGT">
             <objects>
                 <tableViewController id="fz6-f6-7G4" customClass="TPFeedTableViewController" sceneMemberID="viewController">
@@ -278,7 +279,7 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" title="User Posts" id="iD3-G8-fii"/>
+                    <navigationItem key="navigationItem" title="My Posts" id="iD3-G8-fii"/>
                     <connections>
                         <segue destination="che-y9-6tg" kind="push" identifier="showUserFoundPost" id="B1W-VP-OTu"/>
                         <segue destination="mEv-Rq-Npg" kind="push" identifier="showUserLostPost" id="V9T-5L-4b6"/>
@@ -772,6 +773,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Pet Profile" id="cJG-dh-JFe">
+                        <barButtonItem key="backBarButtonItem" title="Home" id="cph-yU-DPt"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="l3l-v1-yop">
                             <connections>
                                 <segue destination="DeN-XG-hEj" kind="push" id="w9y-Vg-V8O"/>
@@ -800,7 +802,7 @@
             </objects>
             <point key="canvasLocation" x="-1433" y="-837"/>
         </scene>
-        <!--Adopt Post Table View Controller - Adopt Post-->
+        <!--Adopt Post Table View Controller - Adopt-->
         <scene sceneID="83F-YL-o1J">
             <objects>
                 <tableViewController id="28C-fT-XYN" customClass="TPAdoptPostTableViewController" sceneMemberID="viewController">
@@ -1151,7 +1153,7 @@
                             <outlet property="delegate" destination="28C-fT-XYN" id="p6y-WS-fUo"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Adopt Post" id="jDD-O9-e9p"/>
+                    <navigationItem key="navigationItem" title="Adopt" id="jDD-O9-e9p"/>
                     <connections>
                         <outlet property="city" destination="KSa-sv-6w5" id="sTt-h1-lgO"/>
                         <outlet property="country" destination="fa8-vu-UjA" id="UbN-Id-W5j"/>
@@ -2465,6 +2467,7 @@
                     </collectionView>
                     <navigationItem key="navigationItem" id="gva-eO-QFH">
                         <nil key="title"/>
+                        <barButtonItem key="backBarButtonItem" title="Home" id="BMb-QN-Qic"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="WGO-aQ-4C4">
                             <rect key="frame" x="73" y="6" width="173" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2490,7 +2493,7 @@
             </objects>
             <point key="canvasLocation" x="-1438" y="-1604"/>
         </scene>
-        <!--Found Post Table View Controller - Found Post-->
+        <!--Found Post Table View Controller - Found-->
         <scene sceneID="Id2-OU-GYn">
             <objects>
                 <tableViewController storyboardIdentifier="FoundPostView" id="che-y9-6tg" customClass="TPFoundPostTableViewController" sceneMemberID="viewController">
@@ -2564,7 +2567,7 @@
                             <outlet property="delegate" destination="che-y9-6tg" id="PmO-zL-bRx"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Found Post" id="v6C-rX-MLY"/>
+                    <navigationItem key="navigationItem" title="Found" id="v6C-rX-MLY"/>
                     <connections>
                         <outlet property="dateFound" destination="nNw-2V-d92" id="EKt-lt-V3m"/>
                         <outlet property="map" destination="5rV-WF-IS5" id="5cZ-ka-XOd"/>
@@ -2575,7 +2578,7 @@
             </objects>
             <point key="canvasLocation" x="-1367" y="-3306"/>
         </scene>
-        <!--Lost Post Table View Controller - Lost Post-->
+        <!--Lost Post Table View Controller - Lost-->
         <scene sceneID="Ql5-x2-TQp">
             <objects>
                 <tableViewController storyboardIdentifier="LostPostView" id="mEv-Rq-Npg" customClass="TPLostPostTableViewController" sceneMemberID="viewController">
@@ -2755,7 +2758,7 @@
                             <outlet property="delegate" destination="mEv-Rq-Npg" id="hL8-Yx-4e3"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Lost Post" id="jvM-20-r8C"/>
+                    <navigationItem key="navigationItem" title="Lost" id="jvM-20-r8C"/>
                     <connections>
                         <outlet property="dateLost" destination="dEU-7M-hPz" id="cVH-xk-sOl"/>
                         <outlet property="map" destination="7Rr-d9-uwW" id="aWS-3S-Ai2"/>
@@ -2791,14 +2794,220 @@
         <image name="default_photo.png" width="280" height="280"/>
         <image name="takeMeHome.png" width="2050" height="1794"/>
     </resources>
+    <classes>
+        <class className="BHPhotoAlbumLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BHPhotoAlbumLayout.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="TPAdoptCollectionViewController" superclassName="UICollectionViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPAdoptCollectionViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="createReport:"/>
+            </relationships>
+        </class>
+        <class className="TPAdoptPostTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPAdoptPostTableViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="city" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="country" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="date" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="ownerEmail" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="ownerName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petAge" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petBreed" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petChar" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petChip" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petGender" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="petName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petNeuSpay" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petVac" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="TPAdoptTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPAdoptTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelForm:"/>
+                <relationship kind="action" name="loadPhoto:"/>
+                <relationship kind="action" name="makeUIImagePickerControllerForCamera:"/>
+                <relationship kind="action" name="submitForm:"/>
+                <relationship kind="action" name="takePicture:"/>
+                <relationship kind="action" name="toolbarDone:"/>
+                <relationship kind="outlet" name="city" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="country" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="date" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="image" candidateClass="UIImage"/>
+                <relationship kind="outlet" name="ownerEmail" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="ownerName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petAge" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="petBreed" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="petChar" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="petChip" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="petGender" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="petName" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="petNeuSpay" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="petProfilePic" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="petVac" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="TPCameraViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPCameraViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="loadActionSheet:"/>
+                <relationship kind="action" name="takePicture:"/>
+                <relationship kind="outlet" name="myImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="myLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="TPEditProfileTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPEditProfileTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelForm:"/>
+                <relationship kind="action" name="loadPhoto:"/>
+                <relationship kind="action" name="saveProfile:"/>
+                <relationship kind="action" name="takePicture:"/>
+                <relationship kind="outlet" name="camera" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="city" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="country" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="ownerEmail" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="petAge" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="petAnimal" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="petBreed" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="petChar" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="petChip" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="petGender" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="petHobbies" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="petName" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="petNeuSpay" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="petProfilePic" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="petVac" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="username" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="TPFeedTableCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPFeedTableCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dateOfPosts" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="feedImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="typeOfPosts" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="TPFeedTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPFeedTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="reload:"/>
+            </relationships>
+        </class>
+        <class className="TPFoundFormViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPFoundFormViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelForm:"/>
+                <relationship kind="action" name="loadPhoto:"/>
+                <relationship kind="action" name="submitForm:"/>
+                <relationship kind="action" name="takePicture:"/>
+                <relationship kind="action" name="toolbarDone:"/>
+                <relationship kind="outlet" name="foundDate" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="foundMap" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="image" candidateClass="UIImage"/>
+                <relationship kind="outlet" name="petProfilePic" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="TPFoundPostTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPFoundPostTableViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dateFound" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="map" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="petProfilePic" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="TPHomeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPHomeViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="lblName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petProfilePic" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="TPLoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPLoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="loginButtonClicked:"/>
+            </relationships>
+        </class>
+        <class className="TPLostFormViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPLostFormViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelForm:"/>
+                <relationship kind="action" name="loadPhoto:"/>
+                <relationship kind="action" name="submitForm:"/>
+                <relationship kind="action" name="takePicture:"/>
+                <relationship kind="action" name="toolbarDone:"/>
+                <relationship kind="outlet" name="image" candidateClass="UIImage"/>
+                <relationship kind="outlet" name="lostDate" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="lostMap" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="ownerEmail" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="petBreed" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="petChip" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="petGender" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="petName" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="petProfilePic" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="username" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="TPLostFoundCollectionViewController" superclassName="UICollectionViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPLostFoundCollectionViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="createReport:"/>
+                <relationship kind="action" name="loadImages:"/>
+            </relationships>
+        </class>
+        <class className="TPLostPostTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPLostPostTableViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dateLost" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="map" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="ownerEmail" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="ownerName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petBreed" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petChip" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petGender" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petProfilePic" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="TPProfileTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPProfileTableViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="city" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="country" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="ownerEmail" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="ownerName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petAge" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petAnimal" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petBreed" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petChar" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petChip" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petGender" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petHobbies" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petNeuSpay" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="petProfilePic" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="petVac" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="UICollectionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="B1W-VP-OTu"/>
         <segue reference="V9T-5L-4b6"/>
         <segue reference="jPD-Zf-Fef"/>
+        <segue reference="B1W-VP-OTu"/>
     </inferredMetricsTieBreakers>
 </document>
