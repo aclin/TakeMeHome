@@ -136,7 +136,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="82-dog-paw.png" id="dJb-iF-jFj"/>
-                    <navigationItem key="navigationItem" title="Welcome Home" id="zxZ-wc-p7x"/>
+                    <navigationItem key="navigationItem" title="Welcome Home" id="zxZ-wc-p7x">
+                        <barButtonItem key="backBarButtonItem" title="Home" id="9d4-hX-tbN"/>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="lblName" destination="W9W-Qs-XaN" id="pu3-8L-hjm"/>
@@ -148,7 +150,7 @@
             </objects>
             <point key="canvasLocation" x="-2101" y="-905"/>
         </scene>
-        <!--Lost Found Collection View Controller-->
+        <!--Lost Found Collection View Controller - Lost & Found-->
         <scene sceneID="2oS-1p-GNL">
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="DRZ-mZ-DqF" customClass="TPLostFoundCollectionViewController" sceneMemberID="viewController">
@@ -168,18 +170,8 @@
                             <outlet property="delegate" destination="DRZ-mZ-DqF" id="Lr3-5k-Hnx"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="vuA-vk-aLH">
-                        <nil key="title"/>
-                        <barButtonItem key="backBarButtonItem" title="Home" id="21w-DX-Owl"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="1" id="TeW-mJ-5n9">
-                            <rect key="frame" x="73" y="6" width="173" height="32"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <segments>
-                                <segment title="Most Recent"/>
-                                <segment title="Near By"/>
-                            </segments>
-                            <color key="tintColor" red="0.94117653369999998" green="0.47058826679999999" blue="0.17254902420000001" alpha="1" colorSpace="deviceRGB"/>
-                        </segmentedControl>
+                    <navigationItem key="navigationItem" title="Lost &amp; Found" id="vuA-vk-aLH">
+                        <barButtonItem key="backBarButtonItem" title="Lost&amp;Found" id="21w-DX-Owl"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="oZ6-4G-TRB">
                             <connections>
                                 <action selector="createReport:" destination="DRZ-mZ-DqF" id="DBN-fa-PnV"/>
@@ -773,7 +765,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Pet Profile" id="cJG-dh-JFe">
-                        <barButtonItem key="backBarButtonItem" title="Home" id="cph-yU-DPt"/>
+                        <barButtonItem key="backBarButtonItem" title="Profile" id="cph-yU-DPt"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="l3l-v1-yop">
                             <connections>
                                 <segue destination="DeN-XG-hEj" kind="push" id="w9y-Vg-V8O"/>
@@ -2445,7 +2437,7 @@
             </objects>
             <point key="canvasLocation" x="-504" y="-3136"/>
         </scene>
-        <!--Adopt Collection View Controller-->
+        <!--Adopt Collection View Controller - Adoptions-->
         <scene sceneID="fhw-2H-dGn">
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="NuQ-Sk-wAD" customClass="TPAdoptCollectionViewController" sceneMemberID="viewController">
@@ -2465,18 +2457,8 @@
                             <outlet property="delegate" destination="NuQ-Sk-wAD" id="xj2-Ty-TBa"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="gva-eO-QFH">
-                        <nil key="title"/>
-                        <barButtonItem key="backBarButtonItem" title="Home" id="BMb-QN-Qic"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="WGO-aQ-4C4">
-                            <rect key="frame" x="73" y="6" width="173" height="32"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <segments>
-                                <segment title="Most Recent"/>
-                                <segment title="Near By"/>
-                            </segments>
-                            <color key="tintColor" red="0.94117653369999998" green="0.47058826679999999" blue="0.17254902420000001" alpha="1" colorSpace="deviceRGB"/>
-                        </segmentedControl>
+                    <navigationItem key="navigationItem" title="Adoptions" id="gva-eO-QFH">
+                        <barButtonItem key="backBarButtonItem" title="Adoptions" id="BMb-QN-Qic"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="8ns-Xt-s9h">
                             <connections>
                                 <action selector="createReport:" destination="NuQ-Sk-wAD" id="h4A-Rd-9mP"/>
@@ -2931,9 +2913,6 @@
         </class>
         <class className="TPLoginViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TPLoginViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="loginButtonClicked:"/>
-            </relationships>
         </class>
         <class className="TPLostFormViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TPLostFormViewController.h"/>
@@ -3006,8 +2985,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="V9T-5L-4b6"/>
-        <segue reference="jPD-Zf-Fef"/>
-        <segue reference="B1W-VP-OTu"/>
+        <segue reference="Fvg-yp-cCg"/>
+        <segue reference="V7P-tO-ioc"/>
+        <segue reference="maC-fu-DdU"/>
     </inferredMetricsTieBreakers>
 </document>
