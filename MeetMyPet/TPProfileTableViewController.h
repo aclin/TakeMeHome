@@ -29,5 +29,6 @@
 
 - (void)openPhoto:(NSString*) filename;
 - (NSString *)documentsPathForFileName:(NSString *)name;
+- (IBAction)logout:(id)sender;
 
 @end

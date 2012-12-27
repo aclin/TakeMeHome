@@ -81,6 +81,8 @@
 		ED760821168AF427002939D3 /* TPAdoptToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED760820168AF427002939D3 /* TPAdoptToolbar.xib */; };
 		ED760829168B076C002939D3 /* TPAdoptPostTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED760828168B076C002939D3 /* TPAdoptPostTableViewController.m */; };
 		EDF8888F168B64A100F66C21 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = EDF8888E168B64A100F66C21 /* 1.png */; };
+		EDF888A3168BA42B00F66C21 /* Logout.png in Resources */ = {isa = PBXBuildFile; fileRef = EDF888A1168BA42B00F66C21 /* Logout.png */; };
+		EDF888A4168BA42B00F66C21 /* Logout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EDF888A2168BA42B00F66C21 /* Logout@2x.png */; };
 		F4A943D9167EEEF500020104 /* BHAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A943D6167EEEF500020104 /* BHAlbum.m */; };
 		F4A943DA167EEEF500020104 /* BHPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A943D8167EEEF500020104 /* BHPhoto.m */; };
 		F4A943E6167EEF8200020104 /* BHAlbumPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A943DD167EEF8200020104 /* BHAlbumPhotoCell.m */; };
@@ -203,6 +205,8 @@
 		ED760827168B076C002939D3 /* TPAdoptPostTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPAdoptPostTableViewController.h; sourceTree = "<group>"; };
 		ED760828168B076C002939D3 /* TPAdoptPostTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPAdoptPostTableViewController.m; sourceTree = "<group>"; };
 		EDF8888E168B64A100F66C21 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		EDF888A1168BA42B00F66C21 /* Logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logout.png; sourceTree = "<group>"; };
+		EDF888A2168BA42B00F66C21 /* Logout@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logout@2x.png"; sourceTree = "<group>"; };
 		F4A943D5167EEEF500020104 /* BHAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHAlbum.h; sourceTree = "<group>"; };
 		F4A943D6167EEEF500020104 /* BHAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHAlbum.m; sourceTree = "<group>"; };
 		F4A943D7167EEEF500020104 /* BHPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHPhoto.h; sourceTree = "<group>"; };
@@ -384,6 +388,8 @@
 		9DA16478167A1B9C003CE8FF /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				EDF888A1168BA42B00F66C21 /* Logout.png */,
+				EDF888A2168BA42B00F66C21 /* Logout@2x.png */,
 				EDF8888E168B64A100F66C21 /* 1.png */,
 				ED7607E2168A05FF002939D3 /* ipad-arrow.png */,
 				ED76079C1688DA5D002939D3 /* menubar.png */,
@@ -703,6 +709,8 @@
 				ED7607E3168A0600002939D3 /* ipad-arrow.png in Resources */,
 				ED760821168AF427002939D3 /* TPAdoptToolbar.xib in Resources */,
 				EDF8888F168B64A100F66C21 /* 1.png in Resources */,
+				EDF888A3168BA42B00F66C21 /* Logout.png in Resources */,
+				EDF888A4168BA42B00F66C21 /* Logout@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
