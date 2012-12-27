@@ -11,7 +11,7 @@ NSString *fname;
 @interface TPAdoptTableViewController : UITableViewController <UIActionSheetDelegate, UINavigationControllerDelegate, UITextFieldDelegate,UIImagePickerControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UIImage *image;
-@property(strong, nonatomic) NSString *test;
+@property(strong, nonatomic) NSString *fromCamera;
 
 @property (strong, nonatomic) IBOutlet UIImageView *petProfilePic;
 @property (strong, nonatomic) IBOutlet UITextField *petName;

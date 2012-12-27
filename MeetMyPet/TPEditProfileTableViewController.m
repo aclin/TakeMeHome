@@ -380,15 +380,6 @@
     }];
     
     [operation start];
-    //    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-    //        NSLog(@"JSON: %@", JSON);
-    //        NSLog(@"Response: %d", response.statusCode);
-    //
-    //    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-    //        NSLog(@"Error: %@ \nResponse: %d", error, response.statusCode);
-    //    }];
-    //    
-    //    [operation start];
 }
 
 @end

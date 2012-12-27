@@ -22,7 +22,7 @@ NSString *fname;
 
 @property(strong,nonatomic)NSMutableData *tempData;
 
-@property(strong, nonatomic) NSString *test;
+@property(strong, nonatomic) NSString *fromCamera;
 
 - (IBAction)loadPhoto:(id)sender;
 - (IBAction)takePicture:(id)sender;

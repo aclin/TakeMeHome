@@ -14,20 +14,56 @@
 #import "AFHTTPClient.h"
 #import "AFHTTPRequestOperation.h"
 #import "AFJSONRequestOperation.h"
+#import <Social/Social.h>
+#import <Accounts/Accounts.h>
+
+
 
 @interface TPFoundFormViewController (){
     
     NSString * typeID;
-
+    ACAccount *facebookAccount;
+    
 }
 
 @property (strong, nonatomic) NSDictionary<FBGraphUser> *user;
 @property (strong, nonatomic) UIDatePicker *datePicker;
 @property(strong, nonatomic) UIToolbar *toolbar;
 
+- (void)accessFacebookAccountWithPermission:(NSArray *)permissions Handler:(void (^)(void))handler;
+
 @end
 
 @implementation TPFoundFormViewController
+
+
+- (void)accessFacebookAccountWithPermission:(NSArray *)permissions Handler:(void (^)(void))handler; {
+    if (!facebookAccount) {
+        ACAccountStore *accountStore = [[ACAccountStore alloc] init];
+        ACAccountType *facebookAccountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierFacebook];
+        
+        
+        NSDictionary *facebookRequestOptions = @{
+    ACFacebookAppIdKey: @"494252897273531",
+    ACFacebookPermissionsKey: permissions,
+    ACFacebookAudienceKey: ACFacebookAudienceEveryone,
+        };
+        [accountStore requestAccessToAccountsWithType:facebookAccountType
+                                              options:facebookRequestOptions
+                                           completion:^(BOOL granted, NSError *error) {
+                                               if (granted) {
+                                                   NSArray *accounts = [accountStore
+                                                                        accountsWithAccountType:facebookAccountType];
+                                                   facebookAccount = [accounts lastObject];
+                                                   handler();
+                                               } else {
+                                                   NSLog(@"Auth Error: %@", [error localizedDescription]);
+                                               }
+                                           }];
+    } else {
+        handler();
+    }
+}
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -48,7 +84,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    if(_test == @"2")
+    if([_fromCamera isEqualToString:@"1"])
         _petProfilePic.image = _image;
     
     self.toolbar = [[NSBundle mainBundle] loadNibNamed:@"TPFoundToolbar" owner:self options:nil][0];
@@ -67,12 +103,12 @@
 	self.datePicker.datePickerMode = UIDatePickerModeDate;
 	self.datePicker.hidden = NO;
 	self.datePicker.date = [NSDate date];
-
+    
     
 	[self.datePicker addTarget:self
                         action:@selector(pickDate:)
               forControlEvents:UIControlEventValueChanged];
-
+    
     
     [[self foundDate] setDelegate:self];
     [[self foundMap] setDelegate:self];
@@ -85,7 +121,7 @@
     
     UIImageView *boxBackView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]];
     [self.tableView setBackgroundView:boxBackView];
-
+    
     
     
     NSArray *plistPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -158,8 +194,8 @@
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
    	df.dateStyle = NSDateFormatterMediumStyle;
 	self.foundDate.text = [NSString stringWithFormat:@"%@",
-                      [df stringFromDate:self.datePicker.date]];
-
+                           [df stringFromDate:self.datePicker.date]];
+    
 }
 
 - (IBAction)toolbarDone:(id)sender{
@@ -191,28 +227,6 @@
     [targetSheet showInView:mainWindow];
 }
 
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if(actionSheet.tag == 1){
-        if (buttonIndex == 0) {
-            // Submit the form to the server
-            
-        } else if (buttonIndex == 1) {
-            // Discard the form and return to the previous page
-            [self.navigationController popViewControllerAnimated:YES];
-        } else {
-            return;
-        }
-    }else{
-        if (buttonIndex == 0) {
-            [self performSelector:@selector(takePicture:) withObject:self];
-        } else if(buttonIndex == 1) {
-            [self makeUIImagePickerControllerForCamera:self];
-        } else {
-            return;
-        }
-    }
-}
-
 - (IBAction)takePicture:(id)sender
 {
     UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
@@ -239,7 +253,7 @@
     
     //[picker setMediaTypes:[NSArray arrayWithObjects:(NSString *) kUTTypeImage, nil]];
     
-   [self presentViewController:picker animated:YES completion:nil];
+    [self presentViewController:picker animated:YES completion:nil];
 }
 
 -(void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
@@ -341,8 +355,18 @@
 
 - (IBAction)submitForm:(id)sender{
     
-    //[self savePhoto:_petProfilePic.image];
-    [self uploadPhoto:_petProfilePic.image];
+    UIActionSheet *targetSheet = [[UIActionSheet alloc] initWithTitle:@"How would you like to save?"
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Cancel"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"Save and Post to Facebook", @"Save Only", nil];
+    UIWindow *mainWindow = [[UIApplication sharedApplication] windows][0];
+    [targetSheet showInView:mainWindow];
+    targetSheet.tag = 3;
+    
+}
+
+-(void)uploadTask{
     
     NSURL *url = [NSURL URLWithString:@"https://secret-temple-2872.herokuapp.com"];
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
@@ -358,35 +382,71 @@
     }];
     
     [operation start];
-    
-    [self.navigationController popViewControllerAnimated:YES];
-    
-    
-//  NSString *post = [NSString stringWithFormat:@"hashURL=%@ &condition=%d &typeID=%d &petID=%d &date=%@ &longitude=%f &latitude=%f",str, 1,typeID , petID, self.foundDate.text, self.foundMap.userLocation.coordinate.longitude, self.foundMap.userLocation.coordinate.latitude];
-//    NSLog(@"%@", post);
-//    
-//	NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-//	NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
-//    
-//	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-//	[request setURL:[NSURL URLWithString:@"http://secret-temple-2872.herokuapp.com/api/FormUpload/"]];
-//	[request setHTTPMethod:@"POST"];
-//	[request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-//	[request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-//    
-//	[request setHTTPBody:postData];
-//    
-//    self.tempData = [NSMutableData alloc];
-//	connect = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-//    
-//    
-//    [self.datePicker removeFromSuperview];
-//    [self.foundDate resignFirstResponder];
-//    //[self.Email resignFirstResponder];
-    
 }
 
 
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    // We use SLComposer here. This will post on behalf of iOS or OS X.
+    if(actionSheet.tag == 3)
+    {
+        NSString *serviceType = SLServiceTypeFacebook;
+        
+        
+        
+        if (buttonIndex==0) {
+            
+            [self uploadPhoto:_petProfilePic.image];
+            [self uploadTask];
+            
+            SLComposeViewController *composer = [SLComposeViewController composeViewControllerForServiceType:serviceType];
+            NSString *text = [NSString stringWithFormat:@"I found a lost pet on %@.\nPlease help it find its way home.\n\n-sent from TakeMeHome" , self.foundDate.text ];
+            [composer setInitialText:text];
+            [composer addImage:self.petProfilePic.image];
+            [composer addURL:[NSURL URLWithString:@"https://www.facebook.com/Taktmehome"]];
+            
+            composer.completionHandler = ^(SLComposeViewControllerResult result) {
+                NSString *title = nil;
+                if (result==SLComposeViewControllerResultCancelled) title = @"Post canceled";
+                else if (result==SLComposeViewControllerResultDone) title = @"Post sent";
+                else title = @"Unknown";
+                
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
+                                                                    message:nil
+                                                                   delegate:nil
+                                                          cancelButtonTitle:@"OK"
+                                                          otherButtonTitles:nil];
+                [alertView show];
+            };
+            [self presentViewController:composer animated:YES completion:^{
+                [self.navigationController popViewControllerAnimated:YES];
+            }];
+        }else if(buttonIndex==1)
+        {
+            
+            [self uploadPhoto:_petProfilePic.image];
+            [self uploadTask];
+            [self.navigationController popViewControllerAnimated:YES];
+            
+        }
+    }else if (actionSheet.tag == 2) {
+        if (buttonIndex == 0) {
+            [self performSelector:@selector(takePicture:) withObject:self];
+        } else if(buttonIndex == 1) {
+            [self makeUIImagePickerControllerForCamera:self];
+        } else {
+            return;
+        }
+    }else if (actionSheet.tag == 1){
+        if (buttonIndex==0){
+            [self uploadPhoto:_petProfilePic.image];
+            [self uploadTask];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        if (buttonIndex==1){
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }
+}
 
 
 @end

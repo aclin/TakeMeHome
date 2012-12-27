@@ -57,7 +57,7 @@ static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
     
     UIImage *patternImage = [UIImage imageNamed:@"background.png"];
     self.collectionView.backgroundColor = [UIColor colorWithPatternImage:patternImage];
-    [self loadFeeds];
+    //[self loadFeeds];
     
     [self.collectionView registerClass:[BHAlbumPhotoCell class]
             forCellWithReuseIdentifier:PhotoCellIdentifier];
@@ -67,6 +67,11 @@ static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
     
     self.thumbnailQueue = [[NSOperationQueue alloc] init];
     self.thumbnailQueue.maxConcurrentOperationCount = 3;
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [self loadFeeds];
+    [self.collectionView reloadData];
 }
 
 -(void)refresh:(UIRefreshControl*)sender{
@@ -154,7 +159,7 @@ static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
             if ([weakSelf.collectionView.indexPathsForVisibleItems containsObject:indexPath]) {
                 BHAlbumPhotoCell *cell =
                 (BHAlbumPhotoCell *)[weakSelf.collectionView cellForItemAtIndexPath:indexPath];
-                cell.data = feedEntries[indexPath.item];
+                //cell.data = feedEntries[indexPath.item];
                 cell.imageView.image = image;
             }
         });

@@ -114,7 +114,7 @@
         TPLostFormViewController *lostFormViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"LostFormView"];
         
         lostFormViewController.image = _myImage.image;
-        lostFormViewController.test = @"1";
+        lostFormViewController.fromCamera = @"1";
         [self.navigationController pushViewController:lostFormViewController animated:YES];
         
     } else if (buttonIndex == 2) {
@@ -122,7 +122,7 @@
         TPFoundFormViewController *foundFormViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"FoundFormView"];
         
         foundFormViewController.image = _myImage.image;
-        foundFormViewController.test = @"2";
+        foundFormViewController.fromCamera = @"1";
         [self.navigationController pushViewController:foundFormViewController animated:YES];
         //
     } else if (buttonIndex == 3) {
@@ -130,7 +130,7 @@
         TPAdoptTableViewController *adoptFormViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"AdoptFormView"];
         
         adoptFormViewController.image = _myImage.image;
-        adoptFormViewController.test = @"3";
+        adoptFormViewController.fromCamera = @"1";
         [self.navigationController pushViewController:adoptFormViewController animated:YES];
         
     } else {
